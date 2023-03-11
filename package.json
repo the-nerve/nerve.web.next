@@ -1,0 +1,14 @@
+{
+  "name": "nerve.app.monorepo",
+  "version": "monorepo-root",
+  "private": false,
+  "license": "GNU",
+  "description": "A next-gen web application for the Nerve Theatre in Chicago",
+  "author": "Chris Hahn <chris@chrishahn.me>",
+  "repository": "https://github.com/the-nerve/nerve.web.next",
+  "keywords": ["the nerve", "nerve theatre", "typescript", "nextjs", "monorepo", "web app", "turborepo", "next", "vercel", "pnpm", "tailwind"],
+  "scripts": {
+    "clean:modules": "find . -name node_modules -type d -print -exec rm -rf {} +",
+    "clean:reset": "pnpm clean:modules; pnpm install"
+  }
+}
