@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Dom",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es2017",
+    "module": "esnext",
+    "noEmit": true,
+    "lib": ["dom", "dom.iterable", "esnext"]
+  },
+  "exclude": ["node_modules"]
+}
