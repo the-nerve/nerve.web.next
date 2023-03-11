@@ -23,7 +23,7 @@
     "check:format": "prettier --check '**/*.{js,ts,tsx,json,md,yaml,yml}'",
     "check:lint": "turbo run check:lint --color",
     "check:types": "turbo run check:types --color",
-    "clean:modules": "find . -name node_modules -type d -print -exec rm -rf {} +",
+    "clean:modules": "find . -name node_modules -type d -exec rm -rf {} +",
     "clean:reset": "pnpm clean:modules; pnpm install",
     "fix:format": "prettier --write '**/*.{js,ts,tsx,json,md,yaml,yml}'",
     "in:eslint": "pnpm --filter eslint-config-nerve",
