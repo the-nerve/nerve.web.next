@@ -2,7 +2,9 @@
   "extends": "@nerve/tsconfig/next.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["next-env.d.ts", "ambient/*.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
