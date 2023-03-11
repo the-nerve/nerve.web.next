@@ -29,13 +29,15 @@
     "in:tailwind": "pnpm --filter  @nerve/tailwind",
     "in:tokens": "pnpm --filter @nerve/tokens",
     "in:ui": "pnpm --filter @nerve/ui",
-    "in:web": "pnpm --filter @nerve/member-app"
+    "in:web": "pnpm --filter @nerve/member-app",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "turbo": "^1.8.3"
   },
   "engines": {
     "node": ">=18.0.0",
-    "pnpm": ">=7.29.0"
+    "pnpm": ">=7.29.0",
+    "yarn": "must use pnpm"
   }
 }
