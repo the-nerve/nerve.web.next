@@ -1,0 +1,9 @@
+/* TODO: Import from @nerve/tokens/tokens.css */
+@import './tailwind.css';
+@import './scrollbar.css';
+
+body {
+	background-color: var(--app-surface);
+	color: var(--app-color);
+	min-height: 100vh;
+}

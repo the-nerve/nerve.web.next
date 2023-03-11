@@ -1,0 +1,21 @@
+/* The current state of styling scroll bars: https://css-tricks.com/the-current-state-of-styling-scrollbars-in-css/ */
+
+/* WebKit and Chromiums */
+body::-webkit-scrollbar {
+	width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: var(--palette-neutral-700);
+	border-radius: var(--border-radius-sm);
+}
+
+body::-webkit-scrollbar-track {
+	background: var(--palette-neutral-900);
+}
+
+/* Foreground, Background (Firefox) */
+body {
+	scrollbar-color: var(--palette-neutral-700) var(--palette-neutral-900);
+	scrollbar-width: thin;
+}
