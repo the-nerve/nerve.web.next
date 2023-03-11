@@ -5,7 +5,7 @@
   "private": false,
   "scripts": {
     "build": "",
-    "check:lint": "TIMING=1 eslint .",
+    "check:lint": "TIMING=1 eslint . --no-error-on-unmatched-pattern",
     "check:types": "tsc --noEmit",
     "fix:lint": "eslint .",
     "test": "echo \"Bypassing: no test specified\" && exit 0"
