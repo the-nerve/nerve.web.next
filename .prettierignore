@@ -4,6 +4,9 @@ node_modules
 # Distribution directories
 dist
 
+# Lockfile
+pnpm-lock.yaml
+
 # NextJS
 .next
 next-env.d.ts

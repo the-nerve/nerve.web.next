@@ -15,7 +15,8 @@
   },
   "devDependencies": {
     "@nerve/tsconfig": "workspace:*",
-    "eslint-config-nerve": "workspace:*"
+    "eslint-config-nerve": "workspace:*",
+    "typescript": "4.9.5"
   },
   "volta": {
     "extends": "../../package.json"
