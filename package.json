@@ -21,7 +21,15 @@
   ],
   "scripts": {
     "clean:modules": "find . -name node_modules -type d -print -exec rm -rf {} +",
-    "clean:reset": "pnpm clean:modules; pnpm install"
+    "clean:reset": "pnpm clean:modules; pnpm install",
+    "in:eslint": "pnpm --filter eslint-config-nerve",
+    "in:cms": "pnpm --filter @nerve/cms",
+    "in:icons": "pnpm --filter @nerve/icons",
+    "in:kit": "pnpm --filter  @nerve/kit",
+    "in:tailwind": "pnpm --filter  @nerve/tailwind",
+    "in:tokens": "pnpm --filter @nerve/tokens",
+    "in:ui": "pnpm --filter @nerve/ui",
+    "in:web": "pnpm --filter @nerve/member-app"
   },
   "dependencies": {
     "turbo": "^1.8.3"
