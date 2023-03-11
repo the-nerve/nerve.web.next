@@ -39,5 +39,6 @@
     "node": ">=18.0.0",
     "pnpm": ">=7.29.0",
     "yarn": "must use pnpm"
-  }
+  },
+  "packageManager": "pnpm@7.29.1"
 }
