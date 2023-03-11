@@ -158,13 +158,11 @@ importers:
       '@nerve/tsconfig': workspace:*
       eslint-config-nerve: workspace:*
       style-dictionary: ^3.7.2
-      typescript: 4.9.5
     dependencies:
       style-dictionary: 3.7.2
     devDependencies:
       '@nerve/tsconfig': link:../tsconfig
       eslint-config-nerve: link:../eslint-config-nerve
-      typescript: 4.9.5
 
   packages/tsconfig:
     specifiers: {}

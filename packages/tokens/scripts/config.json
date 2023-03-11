@@ -4,13 +4,13 @@
     "web/css": {
       "transforms": ["attribute/cti", "name/cti/kebab", "color/hsl", "size/px"],
       "prefix": "",
-      "buildPath": ".",
+      "buildPath": "./dist/",
       "files": [
         {
           "destination": "tokens.css",
           "format": "css/variables",
           "options": {
-            "fileHeader": "positivlyTokensHeader",
+            "fileHeader": "nerveTokensHeader",
             "outputReferences": true
           }
         }
@@ -19,13 +19,13 @@
     "web/js": {
       "transforms": ["attribute/cti", "name/cti/kebab", "color/hsl", "size/px"],
       "prefix": "",
-      "buildPath": "./",
+      "buildPath": "./dist/",
       "files": [
         {
           "destination": "tokens.json",
           "format": "json/nested",
           "options": {
-            "fileHeader": "positivlyTokensHeader",
+            "fileHeader": "nerveTokensHeader",
             "outputReferences": true
           }
         }

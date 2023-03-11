@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import StyleDictionary from 'style-dictionary';
+const StyleDictionary = require('style-dictionary');
 
-import config from './config.json';
+const config = require('./config.json');
 
 const styleDictionary = StyleDictionary.extend(config);
 

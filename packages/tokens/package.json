@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "Core design tokens for The Nerve",
   "private": false,
+  "sideEffects": true,
+  "files": [
+    "dist/**",
+    ""
+  ],
   "scripts": {
-    "build": "",
+    "build": "node ./scripts/build-tokens.js",
     "check:lint": "TIMING=1 eslint . --no-error-on-unmatched-pattern",
     "fix:lint": "eslint .",
     "test": "echo \"Bypassing: no test specified\" && exit 0"
@@ -14,10 +19,23 @@
   },
   "devDependencies": {
     "@nerve/tsconfig": "workspace:*",
-    "eslint-config-nerve": "workspace:*",
-    "typescript": "4.9.5"
+    "eslint-config-nerve": "workspace:*"
   },
   "volta": {
     "extends": "../../package.json"
+  },
+  "exports": {
+    "./tokens.css": "./dist/tokens.css",
+    "./tokens.json": "./dist/tokens.json"
+  },
+  "typesVersions": {
+    "*": {
+      "tokens.css": [
+        "./dist/tokens.css"
+      ],
+      "tokens.json": [
+        "./dist/tokens.json"
+      ]
+    }
   }
 }
