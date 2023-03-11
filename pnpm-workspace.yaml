@@ -1,0 +1,5 @@
+packages:
+  # include packages in sub-folders
+  - 'apps/**'
+  - 'packages/**'
+  - 'services/**'
