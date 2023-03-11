@@ -5,10 +5,10 @@
   "private": false,
   "scripts": {
     "build": "",
-    "check:lint": "",
-    "check:types": "",
-    "clean": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check:lint": "TIMING=1 eslint .",
+    "check:types": "tsc --noEmit",
+    "fix:lint": "eslint .",
+    "test": "echo \"Bypassing: no test specified\" && exit 0"
   },
   "dependencies": {
     "@nerve/tokens": "workspace:*"
