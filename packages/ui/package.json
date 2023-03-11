@@ -1,22 +1,22 @@
 {
-	"name": "@nerve/ui",
-	"version": "1.0.0",
-	"description": "A modern UI library for The Nerve",
-	"private": false,
-	"scripts": {
-		"build": "",
-        "check:lint": "",
-        "check:types": "",
-		"clean": "",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"dependencies": {
-        "@nerve/icons": "workspace:*",
-		"@nerve/tailwind": "workspace:*",
-		"@nerve/tokens": "workspace:*"
-    },
-	"devDependencies": {
-		"@nerve/tsconfig": "workspace:*",
-		"eslint-config-nerve": "workspace:*"
-	}
+  "name": "@nerve/ui",
+  "version": "1.0.0",
+  "description": "A modern UI library for The Nerve",
+  "private": false,
+  "scripts": {
+    "build": "",
+    "check:lint": "",
+    "check:types": "",
+    "clean": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@nerve/icons": "workspace:*",
+    "@nerve/tailwind": "workspace:*",
+    "@nerve/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@nerve/tsconfig": "workspace:*",
+    "eslint-config-nerve": "workspace:*"
+  }
 }

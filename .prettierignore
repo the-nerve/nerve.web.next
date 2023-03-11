@@ -32,3 +32,6 @@ logs
 # Temp Files or Folders
 temp.*
 temp
+
+## Other tooling
+.husky

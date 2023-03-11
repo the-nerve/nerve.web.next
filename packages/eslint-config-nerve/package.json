@@ -1,12 +1,12 @@
 {
-	"name": "eslint-config-nerve",
-	"version": "1.0.0",
-	"description": "A standardized ESLint config for The Nerve with support for Typescript, Turbo, and NextJS",
-	"private": false,
-	"scripts": {
-        "check:lint": "",
-        "fix:lint": ""
-	},
-	"dependencies": {},
-	"devDependencies": {}
+  "name": "eslint-config-nerve",
+  "version": "1.0.0",
+  "description": "A standardized ESLint config for The Nerve with support for Typescript, Turbo, and NextJS",
+  "private": false,
+  "scripts": {
+    "check:lint": "",
+    "fix:lint": ""
+  },
+  "dependencies": {},
+  "devDependencies": {}
 }

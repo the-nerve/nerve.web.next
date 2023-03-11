@@ -1,22 +1,22 @@
 {
-	"name": "@nerve/cms",
-	"version": "1.0.0",
-	"description": "Backend CMS powering the next-gen Nerve web app",
-	"private": false,
-	"scripts": {
-		"build": "",
-        "check:lint": "",
-        "check:types": "",
-		"clean": "",
-        "deploy": "",
-        "dev": "",
-        "fix:lint": "",
-        "serve": "",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-    "dependencies": {},
-	"devDependencies": {
-		"@nerve/tsconfig": "workspace:*",
-		"eslint-config-nerve": "workspace:*"
-	}
+  "name": "@nerve/cms",
+  "version": "1.0.0",
+  "description": "Backend CMS powering the next-gen Nerve web app",
+  "private": false,
+  "scripts": {
+    "build": "",
+    "check:lint": "",
+    "check:types": "",
+    "clean": "",
+    "deploy": "",
+    "dev": "",
+    "fix:lint": "",
+    "serve": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@nerve/tsconfig": "workspace:*",
+    "eslint-config-nerve": "workspace:*"
+  }
 }

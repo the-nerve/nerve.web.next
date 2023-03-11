@@ -1,18 +1,18 @@
 {
-	"name": "@nerve/tokens",
-	"version": "1.0.0",
-	"description": "Core design tokens for The Nerve",
-	"private": false,
-	"scripts": {
-		"build": "",
-        "check:lint": "",
-        "check:types": "",
-        "fix:lint": "",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"dependencies": {},
-	"devDependencies": {
-		"@nerve/tsconfig": "workspace:*",
-		"eslint-config-nerve": "workspace:*"
-	}
+  "name": "@nerve/tokens",
+  "version": "1.0.0",
+  "description": "Core design tokens for The Nerve",
+  "private": false,
+  "scripts": {
+    "build": "",
+    "check:lint": "",
+    "check:types": "",
+    "fix:lint": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@nerve/tsconfig": "workspace:*",
+    "eslint-config-nerve": "workspace:*"
+  }
 }
