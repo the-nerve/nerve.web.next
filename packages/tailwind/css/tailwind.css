@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CUSTOM UTILITY CLASSES */
+
 @layer utilities {
 	.absolute-y-center {
 		position: absolute;
