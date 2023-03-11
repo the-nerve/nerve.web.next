@@ -33,5 +33,9 @@
   },
   "dependencies": {
     "turbo": "^1.8.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=7.29.0"
   }
 }
