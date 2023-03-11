@@ -1,8 +1,9 @@
-/** @type {import('tailwindcss').Config} */
-export const tailwindConfig = {
+import type { Config as TailwindConfig } from 'tailwindcss';
+
+export const tailwindConfig: TailwindConfig = {
   content: [],
   theme: {
     extend: {},
   },
-  plugins: [process.env.NODE_ENV === 'production' ? { cssnano: {} } : {}],
+  plugins: [],
 };
