@@ -20,8 +20,12 @@
     "tailwind"
   ],
   "scripts": {
+    "check:format": "prettier --check '**/*.{js,ts,tsx,json,md,yaml,yml}'",
+    "check:lint": "turbo run check:lint --color",
+    "check:types": "turbo run check:types --color",
     "clean:modules": "find . -name node_modules -type d -print -exec rm -rf {} +",
     "clean:reset": "pnpm clean:modules; pnpm install",
+    "fix:format": "prettier --write '**/*.{js,ts,tsx,json,md,yaml,yml}'",
     "in:eslint": "pnpm --filter eslint-config-nerve",
     "in:cms": "pnpm --filter @nerve/cms",
     "in:icons": "pnpm --filter @nerve/icons",
@@ -30,7 +34,10 @@
     "in:tokens": "pnpm --filter @nerve/tokens",
     "in:ui": "pnpm --filter @nerve/ui",
     "in:web": "pnpm --filter @nerve/web",
-    "preinstall": "npx only-allow pnpm"
+    "pre-commit": "lint-staged",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install",
+    "test": "turbo run test --color"
   },
   "dependencies": {
     "turbo": "^1.8.3"
@@ -43,5 +50,10 @@
   "packageManager": "pnpm@7.29.1",
   "volta": {
     "node": "18.15.0"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.4"
   }
 }
