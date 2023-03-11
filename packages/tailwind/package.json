@@ -1,0 +1,20 @@
+{
+	"name": "@nerve/tailwind",
+	"version": "1.0.0",
+	"description": "Tailwind configs for The Nerve",
+	"private": false,
+	"scripts": {
+		"build": "",
+        "check:lint": "",
+        "check:types": "",
+		"clean": "",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+        "@nerve/tokens": "workspace:*"
+    },
+	"devDependencies": {
+		"@nerve/tsconfig": "workspace:*",
+		"eslint-config-nerve": "workspace:*"
+	}
+}

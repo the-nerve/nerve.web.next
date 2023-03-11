@@ -8,7 +8,55 @@ importers:
     dependencies:
       turbo: 1.8.3
 
+  apps/cms:
+    specifiers: {}
+
+  apps/web:
+    specifiers:
+      '@nerve/icons': workspace:*
+      '@nerve/kit': workspace:*
+      '@nerve/tailwind': workspace:*
+      '@nerve/tsconfig': workspace:*
+      '@nerve/ui': workspace:*
+      '@vercel/edge-config': ^0.1.1
+      eslint-config-nerve: workspace:*
+    dependencies:
+      '@nerve/icons': link:../../packages/icons
+      '@nerve/kit': link:../../packages/kit
+      '@nerve/tailwind': link:../../packages/tailwind
+      '@nerve/ui': link:../../packages/ui
+      '@vercel/edge-config': 0.1.1
+    devDependencies:
+      '@nerve/tsconfig': link:../../packages/tsconfig
+      eslint-config-nerve: link:../../packages/eslint-config-nerve
+
+  packages/icons:
+    specifiers: {}
+
+  packages/kit:
+    specifiers: {}
+
+  packages/tailwind:
+    specifiers:
+      '@nerve/tokens': workspace:*
+    dependencies:
+      '@nerve/tokens': link:../tokens
+
+  packages/tokens:
+    specifiers: {}
+
+  packages/ui:
+    specifiers:
+      '@nerve/tokens': workspace:*
+    dependencies:
+      '@nerve/tokens': link:../tokens
+
 packages:
+
+  /@vercel/edge-config/0.1.1:
+    resolution: {integrity: sha512-HDl+12tzW2RHIu8Y804kXg2VpZ02KVb7Nqsa+e1AFoACXXMb+7TfjI1wR19tXoDIu5enQz1dbat40YMEgaH13Q==}
+    engines: {node: '>=14.6'}
+    dev: false
 
   /turbo-darwin-64/1.8.3:
     resolution: {integrity: sha512-bLM084Wr17VAAY/EvCWj7+OwYHvI9s/NdsvlqGp8iT5HEYVimcornCHespgJS/yvZDfC+mX9EQkn3V2JmYgGGw==}
