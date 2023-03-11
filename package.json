@@ -29,7 +29,7 @@
     "in:tailwind": "pnpm --filter  @nerve/tailwind",
     "in:tokens": "pnpm --filter @nerve/tokens",
     "in:ui": "pnpm --filter @nerve/ui",
-    "in:web": "pnpm --filter @nerve/member-app",
+    "in:web": "pnpm --filter @nerve/web",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {

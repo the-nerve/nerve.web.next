@@ -7,11 +7,12 @@
     "build": "next build",
     "check:lint": "",
     "check:types": "",
-    "clean": "",
     "dev": "next dev",
+    "dev:sync": "pnpm vercel:sync; pnpm dev",
     "fix:lint": "",
     "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vercel:sync": "vercel env pull .env.development.local;"
   },
   "dependencies": {
     "@nerve/icons": "workspace:*",
