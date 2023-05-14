@@ -40,20 +40,18 @@
     "test": "turbo run test --color"
   },
   "dependencies": {
-    "turbo": "^1.8.3"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=7.29.0",
-    "yarn": "must use pnpm"
-  },
-  "packageManager": "pnpm@7.29.1",
-  "volta": {
-    "node": "18.15.0"
+    "turbo": "^1.9.4"
   },
   "devDependencies": {
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
-    "prettier": "^2.8.4"
-  }
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0",
+    "yarn": "must use pnpm",
+    "npm": "must use pnpm"
+  },
+  "packageManager": "pnpm@8.0.0"
 }
