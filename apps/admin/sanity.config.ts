@@ -1,7 +1,7 @@
-import {defineConfig} from 'sanity'
-import {visionTool} from '@sanity/vision'
-import {deskTool} from 'sanity/desk'
-import {schemaTypes} from './schemas'
+import { defineConfig } from 'sanity';
+import { visionTool } from '@sanity/vision';
+import { deskTool } from 'sanity/desk';
+import { schemaTypes } from './schemas';
 
 export default defineConfig({
   basePath: '/cms',
@@ -16,4 +16,4 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
-})
+});
