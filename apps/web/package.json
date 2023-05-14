@@ -11,8 +11,9 @@
     "dev:sync": "pnpm vercel:sync; pnpm dev",
     "fix:lint": "eslint .",
     "start": "next start",
+    "sync:env": "vercel env pull .env.local",
     "test": "echo \"Bypassing: no test specified\" && exit 0",
-    "vercel:sync": "vercel env pull .env.development.local;"
+    "vercel:link": "vercel --scope the-nerve link --project web --yes"
   },
   "dependencies": {
     "@nerve/icons": "workspace:*",
@@ -37,9 +38,7 @@
   },
   "devDependencies": {
     "@nerve/tsconfig": "workspace:*",
+    "@svgr/webpack": "^8.0.1",
     "eslint-config-nerve": "workspace:*"
-  },
-  "volta": {
-    "extends": "../../package.json"
   }
 }
