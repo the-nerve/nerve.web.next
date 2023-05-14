@@ -1,6 +1,6 @@
 {
-  "name": "nerve.app.monorepo",
-  "version": "monorepo-root",
+  "name": "nerve.app.next",
+  "version": "4.4.4",
   "private": false,
   "license": "GNU",
   "description": "A next-gen web application for the Nerve Theatre in Chicago",
@@ -27,7 +27,7 @@
     "clean:reset": "pnpm clean:modules; pnpm install",
     "fix:format": "prettier --write '**/*.{js,ts,tsx,json,md,yaml,yml}'",
     "in:eslint": "pnpm --filter eslint-config-nerve",
-    "in:cms": "pnpm --filter @nerve/cms",
+    "in:admin": "pnpm --filter @nerve/admin",
     "in:icons": "pnpm --filter @nerve/icons",
     "in:kit": "pnpm --filter  @nerve/kit",
     "in:tailwind": "pnpm --filter  @nerve/tailwind",
