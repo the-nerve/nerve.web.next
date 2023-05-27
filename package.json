@@ -40,7 +40,7 @@
     "test": "turbo run test --color"
   },
   "dependencies": {
-    "turbo": "^1.9.4"
+    "turbo": "^1.9.9"
   },
   "devDependencies": {
     "husky": "^8.0.3",

@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "$shared/utils": ["./src/shared/utils"]
     },
     "plugins": [{ "name": "next" }]
   },
