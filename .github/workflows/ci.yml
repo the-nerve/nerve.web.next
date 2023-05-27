@@ -1,0 +1,152 @@
+####################################################################################################
+# Continuous Integration (Pull Request Only) • Github Workflow
+#
+# This Workflow is meant to run against all Pull Requests. We are ultimately
+# trusting the jobs in this workflow to catch any and all issues we have.
+# We should structure this workflow such that, if it passes all green,
+# we are confident it is safe to deploy to `production`.
+#
+# Jobs in this workflow are broken into "TIERS". Jobs in the same tier group are able to be run in parallel,
+# while jobs in subsequent tiers need one or more jobs in the previous tier to have completed successfully.
+#
+# Every effort should be made to optimize the efficiency of this workflow. It is run against virtually
+# every PR and the slower it is, the slower our development lifecycle ultimately is.
+####################################################################################################
+
+# * NOTE: We run `pnpm install` with several options set to improve pnpm CI operation:
+# * - We use `--frozen-lockfile` as a CI best practice to prevent lockfile mutations on `pnpm install`
+# * - We use `--prefer-offline` to help speed things up
+
+name: 💫 CI
+on:
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - '.husky/**'
+      - '.lintstagedrc'
+      - '.vscode/**'
+      - '.github/**.md'
+      - 'README.md'
+
+# Cancel in-flight workflow run if another push was triggered to the same PR
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  COMMON_INSTALL_COMMAND: pnpm install --frozen-lockfile --prefer-offline
+  COMMON_NODE_VERSION: 18.15.0
+
+jobs:
+  ##################################################################################################
+  # TIER 1 – VALIDATION & INSTALL CACHE
+  ##################################################################################################
+
+  # Eventually we will want to do some lockfile & dedupe validation here. Keeping TIER 1 as a placeholder
+
+  ##################################################################################################
+  # TIER 2 - Pre-Build Checks & Tests (these are all parallelized and operate against raw source code)
+  ##################################################################################################
+
+  format:
+    name: ✨ Format Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: npm i -g pnpm
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.COMMON_NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Restore Node Modules Cache
+        uses: ./.github/actions/node-modules-cache
+        id: node-modules-cache
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: $COMMON_INSTALL_COMMAND
+
+      - name: Run Format checks
+        run: pnpm check:format
+
+  lint:
+    name: 🚧 Lint Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: npm i -g pnpm
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.COMMON_NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Restore Node Modules Cache
+        uses: ./.github/actions/node-modules-cache
+        id: node-modules-cache
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: $COMMON_INSTALL_COMMAND
+
+      - name: Run Lint checks
+        run: pnpm check:lint
+
+  types:
+    name: 🔍 Type Check
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: npm i -g pnpm
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.COMMON_NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Restore Node Modules Cache
+        uses: ./.github/actions/node-modules-cache
+        id: node-modules-cache
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: $COMMON_INSTALL_COMMAND
+
+      - name: Run Typescript type checks
+        run: pnpm check:types
+
+  tests:
+    name: ☔️ Tests
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: npm i -g pnpm
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.COMMON_NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Restore Node Modules Cache
+        uses: ./.github/actions/node-modules-cache
+        id: node-modules-cache
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: $COMMON_INSTALL_COMMAND
+
+      - name: Run Tests
+        run: pnpm test

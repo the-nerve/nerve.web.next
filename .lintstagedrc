@@ -1,0 +1,4 @@
+{
+  "*.{js,ts,tsx,json,md,yaml,yml}": "prettier --write .",
+  "*.{js,ts,tsx}": "eslint --cache --fix"
+}

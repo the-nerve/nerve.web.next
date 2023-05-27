@@ -1,0 +1,18 @@
+{
+  // ESLint Config Settings
+  "eslint.workingDirectories": ["./apps/*", "./packages/*", "./services/*"],
+  "eslint.packageManager": "pnpm",
+
+  // Typescript Config Settings
+  "typescript.preferences.importModuleSpecifier": "relative", // Prevents all auto-imports from being absolute
+
+  // Editor Config Settings
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.rulers": [120], // Set's the ruler to eslint's mex-len and prettier's printWidth
+
+  // On File-Save Settings
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

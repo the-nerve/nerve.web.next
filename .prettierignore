@@ -1,0 +1,43 @@
+# Dependencies
+node_modules
+
+# Distribution directories
+dist
+
+# Lockfile
+pnpm-lock.yaml
+
+# NextJS
+.next
+next-env.d.ts
+
+# Vercel
+.turbo
+.vercel
+
+# dotenv environment variables file
+.env
+.env.*
+!.env.example
+
+## CSS Files
+*.css
+
+# Optional caches for common tools
+.cache
+.eslintcache
+.npm
+.stylelintcache
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+.pnpm-debug.log*
+
+# Temp Files or Folders
+temp.*
+temp
+
+## Other tooling
+.husky

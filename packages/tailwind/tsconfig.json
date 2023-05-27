@@ -1,0 +1,8 @@
+{
+  "extends": "@nerve/tsconfig/dom.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["ambient/*.d.ts", "**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

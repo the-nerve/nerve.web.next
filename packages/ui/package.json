@@ -1,0 +1,30 @@
+{
+  "name": "@nerve/ui",
+  "version": "1.0.0",
+  "description": "A modern UI library for The Nerve",
+  "private": false,
+  "scripts": {
+    "build": "",
+    "check:lint": "TIMING=1 eslint . --no-error-on-unmatched-pattern",
+    "fix:lint": "eslint .",
+    "test": "echo \"Bypassing: no test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@nerve/icons": "workspace:*",
+    "@nerve/kit": "workspace:*",
+    "@nerve/tailwind": "workspace:*",
+    "@nerve/tokens": "workspace:*",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@nerve/tsconfig": "workspace:*",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "eslint-config-nerve": "workspace:*",
+    "typescript": "4.9.5"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

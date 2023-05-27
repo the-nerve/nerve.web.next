@@ -1,0 +1,21 @@
+{
+  "name": "@nerve/kit",
+  "version": "1.0.0",
+  "description": "A re-useable code-kit for The Nerve",
+  "private": false,
+  "scripts": {
+    "build": "",
+    "check:lint": "TIMING=1 eslint . --no-error-on-unmatched-pattern",
+    "fix:lint": "eslint .",
+    "test": "echo \"Bypassing: no test specified\" && exit 0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@nerve/tsconfig": "workspace:*",
+    "eslint-config-nerve": "workspace:*",
+    "typescript": "4.9.5"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

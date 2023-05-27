@@ -1,0 +1,29 @@
+################################################################################
+# Node Modules Cache Restore • Composite Github Action
+#
+# This action is meant to be invoked:
+# - after checkout & node-setup
+# - before any `pnpm install` actions
+#
+# It handles checking/restoring/building a node_modules cache in one centralized
+# place, eliminating configuration discrepancies
+################################################################################
+
+name: Node Modules Cache
+description: Restore node modules cache if it exists
+
+outputs:
+  cache-hit:
+    description: Forward actions/cache cache-hit output
+    value: ${{ steps.cache.outputs.cache-hit }}
+
+runs:
+  using: composite
+  steps:
+    - name: Node Modules Cache
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: |
+          **/node_modules
+        key: node-modules-${{ runner.os }}-cache-${{ hashFiles('**/pnpm-lock.yaml') }}

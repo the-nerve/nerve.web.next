@@ -1,0 +1,35 @@
+{
+  "source": ["src/**/*.js"],
+  "platforms": {
+    "web/css": {
+      "transforms": ["attribute/cti", "name/cti/kebab", "color/hsl", "size/px"],
+      "prefix": "",
+      "buildPath": "./dist/",
+      "files": [
+        {
+          "destination": "tokens.css",
+          "format": "css/variables",
+          "options": {
+            "fileHeader": "nerveTokensHeader",
+            "outputReferences": true
+          }
+        }
+      ]
+    },
+    "web/js": {
+      "transforms": ["attribute/cti", "name/cti/kebab", "color/hsl", "size/px"],
+      "prefix": "",
+      "buildPath": "./dist/",
+      "files": [
+        {
+          "destination": "tokens.json",
+          "format": "json/nested",
+          "options": {
+            "fileHeader": "nerveTokensHeader",
+            "outputReferences": true
+          }
+        }
+      ]
+    }
+  }
+}
