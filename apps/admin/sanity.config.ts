@@ -9,7 +9,7 @@ export default defineConfig({
   name: 'default',
   title: 'nerve-next',
 
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '54gr84ev',
   dataset: 'production',
 
   plugins: [
