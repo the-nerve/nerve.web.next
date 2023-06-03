@@ -11,7 +11,7 @@ export default defineConfig({
   name: 'default',
   title: 'nerve-next',
 
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '54gr84ev',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: 'production',
 
   plugins: [
