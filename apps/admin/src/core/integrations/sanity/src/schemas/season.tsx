@@ -2,7 +2,7 @@ import React from 'react';
 import { Hexagon } from 'react-feather';
 import { defineField, defineType } from 'sanity';
 
-import { slugify } from '$shared/utils';
+import { slugify } from '../../../../../shared/utils';
 
 export const ID = 'season';
 export const TITLE = 'Seasons';

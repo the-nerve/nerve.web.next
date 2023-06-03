@@ -1,7 +1,6 @@
 import * as artist from './schemas/artist';
 import * as author from './schemas/author';
 import * as globalObjects from './schemas/global-objects';
-import * as location from './schemas/location';
 import * as organization from './schemas/organization';
 // import * as performance from './performance';
 import * as post from './schemas/post';
@@ -11,9 +10,8 @@ import * as show from './schemas/show';
 import * as companyConfig from './schemas/singletons/companyConfig';
 import * as seoConfig from './schemas/singletons/seoConfig';
 import * as sponsor from './schemas/sponsor';
-import * as ticketProvider from './schemas/ticketProvider';
-
-console.log(globalObjects);
+import * as supporter from './schemas/supporter';
+import * as venue from './schemas/venue';
 
 export const sanitySchemas = [
   // Objects
@@ -24,14 +22,14 @@ export const sanitySchemas = [
   author.schema,
   companyConfig.schema,
   seoConfig.schema,
-  location.schema,
   organization.schema,
   post.schema,
   season.schema,
   series.schema,
   show.schema,
   sponsor.schema,
-  ticketProvider.schema,
+  supporter.schema,
+  venue.schema,
 ];
 
 /**
@@ -53,10 +51,6 @@ export const schemaMetaData = {
   seoConfig: {
     id: seoConfig.ID,
     title: seoConfig.TITLE,
-  },
-  location: {
-    id: location.ID,
-    title: location.TITLE,
   },
   organization: {
     id: organization.ID,
@@ -82,9 +76,13 @@ export const schemaMetaData = {
     id: sponsor.ID,
     title: sponsor.TITLE,
   },
-  ticketProvider: {
-    id: ticketProvider.ID,
-    title: ticketProvider.TITLE,
+  supporter: {
+    id: supporter.ID,
+    title: supporter.TITLE,
+  },
+  venue: {
+    id: venue.ID,
+    title: venue.TITLE,
   },
 } as const;
 

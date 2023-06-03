@@ -1,8 +1,7 @@
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 
-import deskStructure from './src/core/integrations/sanity/src/deskStructure';
-import { sanitySchemas, singletonDocumentIDs } from './src/core/integrations/sanity/src/schema';
+import { deskStructure, sanitySchemas, singletonDocumentIDs } from './src/core/integrations/sanity';
 
 // Define the actions that should be available for singleton documents
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);

@@ -13,7 +13,7 @@ import { schemaMetaData } from './schema';
  * of our documents from the default Sanity document list.
  */
 
-export default (S: StructureBuilder) =>
+export const deskStructure = (S: StructureBuilder) =>
   S.list()
     .title('Content Root')
     .items([
@@ -69,9 +69,9 @@ export default (S: StructureBuilder) =>
               S.divider(),
               S.documentTypeListItem(schemaMetaData.series.id),
               S.documentTypeListItem(schemaMetaData.artist.id),
-              S.documentTypeListItem(schemaMetaData.location.id),
-              S.documentTypeListItem(schemaMetaData.ticketProvider.id),
+              S.documentTypeListItem(schemaMetaData.venue.id),
               S.documentTypeListItem(schemaMetaData.sponsor.id),
+              S.documentTypeListItem(schemaMetaData.supporter.id),
               S.documentTypeListItem(schemaMetaData.organization.id),
             ])
         ),

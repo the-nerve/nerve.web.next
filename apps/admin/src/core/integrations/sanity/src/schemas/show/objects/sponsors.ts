@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity';
 
 export const sponsorOfficialReference = defineType({
-  name: 'sponsorOfficialReference',
+  name: 'sponsorOfficial',
   title: 'Sponsor Reference',
   type: 'object',
   fields: [
@@ -53,7 +53,7 @@ export const sponsorOfficialReference = defineType({
 });
 
 export const sponsorHighlightReference = defineType({
-  name: 'sponsorHighlightReference',
+  name: 'sponsorHighlight',
   title: 'Sponsor Highlight',
   type: 'object',
   fields: [
@@ -109,14 +109,14 @@ export const showSponsors = defineType({
       title: 'Official Sponsors',
       description: 'Sponsors who committed to a specific level of sponsorship',
       type: 'array',
-      of: [{ type: 'sponsorOfficialReference' }],
+      of: [{ type: 'sponsorOfficial' }],
     }),
     defineField({
       name: 'highlight',
       title: 'Sponsor Highlight',
       description: 'Special callouts for sponsors we need to call extra attention to',
       type: 'array',
-      of: [{ type: 'sponsorHighlightReference' }],
+      of: [{ type: 'sponsorHighlight' }],
     }),
     defineField({
       name: 'specialThanks',

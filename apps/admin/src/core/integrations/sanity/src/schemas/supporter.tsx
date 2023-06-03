@@ -2,8 +2,8 @@ import React from 'react';
 import { Heart } from 'react-feather';
 import { defineField, defineType } from 'sanity';
 
-export const ID = 'sponsor';
-export const TITLE = 'Sponsors';
+export const ID = 'supporter';
+export const TITLE = 'Supporters';
 
 export const schema = defineType({
   name: ID,
@@ -13,7 +13,7 @@ export const schema = defineType({
   fields: [
     defineField({
       name: 'name',
-      title: 'Sponsor Name',
+      title: 'Supporter Name',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
@@ -26,7 +26,7 @@ export const schema = defineType({
         direction: 'horizontal',
         list: [
           { title: 'Person', value: 'person' },
-          { title: 'Company', value: 'company' },
+          { title: 'Business', value: 'business' },
         ],
       },
     }),
@@ -46,6 +46,11 @@ export const schema = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'tiktok',
+      title: 'TikTok',
+      type: 'string',
+    }),
+    defineField({
       name: 'twitter',
       title: 'Twitter',
       type: 'string',
@@ -53,6 +58,13 @@ export const schema = defineType({
     defineField({
       name: 'description',
       title: 'Description',
+      description: 'A brief description of this supporter. Who they are, what they do, etc.',
+      type: 'contentBlock',
+    }),
+    defineField({
+      name: 'relationship',
+      title: 'Relationship',
+      description: 'How do we know this supporter? Why do we love them?',
       type: 'contentBlock',
     }),
   ],

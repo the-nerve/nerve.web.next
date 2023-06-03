@@ -2,8 +2,8 @@ import React from 'react';
 import { MapPin } from 'react-feather';
 import { defineField, defineType } from 'sanity';
 
-export const ID = 'location';
-export const TITLE = 'Locations';
+export const ID = 'venue';
+export const TITLE = 'Venues';
 
 export const schema = defineType({
   name: ID,
@@ -13,7 +13,7 @@ export const schema = defineType({
   fields: [
     defineField({
       name: 'title',
-      title: 'Location Title',
+      title: 'Venue Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
@@ -24,9 +24,9 @@ export const schema = defineType({
     }),
     defineField({
       name: 'googleTitle',
-      title: 'Location Google Title',
+      title: 'Venue Google Title',
       description:
-        'The name of the location as it appears in Google Maps. This helps improve user experience when opening directions links by providing a "named" destination instead of just an address. IMPORTANT NOTE: This must be a valid business name and match what Google has on file for this business. Leave empty if at all unsure.',
+        'The name of the venue as it appears in Google Maps. This helps improve user experience when opening directions links by providing a "named" destination instead of just an address. IMPORTANT NOTE: This must be a valid business name and match what Google has on file for this business. Leave empty if at all unsure.',
       type: 'string',
     }),
     defineField({

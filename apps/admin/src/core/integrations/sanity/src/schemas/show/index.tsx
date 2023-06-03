@@ -1,8 +1,8 @@
 import React from 'react';
 import { Star } from 'react-feather';
-import { defineField, defineType } from 'sanity';
+import { defineField, defineType, type FieldGroupDefinition } from 'sanity';
 
-import { slugify } from '$shared/utils';
+import { slugify } from '../../../../../../shared/utils';
 
 import * as showObjects from './objects';
 
@@ -12,23 +12,48 @@ export const TITLE = 'Shows';
 // Export all show-related schema objects (these object aren't used anywhere other than in the show schema)
 export const objects = showObjects;
 
+const GROUPS: Record<string, FieldGroupDefinition> = {
+  SETTINGS: {
+    name: 'settings',
+    title: 'Settings',
+    default: true,
+  },
+  MEDIA: {
+    name: 'media',
+    title: 'Media',
+  },
+  MESSAGING: {
+    name: 'messaging',
+    title: 'Messaging',
+  },
+  INFO: {
+    name: 'info',
+    title: 'Info',
+  },
+  PERFORMANCE: {
+    name: 'performance',
+    title: 'Performance',
+  },
+  SEO: {
+    name: 'seo',
+    title: 'SEO',
+  },
+};
+
 export const schema = defineType({
   name: ID,
   title: TITLE,
   type: 'document',
   icon: () => <Star />,
-  groups: [
-    {
-      name: 'seo',
-      title: 'SEO',
-    },
-  ],
+  groups: Object.values(GROUPS),
   fields: [
+    //  ------------------------ CORE SETTINGS ------------------------ //
     defineField({
       name: 'title',
       title: 'Show Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
+      group: GROUPS.SETTINGS.name,
     }),
     defineField({
       name: 'slug',
@@ -40,6 +65,7 @@ export const schema = defineType({
         slugify,
       },
       validation: (Rule) => Rule.required(),
+      group: GROUPS.SETTINGS.name,
     }),
     defineField({
       name: 'season',
@@ -47,21 +73,62 @@ export const schema = defineType({
       description: 'Which season is this show a part of?',
       type: 'reference',
       to: [{ type: 'season' }],
+      group: GROUPS.SETTINGS.name,
     }),
     defineField({
       name: 'series',
       title: 'Series',
       description: 'Which series is this show a part of?',
       type: 'reference',
+      group: GROUPS.SETTINGS.name,
       to: [{ type: 'series' }],
     }),
-    //  ------------------------ TOGGLES ------------------------ //
+    defineField({
+      name: 'venue',
+      title: 'Venue',
+      description: 'Where will the show take place?',
+      type: 'reference',
+      to: [{ type: 'venue' }],
+      group: GROUPS.SETTINGS.name,
+    }),
+    defineField({
+      name: 'openDate',
+      title: 'Opening Date',
+      description: 'The date of the first performance',
+      type: 'datetime',
+      readOnly: false,
+      options: {
+        dateFormat: 'ddd » MMM Do, yyyy',
+        timeFormat: 'h:mm:a',
+      },
+      group: GROUPS.SETTINGS.name,
+    }),
+    defineField({
+      name: 'closeDate',
+      title: 'Closing Date',
+      description: 'The date of the last performance',
+      type: 'datetime',
+      readOnly: false,
+      options: {
+        dateFormat: 'ddd » MMM Do, yyyy',
+        timeFormat: 'h:mm:a',
+      },
+      group: GROUPS.SETTINGS.name,
+    }),
+    defineField({
+      name: 'author',
+      title: 'Script Author',
+      type: 'scriptAuthor',
+      group: GROUPS.SETTINGS.name,
+    }),
+    // TOGGLES
     defineField({
       title: 'Toggle » hide from the website',
       name: 'isHidden',
       description: 'Toggling this on will prevent this show from being displayed on the frontend of the website.',
       type: 'boolean',
       validation: (Rule) => Rule.required(),
+      group: GROUPS.SETTINGS.name,
     }),
     defineField({
       title: 'Toggle » is a Collaboration',
@@ -69,6 +136,7 @@ export const schema = defineType({
       description: 'Toggle on if this show is a collaborative effort with another company',
       type: 'boolean',
       validation: (Rule) => Rule.required(),
+      group: GROUPS.SETTINGS.name,
     }),
     defineField({
       title: 'Toggle » has Digital Program',
@@ -76,8 +144,9 @@ export const schema = defineType({
       description: 'Toggle on if this show has a digital program',
       type: 'boolean',
       validation: (Rule) => Rule.required(),
+      group: GROUPS.SETTINGS.name,
     }),
-    //  ------------------------ SELECTORS ------------------------ //
+    // SELECTORS
     defineField({
       title: 'Select » show type',
       name: 'type',
@@ -92,6 +161,7 @@ export const schema = defineType({
         ],
       },
       validation: (Rule) => Rule.required(),
+      group: GROUPS.SETTINGS.name,
     }),
     defineField({
       title: 'Select » show status',
@@ -109,93 +179,97 @@ export const schema = defineType({
         ],
       },
       validation: (Rule) => Rule.required(),
+      group: GROUPS.SETTINGS.name,
     }),
-    //  ------------------------ IMAGES ------------------------ //
+    //  ------------------------ MEDIA ------------------------ //
     defineField({
       name: 'heroImage',
       title: 'Hero Image',
       type: 'image',
+      group: GROUPS.MEDIA.name,
     }),
     defineField({
       name: 'posterImage',
       title: 'Poster Image',
       type: 'imageWithAlt',
+      group: GROUPS.MEDIA.name,
     }),
     defineField({
       name: 'cardImage',
       title: 'Card Image',
       type: 'imageWithAlt',
+      group: GROUPS.MEDIA.name,
     }),
     defineField({
       name: 'thumbnailImage',
       title: 'Thumbnail Image',
       type: 'imageWithAlt',
+      group: GROUPS.MEDIA.name,
+    }),
+    defineField({
+      name: 'promo',
+      title: 'Promo',
+      type: 'object',
+      description: 'Promo material for this show',
+      fields: [
+        {
+          type: 'trailer',
+          name: 'trailer',
+        },
+        {
+          type: 'soundtrack',
+          name: 'soundtrack',
+        },
+      ],
+      group: GROUPS.MEDIA.name,
     }),
     //  ------------------------ MESSAGING ------------------------ //
     defineField({
       name: 'hashtag',
       title: 'Hashtag',
       type: 'string',
+      group: GROUPS.MESSAGING.name,
     }),
     defineField({
       name: 'tagline',
       title: 'Tagline',
       type: 'string',
+      group: GROUPS.MESSAGING.name,
     }),
     defineField({
       name: 'teaser',
       title: 'Teaser',
       type: 'text',
       rows: 4,
+      group: GROUPS.MESSAGING.name,
     }),
     defineField({
       name: 'license',
       title: 'License Agreement Text',
       type: 'text',
       rows: 4,
+      group: GROUPS.MESSAGING.name,
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'contentBlock',
+      group: GROUPS.MESSAGING.name,
     }),
     defineField({
       name: 'directorsNote',
       title: "Director's Note",
       type: 'contentBlock',
+      group: GROUPS.MESSAGING.name,
     }),
-
-    //  ------------------------ DATES ------------------------ //
-    defineField({
-      name: 'openDate',
-      title: 'Opening Date',
-      description: 'The date of the first performance',
-      type: 'datetime',
-      readOnly: false,
-      options: {
-        dateFormat: 'ddd » MMM Do, yyyy',
-        timeFormat: 'h:mm:a',
-      },
-    }),
-    defineField({
-      name: 'closeDate',
-      title: 'Closing Date',
-      description: 'The date of the last performance',
-      type: 'datetime',
-      readOnly: false,
-      options: {
-        dateFormat: 'ddd » MMM Do, yyyy',
-        timeFormat: 'h:mm:a',
-      },
-    }),
-
-    //  ------------------------ DETAILS ------------------------ //
+    //  ------------------------ ADDITIONAL INFO ------------------------ //
     defineField({
       name: 'runtimeHours',
       title: 'Runtime Hours',
       description: 'How many hours does the show run for (whole numbers only)',
       type: 'number',
       validation: (Rule) => Rule.integer().positive().lessThan(4),
+      group: GROUPS.INFO.name,
     }),
     defineField({
       name: 'runtimeMinutes',
@@ -203,6 +277,7 @@ export const schema = defineType({
       description: 'How many minutes does the show run for (whole numbers only)',
       type: 'number',
       validation: (Rule) => Rule.integer().positive().lessThan(60),
+      group: GROUPS.INFO.name,
     }),
     defineField({
       name: 'intermissionCount',
@@ -210,13 +285,7 @@ export const schema = defineType({
       description: 'How many intermissions does this show have?',
       type: 'number',
       validation: (Rule) => Rule.integer().positive().lessThan(3),
-    }),
-    defineField({
-      name: 'location',
-      title: 'Location',
-      description: 'Where will the show take place?',
-      type: 'reference',
-      to: [{ type: 'location' }],
+      group: GROUPS.INFO.name,
     }),
     defineField({
       name: 'rating',
@@ -232,19 +301,7 @@ export const schema = defineType({
           { title: 'PG', value: 'pg' },
         ],
       },
-    }),
-    defineField({
-      name: 'ticketProvider',
-      title: 'Ticket Provider',
-      type: 'reference',
-      to: [{ type: 'ticketProvider' }],
-    }),
-    defineField({
-      name: 'generalTicketLink',
-      title: 'General Ticket Link',
-      description:
-        'The link to the page where tickets can be selected/purchased for this show (not specific to performance dates and times)',
-      type: 'string',
+      group: GROUPS.INFO.name,
     }),
     defineField({
       name: 'contentAdvisory',
@@ -255,6 +312,7 @@ export const schema = defineType({
         collapsible: true,
         collapsed: true,
       },
+      group: GROUPS.INFO.name,
     }),
     defineField({
       name: 'triggerWarning',
@@ -262,6 +320,7 @@ export const schema = defineType({
       description: 'Special content considerations that could trigger some patrons',
       type: 'text',
       rows: 2,
+      group: GROUPS.INFO.name,
     }),
     defineField({
       name: 'effectsAdvisory',
@@ -271,6 +330,7 @@ export const schema = defineType({
         collapsible: true,
         collapsed: true,
       },
+      group: GROUPS.INFO.name,
     }),
     defineField({
       name: 'additionalDetails',
@@ -278,9 +338,14 @@ export const schema = defineType({
       description: '',
       type: 'array',
       of: [{ type: 'detailItem' }],
+      group: GROUPS.INFO.name,
     }),
-
-    //  ------------------------ COLLABORATION ------------------------ //
+    defineField({
+      name: 'sponsors',
+      title: 'Sponsors',
+      type: 'showSponsors',
+      group: GROUPS.INFO.name,
+    }),
     defineField({
       name: 'collaboration',
       title: 'Collaboration',
@@ -301,43 +366,27 @@ export const schema = defineType({
           of: [{ type: 'block', styles: [] }],
         }),
       ],
+      group: GROUPS.INFO.name,
     }),
 
-    //  ------------------------ ARTISTS ------------------------ //
+    //  ------------------------ TICKETS & PERFORMANCE ------------------------ //
+    defineField({
+      name: 'generalTicketLink',
+      title: 'General Ticket Link',
+      description:
+        'The link to the page where tickets can be selected/purchased for this show (not specific to performance dates and times)',
+      type: 'string',
+      group: GROUPS.PERFORMANCE.name,
+    }),
+
     defineField({
       name: 'artists',
       title: 'Artists',
       description: 'The squad of people who are working on this show',
       type: 'showArtists',
+      group: GROUPS.PERFORMANCE.name,
     }),
 
-    //  ------------------------ PROMO ------------------------ //
-    defineField({
-      name: 'promo',
-      title: 'Promo',
-      type: 'object',
-      options: { collapsible: true, collapsed: true },
-      description: 'Promo material for this show',
-      fields: [
-        {
-          type: 'trailer',
-          name: 'trailer',
-        },
-        {
-          type: 'soundtrack',
-          name: 'soundtrack',
-        },
-      ],
-    }),
-
-    //  ------------------------ SPONSORS ------------------------ //
-    defineField({
-      name: 'sponsors',
-      title: 'Sponsors',
-      type: 'showSponsors',
-    }),
-
-    //  ------------------------ PERFORMANCES ------------------------ //
     defineField({
       name: 'performances',
       title: 'Performances',
@@ -345,13 +394,14 @@ export const schema = defineType({
       type: 'array',
       validation: (Rule) => Rule.unique(),
       of: [{ type: 'performance' }],
+      group: GROUPS.PERFORMANCE.name,
     }),
 
     //  ------------------------ SEO ------------------------ //
     defineField({
       name: 'seo',
       type: 'seo',
-      group: 'seo',
+      group: GROUPS.SEO.name,
     }),
   ],
 
@@ -361,7 +411,7 @@ export const schema = defineType({
 
     type: 'live',
     status: 'scheduled',
-    series: 'core',
+    series: 'nerve',
 
     contentAdvisory: {
       hasAdditionalInfo: false,
