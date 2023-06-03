@@ -11,7 +11,7 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"],
       "inputs": ["*.config.js", "*.config.ts", "src/**", "tsconfig.json"],
-      "env": []
+      "env": ["NEXT_PUBLIC_SANITY_EDITOR_TOKEN", "NEXT_PUBLIC_SANITY_PROJECT_ID"]
     },
     "check:lint": {
       "dependsOn": ["^_dependencies"],

@@ -34,15 +34,9 @@ while read package; do
 done < $ROOT_DIR/.tool-versions
 
 # Setup Vercel CLI
-printf "🔎 Checking for Vercel CLI..."
-if ! command_exists vercel; then
-  echo "Command 'vercel' is missing. ⚫️ Installing latest Vercel CLI..."
-  pnpm i -g vercel@latest
-  echo "✅ Installed Vercel CLI successfully"
-  exit 1
-else
-  echo "🟢 Vercel CLI already installed"
-fi
+echo "⚫️ Installing latest Vercel CLI..."
+pnpm i -g vercel@latest
+exit 1
 
 # Finalize
 echo "--------------------------------------------------"

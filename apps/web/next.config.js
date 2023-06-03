@@ -16,14 +16,6 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   transpilePackages: ['@nerve/kit', '@nerve/platform', '@nerve/ui'],
-  modularizeImports: {
-    '@nerve/ui': {
-      // ! Because ui uses exports in its `package.json`, we need to make sure that the `transform` path below is
-      // ! accounted for in the `exports` field, otherwise nextjs will think the path is invalid.
-      transform: '@nerve/ui/src/components/{{member}}',
-      skipDefaultConversion: true,
-    },
-  },
   webpack(config) {
     // See setup docs for SVGR with NextJS: https://react-svgr.com/docs/next/
     // Grab the existing rule that handles SVG imports (Node16 doesn't support optional nullish chaining)
