@@ -5,3 +5,4 @@ export * from './images';
 export * from './links';
 export * from './references';
 export * from './seo';
+export * from './sponsor';

@@ -48,18 +48,6 @@ export const schema = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'logoOnLight',
-      title: 'Logo » On Light',
-      description: 'Company logo on a light background',
-      type: 'imageWithAlt',
-    }),
-    defineField({
-      name: 'logoOnDark',
-      title: 'Logo » On Dark',
-      description: 'Company logo on a dark background',
-      type: 'imageWithAlt',
-    }),
-    defineField({
       name: 'website',
       title: 'Website',
       type: 'url',

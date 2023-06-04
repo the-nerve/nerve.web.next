@@ -1,71 +1,19 @@
 import { defineField, defineType } from 'sanity';
 
-export const sponsorOfficialReference = defineType({
-  name: 'sponsorOfficial',
-  title: 'Sponsor Reference',
-  type: 'object',
-  fields: [
-    defineField({
-      type: 'reference',
-      name: 'sponsor',
-      to: { type: 'sponsor' },
-    }),
-    defineField({
-      name: 'level',
-      type: 'string',
-      options: {
-        list: [
-          { title: '#BeGritty', value: 'beGritty' },
-          { title: '#BeBold', value: 'beBold' },
-          { title: '#BeGutsy', value: 'beGutsy' },
-          { title: '#BeAudacious', value: 'beAudacious' },
-        ],
-      },
-    }),
-    defineField({
-      name: 'scope',
-      title: 'Scope',
-      type: 'string',
-      options: {
-        layout: 'radio',
-        direction: 'horizontal',
-        list: [
-          { title: 'Show', value: 'show' },
-          { title: 'Season', value: 'season' },
-        ],
-      },
-    }),
-  ],
-  preview: {
-    select: {
-      name: 'sponsor.name',
-      level: 'level',
-      image: 'sponsor.image',
-    },
-    prepare({ name, level, image }) {
-      return {
-        title: name,
-        subtitle: level,
-        media: image,
-      };
-    },
-  },
-});
-
 export const sponsorHighlightReference = defineType({
-  name: 'sponsorHighlight',
-  title: 'Sponsor Highlight',
+  name: 'supporterHighlight',
+  title: 'Supporter Highlight',
   type: 'object',
   fields: [
     defineField({
       type: 'reference',
-      name: 'sponsor',
-      to: { type: 'sponsor' },
+      name: 'supporter',
+      to: { type: 'supporter' },
     }),
     defineField({
       name: 'specialLink',
       title: 'Special Link',
-      description: 'A link to use for this highlight other than the default sponsor website',
+      description: 'A link to use for this highlight other than the default supporter website',
       type: 'url',
     }),
     defineField({
@@ -82,8 +30,8 @@ export const sponsorHighlightReference = defineType({
   ],
   preview: {
     select: {
-      name: 'sponsor.name',
-      image: 'sponsor.image',
+      name: 'supporter.name',
+      image: 'supporter.image',
     },
     prepare({ name, image }) {
       return {
@@ -106,17 +54,17 @@ export const showSponsors = defineType({
   fields: [
     defineField({
       name: 'official',
-      title: 'Official Sponsors',
-      description: 'Sponsors who committed to a specific level of sponsorship',
+      title: 'Official Show Sponsors',
+      description: 'Sponsors who committed to a specific level of sponsorship for this show',
       type: 'array',
-      of: [{ type: 'sponsorOfficial' }],
+      of: [{ type: 'sponsor' }],
     }),
     defineField({
       name: 'highlight',
-      title: 'Sponsor Highlight',
-      description: 'Special callouts for sponsors we need to call extra attention to',
+      title: 'Supporter Highlight',
+      description: 'Special callouts for supporters we need to call extra attention to',
       type: 'array',
-      of: [{ type: 'sponsorHighlight' }],
+      of: [{ type: 'supporterHighlight' }],
     }),
     defineField({
       name: 'specialThanks',

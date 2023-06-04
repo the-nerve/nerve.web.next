@@ -355,9 +355,9 @@ export const schema = defineType({
       fields: [
         defineField({
           name: 'with',
-          title: 'What organization is the collaboration with?',
+          title: 'What person/organization is the collaboration with?',
           type: 'reference',
-          to: [{ type: 'organization' }],
+          to: [{ type: 'supporter' }],
         }),
         defineField({
           name: 'details',

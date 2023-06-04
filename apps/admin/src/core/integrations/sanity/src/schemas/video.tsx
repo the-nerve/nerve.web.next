@@ -1,30 +1,31 @@
 import { defineField, defineType } from 'sanity';
 
-export const soundtrackCredit = defineType({
-  name: 'soundtrackCredit',
+// TODO: add object for video
+export const videoCredit = defineType({
+  name: 'videoCredit',
   type: 'object',
   fields: [
     defineField({
-      title: "Credit's Role",
+      title: 'Role',
       name: 'role',
-      description: 'What role/action did this supporter take in creating this soundtrack?',
+      description: 'What role/action did this supporter take in creating this video?',
       type: 'string',
     }),
     defineField({
-      title: 'By',
-      name: 'by',
-      description: 'Who created or helped create this soundtrack?',
+      title: 'Supporter',
+      name: 'supporter',
+      description: 'Who created or helped create this video?',
       type: 'reference',
       to: [{ type: 'supporter' }],
     }),
   ],
 });
 
-const ID = 'audio';
-const TITLE = 'Audio';
+export const ID = 'video';
+export const TITLE = 'Videos';
 
 // add video type as season/show trailers
-export const audio = defineType({
+export const schema = defineType({
   title: ID,
   name: TITLE,
   type: 'object',
@@ -40,32 +41,32 @@ export const audio = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'id',
-      title: 'Audio ID',
+      name: 'referenceId',
+      title: 'Video Reference ID (from Host)',
       type: 'string',
     }),
     defineField({
-      name: 'url',
-      title: 'Embed URL',
+      name: 'embedURL',
+      title: 'Embed URL (from Host)',
       type: 'url',
     }),
     defineField({
       name: 'host',
-      title: 'Audio Host',
+      title: 'Host',
       type: 'string',
       options: {
         layout: 'dropdown',
         list: [
-          { title: 'Spotify', value: 'spotify' },
-          { title: 'Soundcloud', value: 'soundcloud' },
-          { title: 'GDrive', value: 'gdrive' },
+          { title: 'Vimeo', value: 'vimeo' },
+          { title: 'Youtube', value: 'youtube' },
+          { title: 'Mux', value: 'mux' },
         ],
       },
     }),
     defineField({
       title: 'Credits',
       name: 'credits',
-      description: 'People or organizations who worked on this audio',
+      description: 'People or organizations who worked on this video',
       type: 'array',
       of: [{ type: 'videoCredit' }],
     }),
