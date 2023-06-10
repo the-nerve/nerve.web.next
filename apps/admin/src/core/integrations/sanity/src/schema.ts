@@ -1,7 +1,6 @@
 import * as artist from './schemas/artist';
 import * as author from './schemas/author';
 import * as globalObjects from './schemas/global-objects';
-// import * as performance from './performance';
 import * as post from './schemas/post';
 import * as season from './schemas/season';
 import * as series from './schemas/series';
