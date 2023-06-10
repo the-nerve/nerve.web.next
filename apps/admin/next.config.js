@@ -28,7 +28,7 @@ const nextConfig = {
     // See setup docs for SVGR with NextJS: https://react-svgr.com/docs/next/
     // Grab the existing rule that handles SVG imports (Node16 doesn't support optional nullish chaining)
     const fileLoaderRule = config.module.rules.find((rule) => {
-      return rule.test && rule?.test?.test?.('.svg');
+      return rule.test && rule.test.test && rule.test.test('.svg');
     });
 
     config.module.rules.push(
