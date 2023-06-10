@@ -59,7 +59,6 @@ export const schema = defineType({
         list: [
           { title: 'Vimeo', value: 'vimeo' },
           { title: 'Youtube', value: 'youtube' },
-          { title: 'Mux', value: 'mux' },
         ],
       },
     }),
