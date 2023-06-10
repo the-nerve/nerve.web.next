@@ -23,7 +23,7 @@ export const trailer = defineType({
       title: 'Credit',
       name: 'credit',
       type: 'reference',
-      to: [{ type: 'organization' }],
+      to: [{ type: 'supporter' }],
     }),
     defineField({
       title: "Credit's Role",

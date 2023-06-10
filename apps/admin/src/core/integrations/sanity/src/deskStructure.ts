@@ -26,6 +26,14 @@ export const deskStructure = (S: StructureBuilder) =>
             .title('Configs')
             .items([
               S.listItem()
+                .title(schemaMetaData.brandConfig.title)
+                .child(
+                  S.editor()
+                    .title(schemaMetaData.brandConfig.title)
+                    .schemaType(schemaMetaData.brandConfig.id)
+                    .documentId(schemaMetaData.brandConfig.id)
+                ),
+              S.listItem()
                 .title(schemaMetaData.companyConfig.title)
                 .child(
                   S.editor()
@@ -70,9 +78,8 @@ export const deskStructure = (S: StructureBuilder) =>
               S.documentTypeListItem(schemaMetaData.series.id),
               S.documentTypeListItem(schemaMetaData.artist.id),
               S.documentTypeListItem(schemaMetaData.venue.id),
-              S.documentTypeListItem(schemaMetaData.sponsor.id),
+              S.documentTypeListItem(schemaMetaData.sponsorshipLevel.id),
               S.documentTypeListItem(schemaMetaData.supporter.id),
-              S.documentTypeListItem(schemaMetaData.organization.id),
             ])
         ),
     ]);

@@ -1,17 +1,17 @@
 import * as artist from './schemas/artist';
 import * as author from './schemas/author';
 import * as globalObjects from './schemas/global-objects';
-import * as organization from './schemas/organization';
-// import * as performance from './performance';
 import * as post from './schemas/post';
 import * as season from './schemas/season';
 import * as series from './schemas/series';
 import * as show from './schemas/show';
+import * as brandConfig from './schemas/singletons/brandConfig';
 import * as companyConfig from './schemas/singletons/companyConfig';
 import * as seoConfig from './schemas/singletons/seoConfig';
-import * as sponsor from './schemas/sponsor';
+import * as sponsorshipLevel from './schemas/sponsorshipLevel';
 import * as supporter from './schemas/supporter';
 import * as venue from './schemas/venue';
+import * as video from './schemas/video';
 
 export const sanitySchemas = [
   // Objects
@@ -20,16 +20,17 @@ export const sanitySchemas = [
   // Documents
   artist.schema,
   author.schema,
+  brandConfig.schema,
   companyConfig.schema,
   seoConfig.schema,
-  organization.schema,
   post.schema,
   season.schema,
   series.schema,
   show.schema,
-  sponsor.schema,
+  sponsorshipLevel.schema,
   supporter.schema,
   venue.schema,
+  video.schema,
 ];
 
 /**
@@ -44,6 +45,10 @@ export const schemaMetaData = {
     id: author.ID,
     title: author.TITLE,
   },
+  brandConfig: {
+    id: brandConfig.ID,
+    title: brandConfig.TITLE,
+  },
   companyConfig: {
     id: companyConfig.ID,
     title: companyConfig.TITLE,
@@ -51,10 +56,6 @@ export const schemaMetaData = {
   seoConfig: {
     id: seoConfig.ID,
     title: seoConfig.TITLE,
-  },
-  organization: {
-    id: organization.ID,
-    title: organization.TITLE,
   },
   post: {
     id: post.ID,
@@ -72,9 +73,9 @@ export const schemaMetaData = {
     id: show.ID,
     title: show.TITLE,
   },
-  sponsor: {
-    id: sponsor.ID,
-    title: sponsor.TITLE,
+  sponsorshipLevel: {
+    id: sponsorshipLevel.ID,
+    title: sponsorshipLevel.TITLE,
   },
   supporter: {
     id: supporter.ID,
@@ -84,6 +85,10 @@ export const schemaMetaData = {
     id: venue.ID,
     title: venue.TITLE,
   },
+  video: {
+    id: video.ID,
+    title: video.TITLE,
+  },
 } as const;
 
-export const singletonDocumentIDs = new Set([companyConfig.ID, seoConfig.ID]);
+export const singletonDocumentIDs = new Set([companyConfig.ID, brandConfig.ID, seoConfig.ID]);

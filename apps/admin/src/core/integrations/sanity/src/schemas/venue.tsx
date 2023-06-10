@@ -23,6 +23,11 @@ export const schema = defineType({
       type: 'url',
     }),
     defineField({
+      name: 'phone',
+      title: 'Phone Number',
+      type: 'string',
+    }),
+    defineField({
       name: 'googleTitle',
       title: 'Venue Google Title',
       description:
