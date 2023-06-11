@@ -8,7 +8,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const Page = () => {
-  return <h1>Hello, from the Nerve home page!</h1>;
+  return <h1>Nerve Archives</h1>;
 };
 
 export default Page;

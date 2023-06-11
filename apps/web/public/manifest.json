@@ -1,0 +1,46 @@
+{
+  "name": "The Nerve • Raw. Real. Relevant. Theatre.",
+  "short_name": "The Nerve",
+  "description": "The Nerve is an actor-driven theatre focused on telling emotionally truthful stories that have a visceral impact on audiences.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#F25C05",
+  "background_color": "#010911",
+  "icons": [
+    {
+      "src": "app-icons/icon-hd.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "maskable"
+    },
+    {
+      "src": "app-icons/icons/icon-apple-touch-180x180.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "purpose": "maskable"
+    },
+    {
+      "src": "app-icons/icon-android-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "app-icons/icon-android-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.ascendinnovations.positivly"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/us/app/positiv-ly/id1573050068"
+    }
+  ]
+}
