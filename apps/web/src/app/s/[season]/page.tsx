@@ -1,9 +1,20 @@
 import { type Metadata } from 'next';
 
-export const generateMetadata = async (): Promise<Metadata> => {
+import { getSingleDocumentMeta } from '$features/seo/__scenarios__/getSingleDocumentMeta';
+
+interface MetadataProps {
+  params: {
+    season: string;
+  };
+}
+
+export const generateMetadata = async ({ params }: MetadataProps): Promise<Metadata> => {
+  const metadata = await getSingleDocumentMeta('season', params.season);
+
   return {
-    title: '',
-    description: '',
+    title: metadata.title,
+    description: metadata.description,
+    robots: metadata.hide ? 'noindex, nofollow' : 'index, follow',
   };
 };
 

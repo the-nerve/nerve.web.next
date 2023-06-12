@@ -4,12 +4,12 @@ import { getSingleDocumentMeta } from '$features/seo/__scenarios__/getSingleDocu
 
 interface MetadataProps {
   params: {
-    show: string;
+    post: string;
   };
 }
 
 export const generateMetadata = async ({ params }: MetadataProps): Promise<Metadata> => {
-  const metadata = await getSingleDocumentMeta('show', params.show);
+  const metadata = await getSingleDocumentMeta('post', params.post);
 
   return {
     title: metadata.title,
@@ -19,7 +19,7 @@ export const generateMetadata = async ({ params }: MetadataProps): Promise<Metad
 };
 
 const Page = () => {
-  return <h1>Nerve Show Page</h1>;
+  return <h1>Nerve Post Page</h1>;
 };
 
 export default Page;

@@ -3,7 +3,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "$core": ["./src/core/*"],
+      "$features/*": ["./src/features/*"],
+      "$sanity": ["./src/core/integrations/sanity"],
+      "$shared": ["./src/shared/*"]
     },
     "plugins": [{ "name": "next" }]
   },
