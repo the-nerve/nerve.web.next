@@ -1,6 +1,8 @@
+import * as globalObjects from './schemas/__global-objects__';
 import * as artist from './schemas/artist';
+import * as audio from './schemas/audio';
 import * as author from './schemas/author';
-import * as globalObjects from './schemas/global-objects';
+import * as page from './schemas/page';
 import * as post from './schemas/post';
 import * as season from './schemas/season';
 import * as series from './schemas/series';
@@ -16,13 +18,18 @@ import * as video from './schemas/video';
 export const sanitySchemas = [
   // Objects
   ...Object.values(globalObjects),
+  ...Object.values(audio.objects),
+  ...Object.values(page.objects),
   ...Object.values(show.objects),
+  ...Object.values(video.objects),
   // Documents
   artist.schema,
+  audio.schema,
   author.schema,
   brandConfig.schema,
   companyConfig.schema,
   seoConfig.schema,
+  page.schema,
   post.schema,
   season.schema,
   series.schema,
@@ -41,6 +48,10 @@ export const schemaMetaData = {
     id: artist.ID,
     title: artist.TITLE,
   },
+  audio: {
+    id: audio.ID,
+    title: audio.TITLE,
+  },
   author: {
     id: author.ID,
     title: author.TITLE,
@@ -56,6 +67,10 @@ export const schemaMetaData = {
   seoConfig: {
     id: seoConfig.ID,
     title: seoConfig.TITLE,
+  },
+  page: {
+    id: page.ID,
+    title: page.TITLE,
   },
   post: {
     id: post.ID,

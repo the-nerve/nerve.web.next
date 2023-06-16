@@ -213,12 +213,16 @@ export const schema = defineType({
       description: 'Promo material for this show',
       fields: [
         {
-          type: 'trailer',
+          type: 'reference',
+          to: [{ type: 'video' }],
           name: 'trailer',
+          title: 'Trailer',
         },
         {
-          type: 'soundtrack',
+          type: 'reference',
+          to: [{ type: 'audio' }],
           name: 'soundtrack',
+          title: 'Soundtrack',
         },
       ],
       group: GROUPS.MEDIA.name,

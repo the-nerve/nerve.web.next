@@ -1,33 +1,16 @@
 import { defineField, defineType } from 'sanity';
 
-// TODO: add object for video
-export const videoCredit = defineType({
-  name: 'videoCredit',
-  type: 'object',
-  fields: [
-    defineField({
-      title: 'Role',
-      name: 'role',
-      description: 'What role/action did this supporter take in creating this video?',
-      type: 'string',
-    }),
-    defineField({
-      title: 'Supporter',
-      name: 'supporter',
-      description: 'Who created or helped create this video?',
-      type: 'reference',
-      to: [{ type: 'supporter' }],
-    }),
-  ],
-});
+import * as videoObjects from './objects';
+
+export const objects = videoObjects;
 
 export const ID = 'video';
 export const TITLE = 'Videos';
 
 // add video type as season/show trailers
 export const schema = defineType({
-  title: ID,
-  name: TITLE,
+  title: TITLE,
+  name: ID,
   type: 'object',
   fields: [
     defineField({

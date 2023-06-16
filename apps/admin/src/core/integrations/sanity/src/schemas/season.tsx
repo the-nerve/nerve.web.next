@@ -104,7 +104,8 @@ export const schema = defineType({
       name: 'trailer',
       title: 'Trailer',
       description: 'The trailer for this season',
-      type: 'video',
+      type: 'reference',
+      to: [{ type: 'video' }],
       group: GROUPS.MEDIA.name,
     }),
     defineField({

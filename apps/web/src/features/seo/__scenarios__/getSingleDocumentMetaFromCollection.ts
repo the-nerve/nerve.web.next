@@ -16,7 +16,7 @@ interface DocumentMetadata {
   updatedAt: string;
 }
 
-export const getSingleDocumentMeta = async (documentType: string, slug: string) => {
+export const getSingleDocumentMetaFromCollection = async (documentType: string, slug: string) => {
   const metadata = await sanityFetch<DocumentMetadata>(singleDocumentMetaQuery, { type: documentType, slug });
   return metadata;
 };
