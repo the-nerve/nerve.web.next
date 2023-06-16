@@ -59,6 +59,7 @@ export const schema = defineType({
       type: 'boolean',
       group: GROUPS.SETTINGS.name,
     }),
+    //  ------------------------ CONTENT ------------------------ //
     defineField({
       name: 'hero',
       title: 'Hero Section',
