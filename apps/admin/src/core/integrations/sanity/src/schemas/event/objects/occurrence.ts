@@ -39,21 +39,9 @@ export const occurrence = defineType({
       type: 'tickets',
     }),
     defineField({
-      name: 'isPreview',
-      title: 'Preview Performance',
-      description: 'This performance is a dress preview',
-      type: 'boolean',
-    }),
-    defineField({
       name: 'isPWYW',
       title: 'Pay What You Want',
       description: 'This is a Pay What You Want (PWYW) performance',
-      type: 'boolean',
-    }),
-    defineField({
-      name: 'hasTalkback',
-      title: 'Talkback After Performance',
-      description: 'This performance has a talkback afterwards',
       type: 'boolean',
     }),
   ],
@@ -67,15 +55,13 @@ export const occurrence = defineType({
       title: 'datetime',
       tickets: 'tickets',
       isPWYW: 'isPWYW',
-      hasTalkback: 'hasTalkback',
-      isPreview: 'isPreview',
     },
     prepare(selection) {
-      const { title, tickets, isPWYW, hasTalkback, isPreview } = selection;
+      const { title, tickets, isPWYW } = selection;
 
-      const showFeatures = [isPreview ? 'preview' : '', isPWYW ? 'pwyw' : '', hasTalkback ? 'talkback' : ''];
+      const eventFeatures = [isPWYW ? 'pwyw' : ''];
 
-      const featuresDisplay = showFeatures.filter(Boolean).join(', ');
+      const featuresDisplay = eventFeatures.filter(Boolean).join(', ');
       const price = tickets.price ? `$${tickets.price}` : 'not set';
 
       const subtitle = `ticketing: ${tickets.type} • price: ${price} • features: ${featuresDisplay}`;
