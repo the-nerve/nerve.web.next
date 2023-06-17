@@ -1,10 +1,10 @@
 import { format } from 'date-fns';
 import { defineField, defineType } from 'sanity';
 
-export const performance = defineType({
-  name: 'performance',
-  title: 'Performance Occurrence',
-  description: 'A single performance of the show',
+export const occurrence = defineType({
+  name: 'occurrence',
+  title: 'Event Occurrence',
+  description: 'A single event occurrence',
   type: 'object',
 
   fields: [
