@@ -78,6 +78,7 @@ export const deskStructure = (S: StructureBuilder) =>
             .title('Theatre')
             .items([
               S.documentTypeListItem(schemaMetaData.show.id),
+              S.documentTypeListItem(schemaMetaData.event.id),
               S.documentTypeListItem(schemaMetaData.season.id),
               S.divider(),
               S.documentTypeListItem(schemaMetaData.series.id),

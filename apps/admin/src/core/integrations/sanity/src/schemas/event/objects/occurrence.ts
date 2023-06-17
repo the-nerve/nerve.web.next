@@ -35,10 +35,6 @@ export const occurrence = defineType({
       },
     }),
     defineField({
-      name: 'tickets',
-      type: 'tickets',
-    }),
-    defineField({
       name: 'isPWYW',
       title: 'Pay What You Want',
       description: 'This is a Pay What You Want (PWYW) performance',
