@@ -1,10 +1,14 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from 'next/server';
+
+import { getDocumentTitle } from '@/features/seo/__scenarios__/getDocumentTitle';
 
 // Route segment config
 export const runtime = 'edge';
 
 // Image metadata
-export const alt = 'About Acme';
+export const alt = 'Nerve Theatre';
 export const size = {
   width: 1200,
   height: 630,
@@ -17,22 +21,34 @@ const interBlack = fetch(new URL('../../../../public/og/fonts/inter-black.woff',
   res.arrayBuffer()
 );
 
-export default async function Image() {
+const logoSrc = fetch(new URL('../../../../public/og/logos/nerve-logo--light.png', import.meta.url)).then((res) =>
+  res.arrayBuffer()
+);
+
+export default async function Image({ params }: { params: { season: string } }) {
+  const imageData = await logoSrc;
+  const meta = await getDocumentTitle('season', params.season);
   return new ImageResponse(
     (
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 128,
-          background: 'white',
+          background: '#07121D',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          position: 'relative',
         }}
       >
-        About Acme
+        <span tw="flex flex-col items-center justify-center">
+          <span tw="text-[95.37px] leading-none text-[#F2F2F3]">{meta.title}</span>
+          <span tw="text-[40.27px] leading-none text-[#A2A2A9]">season</span>
+        </span>
+        <span tw="absolute bottom-[36px] right-[36px]">
+          <img src={imageData} alt="Nerve theatre logo" width={236} height={96} />
+        </span>
       </div>
     ),
     // ImageResponse options
@@ -42,7 +58,7 @@ export default async function Image() {
       ...size,
       fonts: [
         {
-          name: 'Inter',
+          name: 'Inter Black',
           data: await interBlack,
           style: 'normal',
           weight: 900,
