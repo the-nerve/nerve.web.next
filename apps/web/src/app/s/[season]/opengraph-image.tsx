@@ -17,11 +17,11 @@ export const size = {
 export const contentType = 'image/png';
 
 // Font
-const interBlack = fetch(new URL('../../../../public/og/fonts/inter-black.woff', import.meta.url)).then((res) =>
+const interBlack = fetch(new URL('@og-assets/fonts/inter-black.woff', import.meta.url)).then((res) =>
   res.arrayBuffer()
 );
 
-const logoSrc = fetch(new URL('../../../../public/og/logos/nerve-logo--light.png', import.meta.url)).then((res) =>
+const logoSrc = fetch(new URL('@og-assets/logos/nerve-logo--light.png', import.meta.url)).then((res) =>
   res.arrayBuffer()
 );
 
