@@ -1,24 +1,14 @@
 module.exports = {
   transition: {
-    // Easing style values should be valid names in the `postcss-easings` plugin
-    // Ref: https://github.com/postcss/postcss-easings
-    style: {
-      default: {
-        value: 'easeInOutSine',
-      },
-      expressive: {
-        value: 'easeInOutBack',
-      },
-    },
     duration: {
       default: {
-        value: 200,
+        value: 150,
       },
       medium: {
-        value: 400,
+        value: 300,
       },
       long: {
-        value: 500,
+        value: 450,
       },
     },
   },

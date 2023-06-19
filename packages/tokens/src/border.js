@@ -7,62 +7,25 @@ module.exports = {
       DEFAULT: {
         value: '16px',
       },
+      xs: {
+        value: '4px',
+      },
       sm: {
-        value: '16px',
+        value: '8px',
       },
       md: {
-        value: '20px',
+        value: '16px',
       },
       lg: {
-        value: '32px',
+        value: '24px',
       },
       xl: {
-        value: '40px',
-      },
-      xxl: {
-        value: '48px',
+        value: '32px',
       },
       full: {
         value: '9999px',
       },
     },
-    width: {
-      NONE: {
-        value: '0',
-        attributes: {
-          category: 'size',
-        },
-      },
-      DEFAULT: {
-        value: '{border.width.01.value}',
-        attributes: {
-          category: 'size',
-        },
-      },
-      '01': {
-        value: '{spacing.01.value}',
-        attributes: {
-          category: 'size',
-        },
-      },
-      '02': {
-        value: '{spacing.02.value}',
-        attributes: {
-          category: 'size',
-        },
-      },
-      '03': {
-        value: '{spacing.03.value}',
-        attributes: {
-          category: 'size',
-        },
-      },
-      '04': {
-        value: '{spacing.04.value}',
-        attributes: {
-          category: 'size',
-        },
-      },
-    },
+    width: {},
   },
 };

@@ -69,34 +69,30 @@ module.exports = {
       },
     },
     family: {
-      medium: {
-        value: "{asset.font.medium.name}, 'Trebuchet MS', Helvetica, sans-serif",
+      regular: {
+        value: "'Trebuchet MS', Helvetica, sans-serif",
       },
-      'medium-italic': {
-        value: "{asset.font.medium-italic.name}, 'Trebuchet MS', Helvetica, sans-serif",
+      'semi-bold': {
+        value: "'Trebuchet MS', Helvetica, sans-serif",
       },
-      bold: {
-        value: "{asset.font.bold.name}, 'Trebuchet MS', Helvetica, sans-serif",
-      },
-      'bold-italic': {
-        value: "{asset.font.bold-italic.name}, 'Trebuchet MS', Helvetica, sans-serif",
+      black: {
+        value: "{'Trebuchet MS', Helvetica, sans-serif",
       },
     },
     weight: {
-      medium: {
-        value: 500,
+      regular: {
+        value: 400,
       },
-      bold: {
-        value: 700,
+      'semi-bold': {
+        value: 600,
+      },
+      black: {
+        value: 900,
       },
     },
     'line-height': {
-      body: {
-        value: 1.6,
-      },
-      headline: {
-        value: 1.3,
-      },
+      body: {},
+      headline: {},
     },
   },
 };
