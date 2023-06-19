@@ -1,254 +1,240 @@
 module.exports = {
-  palette: {
+  color: {
     primary: {
       '000': {
-        value: 'hsl(1, 100%, 93%)',
+        value: '#FEEFE6',
       },
       100: {
-        value: 'hsl(1, 100%, 86%)',
+        value: '#FCDECD',
+      },
+      150: {
+        value: '#FABE9B',
       },
       200: {
-        value: '{brand.coral}',
+        value: '#F99E69',
       },
       300: {
-        value: 'hsl(1, 100%, 72%)',
+        value: '#F68848',
       },
       400: {
-        value: 'hsl(1, 100%, 68%)',
+        value: '#F47226',
       },
       500: {
-        value: 'hsl(342, 59%, 52%)',
+        value: '#F25C05',
       },
       600: {
-        value: 'hsl(331, 71%, 40%)',
+        value: '#C24A04',
       },
       700: {
-        value: 'hsl(324, 72%, 32%)',
+        value: '#913703',
       },
       800: {
-        value: 'hsl(324, 71%, 26%)',
+        value: '#612502',
+      },
+      850: {
+        value: '#491C02',
       },
       900: {
-        value: 'hsl(324, 88%, 18%)',
+        value: '#301201',
+      },
+      1000: {
+        value: '#180901',
       },
     },
     secondary: {
-      '000': {
-        value: 'hsl(247, 100%, 97%)',
-      },
-      100: {
-        value: 'hsl(248, 100%, 88%)',
-      },
       200: {
-        value: 'hsl(248, 100%, 82%)',
+        value: '#193E65',
       },
       300: {
-        value: 'hsl(248, 100%, 75%)',
+        value: '#143353',
       },
       400: {
-        value: '{brand.iris}',
+        value: '#102942',
       },
       500: {
-        value: 'hsl(248, 65%, 49%)',
+        value: '#0C1E31',
       },
       600: {
-        value: 'hsl(248, 82%, 43%)',
+        value: '#0A1827',
       },
       700: {
-        value: 'hsl(248, 94%, 32%)',
+        value: '#07121D',
       },
       800: {
-        value: 'hsl(248, 89%, 24%)',
-      },
-      900: {
-        value: 'hsl(248, 96%, 20%)',
-      },
-    },
-    tertiary: {
-      '000': {
-        value: 'hsl(39, 100%, 91%)',
-      },
-      100: {
-        value: 'hsl(40, 100%, 76%)',
-      },
-      200: {
-        value: 'hsl(39, 100%, 66%)',
-      },
-      300: {
-        value: '{brand.honey}',
-      },
-      400: {
-        value: 'hsl(36, 100%, 48%)',
-      },
-      500: {
-        value: 'hsl(32, 100%, 49%)',
-      },
-      600: {
-        value: 'hsl(29, 100%, 47%)',
-      },
-      700: {
-        value: 'hsl(22, 100%, 47%)',
-      },
-      800: {
-        value: 'hsl(14, 100%, 39%)',
-      },
-      900: {
-        value: 'hsl(11, 100%, 32%)',
-      },
-    },
-    accent: {
-      '000': {
-        value: 'hsl(180, 100%, 88%)',
-      },
-      100: {
-        value: 'hsl(180, 82%, 75%)',
-      },
-      200: {
-        value: 'hsl(181, 77%, 61%)',
-      },
-      300: {
-        value: 'hsl(181, 67%, 50%)',
-      },
-      400: {
-        value: 'hsl(181, 78%, 41%)',
-      },
-      500: {
-        value: '{brand.verdigris}',
-      },
-      600: {
-        value: 'hsl(181, 95%, 31%)',
-      },
-      700: {
-        value: 'hsl(181, 93%, 28%)',
-      },
-      800: {
-        value: 'hsl(180, 88%, 23%)',
-      },
-      900: {
-        value: 'hsl(180, 87%, 18%)',
+        value: '#020508',
       },
     },
     neutral: {
       '000': {
-        value: 'hsl(226, 36%, 94%)',
+        value: '#FFFFFF',
+      },
+      '050': {
+        value: '#F3F3F4',
       },
       100: {
-        value: 'hsl(226, 57%, 86%)',
+        value: '#E7E7E9',
+      },
+      150: {
+        value: '#DBDBDE',
       },
       200: {
-        value: 'hsl(226, 60%, 76%)',
+        value: '#CFCFD3',
       },
       300: {
-        value: 'hsl(226, 50%, 62%)',
+        value: '#B8B8BD',
       },
       400: {
-        value: 'hsl(227, 41%, 52%)',
+        value: '#A0A0A7',
       },
       500: {
-        value: 'hsl(226, 42%, 48%)',
+        value: '#888891',
       },
       600: {
-        value: 'hsl(227, 45%, 39%)',
+        value: '#6D6D74',
       },
       700: {
-        value: 'hsl(226, 47%, 26%)',
+        value: '#525257',
       },
       800: {
-        value: '{brand.space-cadet}',
+        value: '#36363A',
+      },
+      850: {
+        value: '#29292C',
       },
       900: {
-        value: 'hsl(228, 88%, 6%)',
+        value: '#1B1B1D',
+      },
+      950: {
+        value: '#0E0E0F',
+      },
+      1000: {
+        value: '#000000',
       },
     },
-    'tr-white': {
+    accent: {
       '000': {
-        value: 'hsl(0, 0%, 100%)',
+        value: '#EAEDFB',
       },
       100: {
-        value: 'hsla(0, 0%, 100%, 0.9)',
+        value: '#D5DAF7',
+      },
+      150: {
+        value: '#BFC8F4',
       },
       200: {
-        value: 'hsla(0, 0%, 100%, 0.8)',
+        value: '#AAB5F0',
       },
       300: {
-        value: 'hsla(0, 0%, 100%, 0.7)',
+        value: '#8091E8',
       },
       400: {
-        value: 'hsla(0, 0%, 100%, 0.6)',
+        value: '#556CE1',
       },
       500: {
-        value: 'hsla(0, 0%, 100%, 0.5)',
+        value: '#2B47D9',
       },
       600: {
-        value: 'hsla(0, 0%, 100%, 0.4)',
+        value: '#2239AE',
       },
       700: {
-        value: 'hsla(0, 0%, 100%, 0.3)',
+        value: '#1A2B82',
       },
       800: {
-        value: 'hsla(0, 0%, 100%, 0.2)',
+        value: '#111C57',
+      },
+      850: {
+        value: '#0D1541',
       },
       900: {
-        value: 'hsla(0, 0%, 100%, 0.1)',
+        value: '#090E2B',
+      },
+      1000: {
+        value: '#040716',
       },
     },
-    'tr-black': {
+    negative: {
       '000': {
-        value: 'hsl(0, 0%, 0%)',
+        value: '#FBE5E6',
       },
       100: {
-        value: 'hsla(0, 0%, 0%, 0.9)',
+        value: '#F8CCCD',
+      },
+      150: {
+        value: '#F4B2B5',
       },
       200: {
-        value: 'hsla(0, 0%, 0%, 0.8)',
+        value: '#F1999C',
       },
       300: {
-        value: 'hsla(0, 0%, 0%, 0.7)',
+        value: '#E9666A',
       },
       400: {
-        value: 'hsla(0, 0%, 0%, 0.6)',
+        value: '#E23339',
       },
       500: {
-        value: 'hsla(0, 0%, 0%, 0.5)',
+        value: '#DB0007',
       },
       600: {
-        value: 'hsla(0, 0%, 0%, 0.4)',
+        value: '#AF0006',
       },
       700: {
-        value: 'hsla(0, 0%, 0%, 0.3)',
+        value: '#830004',
       },
       800: {
-        value: 'hsla(0, 0%, 0%, 0.2)',
+        value: '#580003',
+      },
+      850: {
+        value: '#420002',
       },
       900: {
-        value: 'hsla(0, 0%, 0%, 0.1)',
+        value: '#2C0001',
+      },
+      1000: {
+        value: '#160001',
       },
     },
-    gradient: {
-      sunrise: {
-        value:
-          'linear-gradient(180deg, {palette.tertiary.300} 0%, {palette.primary.200} 40.84%, {palette.secondary.300} 100%)',
+    positive: {
+      '000': {
+        value: '#D8FFE6',
       },
-      'sunrise-horizontal': {
-        value:
-          'linear-gradient(270deg, {palette.tertiary.300} 0%, {palette.primary.200} 40.84%, {palette.secondary.300} 100%)',
+      '050': {
+        value: '#C3F7D5',
       },
-      sunset: {
-        value:
-          'linear-gradient(180deg, {palette.primary.200} 0%, {palette.secondary.400} 40.84%, {palette.neutral.700} 100%)',
+      100: {
+        value: '#ADEFC5',
       },
-      'sunset-horizontal': {
-        value:
-          'linear-gradient(270deg, {palette.primary.200} 0%, {palette.secondary.400} 40.84%, {palette.neutral.700} 100%)',
+      150: {
+        value: '#98E6B4',
       },
-      dusk: {
-        value: 'linear-gradient(180deg, {palette.neutral.500} 0%, {palette.neutral.600} 100%)',
+      200: {
+        value: '#82DEA4',
       },
-      dusker: {
-        value: 'linear-gradient(180deg, {palette.neutral.600} 0%, {palette.neutral.700} 100%)',
+      300: {
+        value: '#58CE83',
       },
-      duskest: {
-        value: 'linear-gradient(180deg, {palette.neutral.700} 0%, {palette.neutral.800} 100%)',
+      400: {
+        value: '#2DBD62',
+      },
+      500: {
+        value: '#02AD41',
+      },
+      600: {
+        value: '#028A34',
+      },
+      700: {
+        value: '#016827',
+      },
+      800: {
+        value: '#01451A',
+      },
+      850: {
+        value: '#013414',
+      },
+      900: {
+        value: '#00230D',
+      },
+      1000: {
+        value: '#001107',
       },
     },
   },
