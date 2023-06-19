@@ -115,6 +115,9 @@ importers:
       '@nerve/tailwind':
         specifier: workspace:*
         version: link:../../packages/tailwind
+      '@nerve/tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       '@nerve/ui':
         specifier: workspace:*
         version: link:../../packages/ui

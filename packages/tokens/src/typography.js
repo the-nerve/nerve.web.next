@@ -3,69 +3,54 @@ module.exports = {
     'html-base': {
       value: '16px',
     },
-    size: {
-      'neg-04': {
-        value: '0.626rem',
-      },
-      'neg-03': {
-        value: '0.688rem',
-      },
-      'neg-02': {
-        value: '0.812rem',
-      },
-      'neg-01': {
-        value: '0.875rem',
-      },
-      '00': {
-        value: '1rem',
-      },
+    scale: {
       '01': {
-        value: '1.125rem',
+        value: '12px',
       },
       '02': {
-        value: '1.250rem',
+        value: '14px',
       },
       '03': {
-        value: '1.438rem',
+        value: '16px',
       },
       '04': {
-        value: '1.625rem',
+        value: '18px',
       },
       '05': {
-        value: '1.812rem',
+        value: '20px',
       },
       '06': {
-        value: '2.000rem',
+        value: '22px',
       },
       '07': {
-        value: '2.25rem',
+        value: '25px',
       },
       '08': {
-        value: '2.563rem',
+        value: '28px',
       },
       '09': {
-        value: '2.875rem',
+        value: '32px',
       },
       10: {
-        value: '3.250rem',
+        value: '36px',
       },
       11: {
-        value: '3.625rem',
+        value: '41px',
       },
       12: {
-        value: '4.125rem',
+        value: '46px',
       },
       13: {
-        value: '4.625rem',
+        value: '52px',
       },
       14: {
-        value: '5.188rem',
+        value: '58px',
       },
       15: {
-        value: '5.875rem',
+        value: '66px',
       },
       16: {
-        value: '6.562rem',
+        value: '74px',
       },
     },
     family: {
@@ -91,8 +76,15 @@ module.exports = {
       },
     },
     'line-height': {
-      body: {},
-      headline: {},
+      body: {
+        value: 1.5,
+      },
+      headline: {
+        value: 1.2,
+      },
+      none: {
+        value: 1,
+      },
     },
   },
 };

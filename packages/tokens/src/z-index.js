@@ -1,28 +1,31 @@
 module.exports = {
   'z-index': {
-    behind: {
+    layerSub2: {
+      value: '-200',
+    },
+    layerSub1: {
       value: '-100',
     },
-    zero: {
+    root: {
       value: '0',
     },
-    base: {
+    layer1: {
       value: '100',
     },
-    front: {
+    layer2: {
       value: '200',
     },
-    nav: {
+    layer3: {
       value: '300',
     },
-    'nav-above': {
-      value: '350',
-    },
-    modal: {
+    layer4: {
       value: '400',
     },
-    top: {
+    layer5: {
       value: '500',
+    },
+    layer6: {
+      value: '600',
     },
   },
 };

@@ -1,5 +1,5 @@
 module.exports = {
-  palette: {
+  color: {
     primary: {
       '000': {
         value: '#FEEFE6',
