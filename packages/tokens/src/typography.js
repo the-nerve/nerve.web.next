@@ -20,13 +20,13 @@ module.exports = {
         value: '20px',
       },
       '06': {
-        value: '22px',
+        value: '23px',
       },
       '07': {
-        value: '25px',
+        value: '26px',
       },
       '08': {
-        value: '28px',
+        value: '29px',
       },
       '09': {
         value: '32px',
@@ -51,6 +51,18 @@ module.exports = {
       },
       16: {
         value: '74px',
+      },
+      17: {
+        value: '83px',
+      },
+      18: {
+        value: '94px',
+      },
+      19: {
+        value: '105px',
+      },
+      20: {
+        value: '120px',
       },
     },
     family: {
