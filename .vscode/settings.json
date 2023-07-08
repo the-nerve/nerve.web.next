@@ -1,7 +1,6 @@
 {
   // ESLint Config Settings
   "eslint.workingDirectories": ["./apps/*", "./packages/*", "./services/*"],
-  "eslint.packageManager": "pnpm",
 
   // Typescript Config Settings
   "typescript.preferences.importModuleSpecifier": "shortest",
@@ -14,5 +13,6 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "cSpell.words": ["groq"]
 }

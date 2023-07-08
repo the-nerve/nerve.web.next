@@ -1,1 +1,2 @@
 1. Get Yahoo site verification
+2. Build meta images for all pages other than seasons (which is mostly completed)

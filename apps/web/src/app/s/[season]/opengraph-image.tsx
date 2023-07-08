@@ -8,7 +8,6 @@ import { getDocumentTitle } from '@/features/seo/__scenarios__/getDocumentTitle'
 export const runtime = 'edge';
 
 // Image metadata
-export const alt = 'Nerve Theatre';
 export const size = {
   width: 1200,
   height: 630,

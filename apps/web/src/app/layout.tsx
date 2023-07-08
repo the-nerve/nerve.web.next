@@ -2,7 +2,7 @@ import { type Metadata } from 'next';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return {
-    manifest: '/manifest.json', // TODO: Define dynamically
+    manifest: '/manifest.json',
     icons: [],
     themeColor: '#000000',
     creator: '',

@@ -1,9 +1,9 @@
 import { type Metadata } from 'next';
 
-import { getSingleDocumentMetaFromCollection } from '@/features/seo/__scenarios__/getSingleDocumentMetaFromCollection';
+import { getDocumentMeta } from '@/features/seo/__scenarios__/getDocumentMeta';
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const metadata = await getSingleDocumentMetaFromCollection('page', 'contact');
+  const metadata = await getDocumentMeta('page', 'contact');
 
   return {
     title: metadata.title,

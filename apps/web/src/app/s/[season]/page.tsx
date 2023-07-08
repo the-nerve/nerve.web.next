@@ -1,6 +1,6 @@
 import { type Metadata } from 'next';
 
-import { getSingleDocumentMetaFromCollection } from '@/features/seo/__scenarios__/getSingleDocumentMetaFromCollection';
+import { getDocumentMeta } from '@/features/seo/__scenarios__/getDocumentMeta';
 
 interface MetadataProps {
   params: {
@@ -9,7 +9,7 @@ interface MetadataProps {
 }
 
 export const generateMetadata = async ({ params }: MetadataProps): Promise<Metadata> => {
-  const metadata = await getSingleDocumentMetaFromCollection('season', params.season);
+  const metadata = await getDocumentMeta('season', params.season);
 
   return {
     title: metadata.title,
