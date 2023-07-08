@@ -16,16 +16,14 @@ export const size = {
 export const contentType = 'image/png';
 
 // Font
-const interBlack = fetch(new URL('@og-assets/fonts/inter-black.woff', import.meta.url)).then((res) =>
-  res.arrayBuffer()
-);
+const getInterBlackFont = () =>
+  fetch(new URL('@og-assets/fonts/inter-black.woff', import.meta.url)).then((res) => res.arrayBuffer());
 
-const logoSrc = fetch(new URL('@og-assets/logos/nerve-logo--light.png', import.meta.url)).then((res) =>
-  res.arrayBuffer()
-);
+const getLogoSrc = () =>
+  fetch(new URL('@og-assets/logos/nerve-logo--light.png', import.meta.url)).then((res) => res.arrayBuffer());
 
 export default async function Image({ params }: { params: { season: string } }) {
-  const imageData = await logoSrc;
+  const imageData = await getLogoSrc();
   const meta = await getDocumentTitle('season', params.season);
   return new ImageResponse(
     (
@@ -46,6 +44,7 @@ export default async function Image({ params }: { params: { season: string } }) 
           <span tw="text-[40.27px] leading-none text-[#A2A2A9]">season</span>
         </span>
         <span tw="absolute bottom-[36px] right-[36px]">
+          {/* @ts-ignore */}
           <img src={imageData} alt="Nerve theatre logo" width={236} height={96} />
         </span>
       </div>
@@ -58,7 +57,7 @@ export default async function Image({ params }: { params: { season: string } }) 
       fonts: [
         {
           name: 'Inter Black',
-          data: await interBlack,
+          data: await getInterBlackFont(),
           style: 'normal',
           weight: 900,
         },
