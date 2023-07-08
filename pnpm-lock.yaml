@@ -80,7 +80,7 @@ importers:
         version: 18.2.0
       sanity:
         specifier: ^3.11.5
-        version: 3.11.5(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+        version: 3.11.5(@types/node@20.2.5)(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       styled-components:
         specifier: ^5.3.11
         version: 5.3.11(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
@@ -142,6 +142,9 @@ importers:
       next:
         specifier: 13.4.4
         version: 13.4.4(@babel/core@7.22.1)(react-dom@18.2.0)(react@18.2.0)
+      next-sanity:
+        specifier: ^4.3.3
+        version: 4.3.3(@sanity/icons@2.3.1)(@sanity/types@3.11.5)(@sanity/ui@1.3.3)(@types/styled-components@5.1.26)(next@13.4.4)(react@18.2.0)(sanity@3.11.5)(styled-components@5.3.11)
       postcss:
         specifier: ^8.4.24
         version: 8.4.24
@@ -3485,7 +3488,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6(@babel/core@7.22.1)
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.3.9
+      vite: 4.3.9(@types/node@20.2.5)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -6776,7 +6779,7 @@ packages:
       groq: 3.11.5
       next: 13.4.4(@babel/core@7.22.1)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
-      sanity: 3.11.5(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      sanity: 3.11.5(@types/node@20.2.5)(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       styled-components: 5.3.11(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - supports-color
@@ -7850,7 +7853,7 @@ packages:
       diff-match-patch: 1.0.5
     dev: false
 
-  /sanity@3.11.5(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+  /sanity@3.11.5(@types/node@20.2.5)(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
     resolution: {integrity: sha512-K8u8mVODon7CWc/GUoPSnQ8H99zBnn4XIs9VaMeDyc9VU0MKlhHvo7ItNTVLEPEZoF/7X5oY3pQqPcZLLQbVsg==}
     engines: {node: '>=14.18.0'}
     hasBin: true
@@ -7964,7 +7967,7 @@ packages:
       use-device-pixel-ratio: 1.1.2(react@18.2.0)
       use-hot-module-reload: 1.0.3(react@18.2.0)
       use-sync-external-store: 1.2.0(react@18.2.0)
-      vite: 4.3.9
+      vite: 4.3.9(@types/node@20.2.5)
       yargs: 17.7.2
     transitivePeerDependencies:
       - '@types/node'
@@ -8983,7 +8986,7 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: false
 
-  /vite@4.3.9:
+  /vite@4.3.9(@types/node@20.2.5):
     resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -9008,6 +9011,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.2.5
       esbuild: 0.17.19
       postcss: 8.4.24
       rollup: 3.23.0

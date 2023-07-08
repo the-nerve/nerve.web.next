@@ -25,10 +25,11 @@ export const performance = defineType({
       title: 'Status',
       type: 'string',
       options: {
-        layout: 'radio',
-        direction: 'horizontal',
+        layout: 'dropdown',
         list: [
-          { value: 'active', title: 'Active' },
+          { value: 'scheduled', title: 'Scheduled' },
+          { value: 'rescheduled', title: 'Rescheduled' },
+          { value: 'postponed', title: 'Postponed' },
           { value: 'cancelled', title: 'Cancelled' },
         ],
       },

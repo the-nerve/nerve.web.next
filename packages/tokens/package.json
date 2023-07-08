@@ -5,8 +5,7 @@
   "private": false,
   "sideEffects": true,
   "files": [
-    "dist/**",
-    ""
+    "dist/**"
   ],
   "scripts": {
     "build": "node ./scripts/generate-tokens.js",

@@ -169,8 +169,7 @@ export const schema = defineType({
       description: '',
       type: 'string',
       options: {
-        layout: 'radio',
-        direction: 'horizontal',
+        layout: 'dropdown',
         list: [
           { value: 'scheduled', title: 'Scheduled' },
           { value: 'rescheduled', title: 'Rescheduled' },
@@ -213,12 +212,16 @@ export const schema = defineType({
       description: 'Promo material for this show',
       fields: [
         {
-          type: 'trailer',
+          type: 'reference',
+          to: [{ type: 'video' }],
           name: 'trailer',
+          title: 'Trailer',
         },
         {
-          type: 'soundtrack',
+          type: 'reference',
+          to: [{ type: 'audio' }],
           name: 'soundtrack',
+          title: 'Soundtrack',
         },
       ],
       group: GROUPS.MEDIA.name,

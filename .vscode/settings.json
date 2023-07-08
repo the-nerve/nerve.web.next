@@ -1,10 +1,9 @@
 {
   // ESLint Config Settings
   "eslint.workingDirectories": ["./apps/*", "./packages/*", "./services/*"],
-  "eslint.packageManager": "pnpm",
 
   // Typescript Config Settings
-  "typescript.preferences.importModuleSpecifier": "relative", // Prevents all auto-imports from being absolute
+  "typescript.preferences.importModuleSpecifier": "shortest",
 
   // Editor Config Settings
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -14,5 +13,6 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "cSpell.words": ["groq"]
 }

@@ -14,7 +14,6 @@ export const tickets = defineType({
         layout: 'dropdown',
         list: [
           { title: 'External Ticketing Service', value: 'external' },
-          { title: 'Internal Ticketing Solution', value: 'internal' },
           { title: 'Tickets Available at the Door', value: 'door' },
         ],
       },

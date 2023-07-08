@@ -3,7 +3,7 @@
  */
 
 // Icons we are using for our menu UI
-import { Radio, Settings, Zap } from 'react-feather';
+import { Layout, Radio, Settings, Zap } from 'react-feather';
 import { type StructureBuilder } from 'sanity/desk';
 
 import { schemaMetaData } from './schema';
@@ -54,6 +54,9 @@ export const deskStructure = (S: StructureBuilder) =>
         ),
       S.divider(),
 
+      // All web-page-related documents
+      S.listItem().title('Web Pages').icon(Layout).child(S.documentTypeList(schemaMetaData.page.id)),
+
       // All blog-related documents
       S.listItem()
         .title('Blog')
@@ -64,6 +67,8 @@ export const deskStructure = (S: StructureBuilder) =>
             .items([S.documentTypeListItem(schemaMetaData.author.id), S.documentTypeListItem(schemaMetaData.post.id)])
         ),
 
+      S.divider(),
+
       // All theatre-related documents
       S.listItem()
         .title('Theatre')
@@ -73,6 +78,7 @@ export const deskStructure = (S: StructureBuilder) =>
             .title('Theatre')
             .items([
               S.documentTypeListItem(schemaMetaData.show.id),
+              S.documentTypeListItem(schemaMetaData.event.id),
               S.documentTypeListItem(schemaMetaData.season.id),
               S.divider(),
               S.documentTypeListItem(schemaMetaData.series.id),
