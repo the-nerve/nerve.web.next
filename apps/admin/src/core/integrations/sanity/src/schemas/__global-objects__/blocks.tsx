@@ -7,6 +7,7 @@ export const contentBlockObject = defineType({
   title: 'Content Block',
   type: 'array',
   of: [
+    // @ts-ignore
     {
       type: 'block',
       styles: [
