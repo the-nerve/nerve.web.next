@@ -1,5 +1,6 @@
 packages:
-  # include packages in sub-folders
-  - 'apps/**'
-  - 'packages/**'
-  - 'services/**'
+  - 'apps/*'
+  - 'packages/*'
+  - 'services/*'
+  - '!**/.next/**'
+  - '!**/dist/**'

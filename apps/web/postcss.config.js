@@ -1,6 +1,7 @@
+const postcssConfig = require('@nerve/ui/postcss');
+
 module.exports = {
   plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
+    ...postcssConfig.plugins,
   },
 };

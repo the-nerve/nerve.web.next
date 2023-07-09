@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": ["NODE_ENV"],
+  "globalEnv": ["NODE_ENV", "GITHUB_TOKEN"],
   "globalDependencies": ["**/.env", "**/.env.*"],
   "pipeline": {
     "_dependencies": {
@@ -20,23 +20,36 @@
       ]
     },
     "check:lint": {
-      "dependsOn": ["^_dependencies"],
+      "dependsOn": ["pre:lint"],
       "outputs": [],
       "inputs": ["*.js", "*.ts", "**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx", ".eslintignore"]
     },
     "check:types": {
-      "dependsOn": ["^_dependencies"],
+      "dependsOn": ["pre:types"],
       "outputs": [],
       "inputs": ["*.ts", "**/*.d.ts", "src/**/*.ts", "src/**/*.tsx", "tsconfig.json"]
     },
     "dev": {
+      "dependsOn": ["dev:pre-build"],
       "cache": false,
       "persistent": true
     },
+    "dev:pre-build": {
+      "dependsOn": ["^dev:pre-build"],
+      "outputs": ["dist/**"]
+    },
     "fix:lint": {
-      "dependsOn": ["^_dependencies"],
+      "dependsOn": ["pre:lint"],
       "outputs": [],
       "inputs": ["*.js", "*.ts", "**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx", ".eslintignore"]
+    },
+    "pre:lint": {
+      "dependsOn": ["^pre:lint"],
+      "outputs": ["dist/**"]
+    },
+    "pre:types": {
+      "dependsOn": ["^pre:types"],
+      "outputs": ["dist/**"]
     },
     "test": {
       "dependsOn": ["^_dependencies"],

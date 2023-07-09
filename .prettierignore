@@ -23,6 +23,9 @@ next-env.d.ts
 ## CSS Files
 *.css
 
+# Browserlist
+.browserslistrc
+
 # Optional caches for common tools
 .cache
 .eslintcache

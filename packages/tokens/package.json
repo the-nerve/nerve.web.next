@@ -20,9 +20,6 @@
     "@nerve/tsconfig": "workspace:*",
     "eslint-config-nerve": "workspace:*"
   },
-  "volta": {
-    "extends": "../../package.json"
-  },
   "exports": {
     "./tokens.css": "./dist/tokens.css",
     "./tokens.json": "./dist/tokens.json"
