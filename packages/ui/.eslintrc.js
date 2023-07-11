@@ -1,4 +1,4 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-  extends: ['nerve/react', 'nerve/testing/vitest-react'],
+  extends: ['nerve/react'],
 };

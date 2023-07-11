@@ -65,17 +65,6 @@ module.exports = {
         value: '120px',
       },
     },
-    family: {
-      regular: {
-        value: "'Trebuchet MS', Helvetica, sans-serif",
-      },
-      'semi-bold': {
-        value: "'Trebuchet MS', Helvetica, sans-serif",
-      },
-      black: {
-        value: "{'Trebuchet MS', Helvetica, sans-serif",
-      },
-    },
     weight: {
       regular: {
         value: 400,
@@ -91,10 +80,10 @@ module.exports = {
       body: {
         value: 1.5,
       },
-      headline: {
+      heading: {
         value: 1.2,
       },
-      none: {
+      flat: {
         value: 1,
       },
     },
