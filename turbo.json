@@ -9,7 +9,7 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
       "inputs": ["*.config.js", "*.config.ts", "src/**", "tsconfig.json"],
       "env": [
         "NEXT_PUBLIC_SANITY_API_VERSION",

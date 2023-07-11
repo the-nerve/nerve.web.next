@@ -4,7 +4,6 @@
   "description": "A modern UI library for The Nerve",
   "private": false,
   "scripts": {
-    "build": "",
     "check:lint": "TIMING=1 eslint . --no-error-on-unmatched-pattern",
     "fix:lint": "eslint .",
     "test": "echo \"Bypassing: no test specified\" && exit 0"

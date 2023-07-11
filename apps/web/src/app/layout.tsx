@@ -22,13 +22,13 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Open Sans', 'sans-serif'],
-  variable: '--font-family-inter',
+  variable: '--font-inter',
   preload: true,
 });
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" className={`${inter.variable} font-family-inter`}>
+    <html lang="en" className={`${inter.variable} font-inter`}>
       <body>{children}</body>
     </html>
   );

@@ -31,7 +31,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['var(--font-family-inter)'],
+        inter: ['var(--font-inter)'],
       },
     },
   },
