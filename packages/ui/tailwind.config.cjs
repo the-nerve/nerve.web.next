@@ -15,6 +15,7 @@ module.exports = {
     },
     opacity: {
       disabled: `${tokens.opacity.disabled}`,
+      busy: `${tokens.opacity.busy}`,
     },
     borderRadius: {
       none: tokens.border.radius.NONE,

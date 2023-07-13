@@ -1,7 +1,10 @@
 module.exports = {
   opacity: {
     disabled: {
-      value: 0.5,
+      value: 0.4,
+    },
+    busy: {
+      value: 0.7,
     },
   },
 };
