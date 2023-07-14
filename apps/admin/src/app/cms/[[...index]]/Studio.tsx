@@ -6,9 +6,5 @@ import config from '../../../../sanity.config';
 
 export const Studio = () => {
   //  Supports the same props as `import {Studio} from 'sanity'`, `config` is required
-  return (
-    <div>
-      <NextStudio config={config} />
-    </div>
-  );
+  return (<NextStudio config={config} />) as JSX.Element;
 };
