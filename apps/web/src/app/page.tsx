@@ -16,7 +16,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const Page = () => {
-  return <h1>Hello, from the Nerve home page!</h1>;
+  return <h1 className="text-neutral-lightest">Hello, from the Nerve home page!</h1>;
 };
 
 export default Page;
