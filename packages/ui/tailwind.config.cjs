@@ -7,6 +7,55 @@ const tokens = require('@nerve/tokens/tokens.json');
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
+    colors: {
+      'primary-lighter': `${tokens.color.primary[200]}`,
+      'primary-light': `${tokens.color.primary[400]}`,
+      primary: `${tokens.color.primary[500]}`,
+      'primary-dark': `${tokens.color.primary[700]}`,
+      'primary-darker': `${tokens.color.primary[900]}`,
+
+      'secondary-lighter': `${tokens.color.secondary[200]}`,
+      'secondary-light': `${tokens.color.secondary[400]}`,
+      secondary: `${tokens.color.secondary[500]}`,
+      'secondary-dark': `${tokens.color.secondary[700]}`,
+      'secondary-darker': `${tokens.color.secondary[800]}`,
+      'secondary-darkest': `${tokens.color.secondary[900]}`,
+
+      'neutral-lightest': `${tokens.color.neutral['000']}`,
+      'neutral-lighter': `${tokens.color.neutral[100]}`,
+      'neutral-light': `${tokens.color.neutral[300]}`,
+      neutral: `${tokens.color.neutral[500]}`,
+      'neutral-dark': `${tokens.color.neutral[700]}`,
+      'neutral-darker': `${tokens.color.neutral[850]}`,
+      'neutral-darkest': `${tokens.color.neutral[900]}`,
+
+      'accent-lightest': `${tokens.color.accentA[100]}`,
+      'accent-lighter': `${tokens.color.accentA[200]}`,
+      'accent-light': `${tokens.color.accentA[400]}`,
+      accent: `${tokens.color.accentA[500]}`,
+      'accent-dark': `${tokens.color.accentA[700]}`,
+      'accent-darker': `${tokens.color.accentA[800]}`,
+      'accent-darkest': `${tokens.color.accentA[900]}`,
+
+      'negative-lighter': `${tokens.color.accentB[150]}`,
+      'negative-light': `${tokens.color.accentB[400]}`,
+      negative: `${tokens.color.accentB[500]}`,
+      'negative-dark': `${tokens.color.accentB[600]}`,
+      'negative-darker': `${tokens.color.accentB[700]}`,
+      'negative-darkest': `${tokens.color.accentB[800]}`,
+
+      'positive-lighter': `${tokens.color.accentC[150]}`,
+      'positive-Light': `${tokens.color.accentC[300]}`,
+      positive: `${tokens.color.accentC[500]}`,
+      'positive-dark': `${tokens.color.accentC[600]}`,
+      'positive-darker': `${tokens.color.accentC[700]}`,
+      'positive-darkest': `${tokens.color.accentC[800]}`,
+
+      // common utils
+      inherit: 'inherit',
+      transparent: 'transparent',
+      current: 'currentColor',
+    },
     screens: {
       sm: `${tokens.breakpoint.numeric.sm}px`,
       md: `${tokens.breakpoint.numeric.md}px`,
