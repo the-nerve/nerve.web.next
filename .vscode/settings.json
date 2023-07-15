@@ -42,5 +42,8 @@
   // Enable tailwind validation linting
   "tailwindCSS.validate": true,
   // dictionary
-  "cSpell.words": ["groq"]
+  "cSpell.words": [
+    "groq",
+    "nofollow"
+  ]
 }
