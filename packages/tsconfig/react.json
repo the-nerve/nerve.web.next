@@ -1,11 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Dom",
+  "display": "React",
   "extends": "./base.json",
   "compilerOptions": {
     "outDir": "dist",
-    "target": "es2017",
-    "module": "es2022"
+    "jsx": "react-jsx",
+    "target": "es2022",
+    "module": "esnext"
   },
   "exclude": ["node_modules"]
 }

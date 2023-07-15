@@ -21,6 +21,8 @@ export default defineConfig({
   ],
 
   schema: {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     types: sanitySchemas,
     // Filter out singleton types from the global “New document” menu options
     templates: (templates) => templates.filter(({ schemaType }) => !singletonDocumentIDs.has(schemaType)),

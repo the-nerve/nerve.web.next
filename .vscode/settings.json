@@ -4,6 +4,8 @@
 
   // Typescript Config Settings
   "typescript.preferences.importModuleSpecifier": "shortest",
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
 
   // Editor Config Settings
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -14,5 +16,31 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  // Tailwind Intellisense config
+  "tailwindCSS.experimental.configFile": "./packages/ui/tailwind.config.cjs",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.files.exclude": [
+    "**/.git/**",
+    "**/.github/**",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/public/**",
+    "**/.next/**",
+    "**/.turbo/**",
+    "./services/**"
+  ],
+  // Support tailwind autocompletion for: cva, twMerge, twJoin
+  // @see https://cva.style/docs/installation#intellisense
+  // @see https://github.com/paolotiu/tailwind-intellisense-regex-list
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "[\"'`]([^\"'`]*)[\"'`]"]
+  ],
+  // Enable tailwind validation linting
+  "tailwindCSS.validate": true,
+  // dictionary
   "cSpell.words": ["groq"]
 }

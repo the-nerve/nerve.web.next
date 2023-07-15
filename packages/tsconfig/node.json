@@ -1,11 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Dom",
+  "display": "Node",
   "extends": "./base.json",
   "compilerOptions": {
     "outDir": "dist",
-    "target": "es2017",
-    "module": "es2022"
+    "target": "es2022",
+    "module": "commonjs"
   },
   "exclude": ["node_modules"]
 }

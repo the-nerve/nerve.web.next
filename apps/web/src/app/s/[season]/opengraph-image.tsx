@@ -1,5 +1,8 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable @next/next/no-img-element */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { ImageResponse } from 'next/server';
 
 import { getDocumentTitle } from '@/features/seo/__scenarios__/getDocumentTitle';

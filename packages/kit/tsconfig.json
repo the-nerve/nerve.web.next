@@ -1,0 +1,8 @@
+{
+  "extends": "@nerve/tsconfig/react.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["*.js", "*.ts", "ambient/*.d.ts", "src/**/*"],
+  "exclude": ["node_modules"]
+}

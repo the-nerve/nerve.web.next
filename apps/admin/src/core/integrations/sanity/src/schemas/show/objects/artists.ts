@@ -38,7 +38,7 @@ export const _artistReference = {
       media: 'artist.headshot',
       role: 'role',
     },
-    prepare({ firstName, lastName, media, role }: any) {
+    prepare({ firstName, lastName, media, role }: unknown) {
       return {
         title: `${firstName} ${lastName}`,
         subtitle: role,
