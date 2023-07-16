@@ -26,6 +26,22 @@ module.exports = {
         value: '9999px',
       },
     },
-    width: {},
+    width: {
+      NONE: {
+        value: '0',
+      },
+      DEFAULT: {
+        value: '1px',
+      },
+      sm: {
+        value: '1px',
+      },
+      md: {
+        value: '2px',
+      },
+      lg: {
+        value: '4px',
+      },
+    },
   },
 };

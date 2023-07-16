@@ -69,7 +69,7 @@ module.exports = {
       regular: {
         value: 400,
       },
-      'semi-bold': {
+      semibold: {
         value: 600,
       },
       black: {
