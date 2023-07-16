@@ -11,7 +11,7 @@ module.exports = {
       'primary-lighter': `${tokens.color.primary[200]}`,
       'primary-light': `${tokens.color.primary[400]}`,
       primary: `${tokens.color.primary[500]}`,
-      'primary-dark': `${tokens.color.primary[600]}`,
+      'primary-dark': `${tokens.color.primary[700]}`,
       'primary-darker': `${tokens.color.primary[800]}`,
 
       'secondary-lighter': `${tokens.color.secondary[200]}`,
@@ -116,6 +116,10 @@ module.exports = {
       'size-14': tokens.font.scale[14],
       'size-15': tokens.font.scale[15],
       'size-16': tokens.font.scale[16],
+      'size-17': tokens.font.scale[17],
+      'size-18': tokens.font.scale[18],
+      'size-19': tokens.font.scale[19],
+      'size-20': tokens.font.scale[20],
     },
     fontWeight: {
       'weight-regular': tokens.font.weight.regular,
