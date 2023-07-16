@@ -12,9 +12,23 @@
   "editor.rulers": [120], // Set's the ruler to eslint's mex-len and prettier's printWidth
 
   // On File-Save Settings
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   },
   // Tailwind Intellisense config
   "tailwindCSS.experimental.configFile": "./packages/ui/tailwind.config.cjs",
@@ -42,5 +56,5 @@
   // Enable tailwind validation linting
   "tailwindCSS.validate": true,
   // dictionary
-  "cSpell.words": ["groq"]
+  "cSpell.words": ["groq", "nofollow"]
 }

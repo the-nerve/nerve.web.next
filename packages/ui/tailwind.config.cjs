@@ -7,6 +7,48 @@ const tokens = require('@nerve/tokens/tokens.json');
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
+    colors: {
+      'primary-lighter': `${tokens.color.primary[200]}`,
+      'primary-light': `${tokens.color.primary[400]}`,
+      primary: `${tokens.color.primary[500]}`,
+      'primary-dark': `${tokens.color.primary[600]}`,
+      'primary-darker': `${tokens.color.primary[800]}`,
+
+      'secondary-lighter': `${tokens.color.secondary[200]}`,
+      'secondary-light': `${tokens.color.secondary[400]}`,
+      secondary: `${tokens.color.secondary[500]}`,
+      'secondary-dark': `${tokens.color.secondary[600]}`,
+      'secondary-darker': `${tokens.color.secondary[700]}`,
+      'secondary-darkest': `${tokens.color.secondary[900]}`,
+
+      'neutral-lightest': `${tokens.color.neutral['000']}`,
+      'neutral-lighter': `${tokens.color.neutral[150]}`,
+      'neutral-light': `${tokens.color.neutral[300]}`,
+      neutral: `${tokens.color.neutral[500]}`,
+      'neutral-dark': `${tokens.color.neutral[700]}`,
+      'neutral-darker': `${tokens.color.neutral[850]}`,
+      'neutral-darkest': `${tokens.color.neutral[900]}`,
+
+      'accent-lighter': `${tokens.color.accent[150]}`,
+      'accent-light': `${tokens.color.accent[400]}`,
+      accent: `${tokens.color.accent[500]}`,
+      'accent-dark': `${tokens.color.accent[600]}`,
+
+      'positive-lighter': `${tokens.color.positive[150]}`,
+      'positive-light': `${tokens.color.positive[400]}`,
+      positive: `${tokens.color.positive[500]}`,
+      'positive-dark': `${tokens.color.positive[600]}`,
+
+      'negative-lighter': `${tokens.color.negative[150]}`,
+      'negative-light': `${tokens.color.negative[400]}`,
+      negative: `${tokens.color.negative[500]}`,
+      'negative-dark': `${tokens.color.negative[700]}`,
+
+      // common utils
+      inherit: 'inherit',
+      transparent: 'transparent',
+      current: 'currentColor',
+    },
     screens: {
       sm: `${tokens.breakpoint.numeric.sm}px`,
       md: `${tokens.breakpoint.numeric.md}px`,
@@ -74,6 +116,11 @@ module.exports = {
       'size-14': tokens.font.scale[14],
       'size-15': tokens.font.scale[15],
       'size-16': tokens.font.scale[16],
+    },
+    fontWeight: {
+      'weight-regular': tokens.font.weight.regular,
+      'weight-semibold': tokens.font.weight.semibold,
+      'weight-black': tokens.font.weight.black,
     },
     lineHeight: {
       heading: `${tokens.font['line-height'].heading}`,

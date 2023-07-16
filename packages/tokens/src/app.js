@@ -1,10 +1,10 @@
 module.exports = {
   app: {
     surface: {
-      value: '{color.secondary.700}',
+      value: '{color.primary.700}',
     },
     content: {
-      value: '{color.neutral.050}',
+      value: '{color.neutral.000}',
     },
   },
 };
