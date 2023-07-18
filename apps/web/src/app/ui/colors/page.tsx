@@ -41,7 +41,7 @@ const Page = () => {
       <div className="mt-10 flex flex-col gap-9">
         <ColorFamily name="primary">
           <ColorSwatch className="bg-primary-darker" mappedColor="primary.800" />
-          <ColorSwatch className="bg-primary-dark" mappedColor="primary.600" />
+          <ColorSwatch className="bg-primary-dark" mappedColor="primary.700" />
           <ColorSwatch className="bg-primary" mappedColor="primary.500" />
           <ColorSwatch className="bg-primary-light" mappedColor="primary.400" />
           <ColorSwatch className="bg-primary-lighter" mappedColor="primary.200" />
