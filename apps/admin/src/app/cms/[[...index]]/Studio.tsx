@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 
 'use client';
-
-// @ts-nocheck
 
 import { NextStudio } from 'next-sanity/studio';
 
