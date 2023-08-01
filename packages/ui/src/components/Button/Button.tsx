@@ -14,9 +14,6 @@ import { type ButtonProps, buttonVariants, textClassVariants } from './__config'
  * This is our primary `Button` component designed for user-interactions across our various applications. It must serve many use-cases,
  * so it is built as component with a simple interface, but more robust underlying architecture.
  *
- * - *Usage Note: This `Button` component is NOT meant to be used with both `disabled` and `isBusy` props at the*
- * *same time. If both props are passed in, be advised that `disabled` will always take precedence over `isBusy` and will apply its corresponding behavior and styles.*
- *
  * ## The `as` prop
  * The `Button` component is a polymorphic component, meaning it can render as different underlying HTML elements
  * _(with correct and complete props typing)_ and exhibit different behaviors depending on the value of the `as` prop.
@@ -53,6 +50,8 @@ import { type ButtonProps, buttonVariants, textClassVariants } from './__config'
  * - Tide now has a direct dependency on NextJs. This is not ideal, but it's not the end of the world.
  * - In the future, if we need to use the `Button` component outside of a NextJS App, we will need to refactor this component to accept an agnostic routing component as a prop instead of using `next/link` directly.
  *
+ * * Usage Note: This `Button` component is NOT meant to be used with both `disabled` and `busy` props at the
+ * * same time. If both props are passed in, be advised that `disabled` will always take precedence over `busy` and will apply its corresponding behavior and styles.
  */
 export const Button = React.forwardRef(
   <C extends React.ElementType = typeof LinkHandler>(
@@ -76,20 +75,20 @@ export const Button = React.forwardRef(
     }
 
     /*
-     * If the component consumer happen to pass both props 'disabled' and 'isBusy', the 'disabled' prop will take
+     * If the component consumer happen to pass both props 'disabled' and 'busy', the 'disabled' prop will take
      * precedence and apply styles and behavior accordingly. For the time being both props cannot be combined at the same time
      */
     if (busy && disabled) {
       // eslint-disable-next-line no-console
       console.error(
-        `The 'Button' component currently only supports either 'disabled' or 'isBusy' props and you have provided both of them, please be advised that 'disabled' will be prioritized over isBusy state when both props are present.`
+        `The 'Button' component currently only supports either 'disabled' or 'busy' props and you have provided both of them, please be advised that 'disabled' will be prioritized over busy state when both props are present.`
       );
     }
     const Component = as || LinkHandler;
 
     const shouldApplyBusyState = busy && !disabled;
     const displayBusyIndicator = shouldApplyBusyState && type !== 'text';
-    const isBehaviorDisabled = disabled || busy; // Same as disabled, the isBusy state won't trigger user actions like clicks, etc
+    const isBehaviorDisabled = disabled || busy; // Same as disabled, the busy state won't trigger user actions like clicks, etc
 
     const classes = cx(
       buttonVariants({ size, theme, type, disabled, isFullWidth, busy: shouldApplyBusyState }),
