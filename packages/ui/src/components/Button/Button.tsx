@@ -62,7 +62,7 @@ export const Button = React.forwardRef(
       type = 'filled',
       theme = 'primary',
       disabled = false,
-      isFullWidth = false,
+      fullWidth = false,
       busy = false,
       children,
       className,
@@ -91,7 +91,7 @@ export const Button = React.forwardRef(
     const isBehaviorDisabled = disabled || busy; // Same as disabled, the busy state won't trigger user actions like clicks, etc
 
     const classes = cx(
-      buttonVariants({ size, theme, type, disabled, isFullWidth, busy: shouldApplyBusyState }),
+      buttonVariants({ size, theme, type, disabled, fullWidth, busy: shouldApplyBusyState }),
       className
     );
     const textClasses = cx(textClassVariants({ size, type }), { invisible: displayBusyIndicator });

@@ -32,7 +32,7 @@ export const buttonVariants = cva(
         true: ['opacity-disabled cursor-not-allowed'],
         false: ['cursor-pointer'],
       },
-      isFullWidth: {
+      fullWidth: {
         false: ['inline-flex'],
         true: ['flex flex-1'],
       },
