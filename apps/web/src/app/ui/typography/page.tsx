@@ -6,7 +6,7 @@ import { Headline, Text } from '@nerve/ui';
 const TextGroup = ({ name, children, className }: PropsWithChildren<{ name: string; className: string }>) => {
   return (
     <div className={`flex flex-col ${className}`}>
-      <Text as="h2" className="mb-5" color="accent" size="lg" weight="semibold">
+      <Text as="h2" className="mb-5" color="accent" weight="semibold">
         {name}
       </Text>
       <div className="flex flex-col gap-9">{children}</div>

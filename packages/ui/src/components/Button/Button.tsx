@@ -96,7 +96,7 @@ export const Button = React.forwardRef(
     );
     const textClasses = cx(textClassVariants({ size, type }), { invisible: displayBusyIndicator });
 
-    if (as === 'button') {
+    if (as === 'button' || !href) {
       return (
         <button type="button" className={classes} disabled={isBehaviorDisabled} ref={ref} {...restProps}>
           <span className={textClasses}>{children}</span>

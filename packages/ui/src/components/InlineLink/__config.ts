@@ -9,22 +9,18 @@ import { type LinkHandlerProps } from '../LinkHandler';
 
 export const inlineLinkVariants = cva(
   [
-    'text-inherit inline-block outline-1 outline-offset-2 underline underline-offset-4 rounded-sm',
-    'focus-visible:no-underline hover:text-secondary active:text-secondary',
+    'inline-block outline-none outline-offset-2 focus-visible:outline-2 underline-offset-4 rounded-sm',
+    'focus-visible:no-underline hover:underline',
   ],
   {
     variants: {
       color: {
-        primary: [
-          'text-primary outline-primary decoration-primary visited:text-secondary visited:decoration-secondary visited:focus-visible:outline-secondary-dark',
-        ],
-        neutral: [
-          'text-default-dark outline-default-dark decoration-default-dark visited:text-neutral visited:decoration-neutral',
-        ],
+        accent: ['text-accent-light focus-visible:outline-accent-light'],
+        neutral: ['text-neutral focus-visible:outline-neutral'],
       },
       disabled: {
-        true: ['!cursor-not-allowed opacity-disabled'],
-        false: [''],
+        true: ['cursor-not-allowed opacity-disabled'],
+        false: [],
       },
     },
   }

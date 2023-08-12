@@ -22,7 +22,7 @@ import { type InlineLinkProps, inlineLinkVariants } from './__config';
  */
 export const InlineLink = ({
   href,
-  color = 'primary',
+  color = 'accent',
   children,
   className,
   disabled,
