@@ -8,25 +8,27 @@ import type { ComposeVariantProps, PolymorphicComponentPropWithRef } from '../..
 
 export const buttonVariants = cva(
   [
-    'font-body-bold font-weight-bold justify-center items-center select-none outline-0 relative overflow-hidden',
+    'font-weight-semibold justify-center items-center select-none outline-0 relative overflow-hidden',
     'transition-all duration-100 ease-in-out',
   ],
   {
     variants: {
       size: {
-        sm: ['px-5 py-3 rounded-md'],
-        md: ['px-5 py-4 rounded-lg'],
-        lg: ['px-5 py-5 rounded-lg'],
+        sm: ['px-4 py-2 rounded-sm'],
+        md: ['px-5 py-3 rounded-sm'],
+        lg: ['px-5 py-4 rounded-sm'],
       },
       theme: {
-        primary: ['focus-visible:ring-primary'],
+        primary: [],
+        secondary: [],
+        tertiary: [],
       },
       type: {
-        filled: [],
-        outlined: ['border-md'],
-        ghost: [],
+        fill: [],
+        outline: ['border-sm'],
+        ghost: ['border-sm border-transparent'],
         icon: [],
-        text: ['border-md border-transparent'],
+        text: ['border-sm border-transparent'],
       },
       disabled: {
         true: ['opacity-disabled cursor-not-allowed'],
@@ -42,29 +44,68 @@ export const buttonVariants = cva(
       },
     },
     compoundVariants: [
+      // PRIMARY
       {
         theme: 'primary',
-        type: 'filled',
-        className: [
-          'bg-primary text-default-light',
-          'hover:bg-primary-dark',
-          'active:bg-primary-dark',
-          'focus:bg-primary focus-visible:ring-2 focus-visible:ring-offset-2',
-        ],
+        type: 'fill',
+        className: ['bg-secondary text-neutral-lightest', 'hover:bg-secondary-dark'],
       },
       {
         theme: 'primary',
-        type: 'outlined',
-        className: [
-          'bg-transparent text-primary border-primary-dark',
-          'hover:bg-primary-dark hover:text-default-light',
-          'focus-visible:bg-neutral focus-visible:text-primary focus:border-primary-dark',
-        ],
+        type: 'outline',
+        className: ['bg-transparent text-secondary', 'hover:bg-secondary-darkest'],
+      },
+      {
+        theme: 'primary',
+        type: 'ghost',
+        className: ['text-secondary hover:bg-secondary-darkest'],
       },
       {
         theme: 'primary',
         type: 'text',
-        className: ['bg-transparent text-primary', 'hover:bg-neutral', 'focus-visible:border-primary'],
+        className: ['text-secondary', 'hover:text-secondary-dark'],
+      },
+      // SECONDARY
+      {
+        theme: 'secondary',
+        type: 'fill',
+        className: ['bg-neutral-lightest text-primary-dark', 'hover:bg-neutral-lighter'],
+      },
+      {
+        theme: 'secondary',
+        type: 'outline',
+        className: ['bg-transparent text-neutral-lightest', 'hover:bg-neutral-darker'],
+      },
+      {
+        theme: 'secondary',
+        type: 'ghost',
+        className: ['hover:bg-neutral-darker'],
+      },
+      {
+        theme: 'secondary',
+        type: 'text',
+        className: ['text-neutral-lightest', 'hover:text-neutral-lighter'],
+      },
+      // TERTIARY
+      {
+        theme: 'tertiary',
+        type: 'fill',
+        className: ['bg-accent text-neutral-lightest', 'hover:bg-accent-dark'],
+      },
+      {
+        theme: 'tertiary',
+        type: 'outline',
+        className: ['bg-transparent text-accent', 'hover:bg-primary-light'],
+      },
+      {
+        theme: 'tertiary',
+        type: 'ghost',
+        className: ['text-accent', 'hover:bg-primary-light'],
+      },
+      {
+        theme: 'tertiary',
+        type: 'text',
+        className: ['text-accent', 'hover:text-accent-dark'],
       },
     ],
   }
@@ -74,12 +115,12 @@ export const textClassVariants = cva('leading-leading-1', {
   variants: {
     size: {
       sm: ['text-size-2'],
-      md: ['text-size-3'],
+      md: ['text-size-2'],
       lg: ['text-size-3'],
     },
     type: {
-      filled: [],
-      outlined: [],
+      fill: [],
+      outline: [],
       ghost: [],
       icon: [],
       text: ['underline underline-offset-2'],
@@ -93,4 +134,7 @@ export const textClassVariants = cva('leading-leading-1', {
 
 type ButtonVariants = ComposeVariantProps<typeof buttonVariants>;
 
-export type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<C, ButtonVariants>;
+export type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<C, ButtonVariants> & {
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
+};

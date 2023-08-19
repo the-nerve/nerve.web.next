@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 
 const ComponentGroup = ({ name, children }: PropsWithChildren<{ name: string }>) => {
   return (
-    <div className="border-neutral flex max-w-[725px] flex-col rounded-sm">
+    <div className="border-neutral flex flex-col rounded-sm">
       <Text as="h2" className="mb-5" color="accent" size="lg" weight="semibold">
         {name}
       </Text>
-      <div className="flex gap-9">{children}</div>
+      <div className="flex items-center gap-9">{children}</div>
     </div>
   );
 };
@@ -31,7 +31,7 @@ const Page = () => {
         trigger actions, such as submitting a form, opening a modal, or navigating to another page. It automatically
         switches between a button and an anchor tag based on the props passed to it.
       </Text>
-      <div className="mt-10 flex max-w-[725px] flex-col gap-10">
+      <div className="mt-10 flex max-w-[900px] flex-col gap-11">
         <ComponentGroup name="Button - Default">
           <Button>Default Button</Button>
         </ComponentGroup>
@@ -46,6 +46,62 @@ const Page = () => {
           <Button type="ghost">Ghost</Button>
           <Button type="text">Text</Button>
           <Button type="icon">Icon</Button>
+        </ComponentGroup>
+        <ComponentGroup name="Button - Themes + Types">
+          <div className="flex flex-col gap-8">
+            <Text color="neutral">All of the available button theme and type combinations</Text>
+            <ComponentGroup name="Primary">
+              <Button theme="primary" type="fill">
+                Primary Fill
+              </Button>
+              <Button theme="primary" type="outline">
+                Primary Outline
+              </Button>
+              <Button theme="primary" type="ghost">
+                Primary Ghost
+              </Button>
+              <Button theme="primary" type="text">
+                Primary Text
+              </Button>
+              <Button theme="primary" type="icon">
+                Primary Icon
+              </Button>
+            </ComponentGroup>
+            <ComponentGroup name="Secondary">
+              <Button theme="secondary" type="fill">
+                Secondary Fill
+              </Button>
+              <Button theme="secondary" type="outline">
+                Secondary Outline
+              </Button>
+              <Button theme="secondary" type="ghost">
+                Secondary Ghost
+              </Button>
+              <Button theme="secondary" type="text">
+                Secondary Text
+              </Button>
+              <Button theme="secondary" type="icon">
+                Secondary Icon
+              </Button>
+            </ComponentGroup>
+            <ComponentGroup name="Tertiary">
+              <Button theme="tertiary" type="fill">
+                Tertiary Fill
+              </Button>
+              <Button theme="tertiary" type="outline">
+                Tertiary Outline
+              </Button>
+              <Button theme="tertiary" type="ghost">
+                Tertiary Ghost
+              </Button>
+              <Button theme="tertiary" type="text">
+                Tertiary Text
+              </Button>
+              <Button theme="tertiary" type="icon">
+                Tertiary Icon
+              </Button>
+            </ComponentGroup>
+          </div>
         </ComponentGroup>
         <ComponentGroup name="Button - Prefix & Suffix">
           <Button>Prefix</Button>
