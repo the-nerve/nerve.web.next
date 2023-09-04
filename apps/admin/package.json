@@ -29,7 +29,7 @@
     "@sanity/vision": "^3.14.2",
     "date-fns": "^2.30.0",
     "just-kebab-case": "^4.2.0",
-    "next": "13.4.9",
+    "next": "13.4.12",
     "next-sanity": "^5.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -41,7 +41,7 @@
   "devDependencies": {
     "@nerve/tsconfig": "workspace:*",
     "@svgr/webpack": "^8.0.1",
-    "@types/react": "^18.2.14",
+    "@types/react": "^18.2.18",
     "@types/styled-components": "^5.1.26",
     "eslint-config-nerve": "workspace:*",
     "typescript": "^5.1.6"

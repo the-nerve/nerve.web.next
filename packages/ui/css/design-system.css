@@ -36,5 +36,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Account for bold tags so we don't end up with faux bold being rendered */
 strong {
-  font-weight: var(--font-weight-semi-bold);
+  font-weight: var(--font-weight-semibold);
+}
+
+em {
+  font-style: italic;
 }
