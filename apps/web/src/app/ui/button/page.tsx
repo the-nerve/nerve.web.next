@@ -33,117 +33,135 @@ const Page = () => {
       </Text>
       <div className="mt-10 flex max-w-[900px] flex-col gap-11">
         <ComponentGroup name="Button - Default">
-          <Button>Default Button</Button>
+          <Button as="button">Default Button</Button>
         </ComponentGroup>
         <ComponentGroup name="Button - Sizes">
-          <Button size="sm">Button SM</Button>
-          <Button size="md">Button MD</Button>
-          <Button size="lg">Button LG</Button>
+          <Button size="sm" as="button">
+            Button SM
+          </Button>
+          <Button size="md" as="button">
+            Button MD
+          </Button>
+          <Button size="lg" as="button">
+            Button LG
+          </Button>
         </ComponentGroup>
         <ComponentGroup name="Button - Types">
-          <Button type="fill">Fill</Button>
-          <Button type="outline">Outline</Button>
-          <Button type="ghost">Ghost</Button>
-          <Button type="text">Text</Button>
-          <Button type="icon">Icon</Button>
+          <Button as="button" variant="fill">
+            Fill
+          </Button>
+          <Button as="button" variant="outline">
+            Outline
+          </Button>
+          <Button as="button" variant="ghost">
+            Ghost
+          </Button>
+          <Button as="button" variant="text">
+            Text
+          </Button>
+          <Button as="button" variant="icon">
+            Icon
+          </Button>
         </ComponentGroup>
         <ComponentGroup name="Button - Themes + Types">
           <div className="flex flex-col gap-8">
             <Text color="neutral">All of the available button theme and type combinations</Text>
             <ComponentGroup name="Primary">
-              <Button theme="primary" type="fill">
+              <Button as="button" theme="primary" variant="fill">
                 Primary Fill
               </Button>
-              <Button theme="primary" type="outline">
+              <Button as="button" theme="primary" variant="outline">
                 Primary Outline
               </Button>
-              <Button theme="primary" type="ghost">
+              <Button as="button" theme="primary" variant="ghost">
                 Primary Ghost
               </Button>
-              <Button theme="primary" type="text">
+              <Button as="button" theme="primary" variant="text">
                 Primary Text
               </Button>
-              <Button theme="primary" type="icon">
+              <Button as="button" theme="primary" variant="icon">
                 Primary Icon
               </Button>
             </ComponentGroup>
             <ComponentGroup name="Secondary">
-              <Button theme="secondary" type="fill">
+              <Button as="button" theme="secondary" variant="fill">
                 Secondary Fill
               </Button>
-              <Button theme="secondary" type="outline">
+              <Button as="button" theme="secondary" variant="outline">
                 Secondary Outline
               </Button>
-              <Button theme="secondary" type="ghost">
+              <Button as="button" theme="secondary" variant="ghost">
                 Secondary Ghost
               </Button>
-              <Button theme="secondary" type="text">
+              <Button as="button" theme="secondary" variant="text">
                 Secondary Text
               </Button>
-              <Button theme="secondary" type="icon">
+              <Button as="button" theme="secondary" variant="icon">
                 Secondary Icon
               </Button>
             </ComponentGroup>
             <ComponentGroup name="Tertiary">
-              <Button theme="tertiary" type="fill">
+              <Button as="button" theme="tertiary" variant="fill">
                 Tertiary Fill
               </Button>
-              <Button theme="tertiary" type="outline">
+              <Button as="button" theme="tertiary" variant="outline">
                 Tertiary Outline
               </Button>
-              <Button theme="tertiary" type="ghost">
+              <Button as="button" theme="tertiary" variant="ghost">
                 Tertiary Ghost
               </Button>
-              <Button theme="tertiary" type="text">
+              <Button as="button" theme="tertiary" variant="text">
                 Tertiary Text
               </Button>
-              <Button theme="tertiary" type="icon">
+              <Button as="button" theme="tertiary" variant="icon">
                 Tertiary Icon
               </Button>
             </ComponentGroup>
           </div>
         </ComponentGroup>
         <ComponentGroup name="Button - Prefix & Suffix">
-          <Button>Prefix</Button>
-          <Button>Suffix</Button>
-          <Button>Prefix + Suffix</Button>
+          <Button as="button">Prefix</Button>
+          <Button as="button">Suffix</Button>
+          <Button as="button">Prefix + Suffix</Button>
         </ComponentGroup>
         <ComponentGroup name="Button - Disabled">
-          <Button type="fill" disabled>
+          <Button as="button" variant="fill" disabled>
             Fill
           </Button>
-          <Button type="outline" disabled>
+          <Button as="button" variant="outline" disabled>
             Outline
           </Button>
-          <Button type="ghost" disabled>
+          <Button as="button" variant="ghost" disabled>
             Ghost
           </Button>
-          <Button type="text" disabled>
+          <Button as="button" variant="text" disabled>
             Text
           </Button>
-          <Button type="icon" disabled>
+          <Button as="button" variant="icon" disabled>
             Icon
           </Button>
         </ComponentGroup>
         <ComponentGroup name="Button - Busy">
-          <Button type="fill" busy>
+          <Button as="button" variant="fill" busy>
             Fill
           </Button>
-          <Button type="outline" busy>
+          <Button as="button" variant="outline" busy>
             Outline
           </Button>
-          <Button type="ghost" busy>
+          <Button as="button" variant="ghost" busy>
             Ghost
           </Button>
-          <Button type="text" busy>
+          <Button as="button" variant="text" busy>
             Text
           </Button>
-          <Button type="icon" busy>
+          <Button as="button" variant="icon" busy>
             Icon
           </Button>
         </ComponentGroup>
         <ComponentGroup name="Button - Others">
-          <Button fullWidth>Full Width</Button>
+          <Button as="button" fullWidth>
+            Full Width
+          </Button>
         </ComponentGroup>
       </div>
     </section>

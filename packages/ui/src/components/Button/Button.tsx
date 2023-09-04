@@ -1,10 +1,11 @@
+/* eslint-disable react/display-name */
 import { cx } from 'cva';
 import React from 'react';
 
 import { type PolymorphicRef } from '../../types';
 import { LinkHandler } from '../LinkHandler/LinkHandler';
 
-import { type ButtonProps, buttonVariants, textClassVariants } from './__config';
+import { type ButtonComponent, type ButtonProps, buttonVariants, textClassVariants } from './__config';
 
 /* -------------------------------------------------------------------------------------------------
  * Button
@@ -53,13 +54,14 @@ import { type ButtonProps, buttonVariants, textClassVariants } from './__config'
  * * Usage Note: This `Button` component is NOT meant to be used with both `disabled` and `busy` props at the
  * * same time. If both props are passed in, be advised that `disabled` will always take precedence over `busy` and will apply its corresponding behavior and styles.
  */
-export const Button = React.forwardRef(
+
+export const Button: ButtonComponent = React.forwardRef(
   <C extends React.ElementType = typeof LinkHandler>(
     {
       as,
       href,
       size = 'md',
-      type = 'fill',
+      variant = 'fill',
       theme = 'secondary',
       disabled = false,
       fullWidth = false,
@@ -89,16 +91,16 @@ export const Button = React.forwardRef(
     const Component = as || LinkHandler;
 
     const shouldApplyBusyState = busy && !disabled;
-    const displayBusyIndicator = shouldApplyBusyState && type !== 'text';
+    const displayBusyIndicator = shouldApplyBusyState && variant !== 'text';
     const isBehaviorDisabled = disabled || busy; // Same as disabled, the busy state won't trigger user actions like clicks, etc
 
     const classes = cx(
-      buttonVariants({ size, theme, type, disabled, fullWidth, busy: shouldApplyBusyState }),
+      buttonVariants({ size, theme, variant, disabled, fullWidth, busy: shouldApplyBusyState }),
       className
     );
-    const textClasses = cx(textClassVariants({ size, type }), {
+    const textClasses = cx(textClassVariants({ size, variant }), {
       invisible: displayBusyIndicator,
-      'sr-only': type === 'icon',
+      'sr-only': variant === 'icon',
     });
 
     if (as === 'button' || !href) {
@@ -122,8 +124,6 @@ export const Button = React.forwardRef(
     );
   }
 );
-
-Button.displayName = 'Button';
 
 /* -------------------------------------------------------------------------------------------------
  * Utils

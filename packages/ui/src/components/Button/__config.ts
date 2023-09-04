@@ -1,6 +1,7 @@
 import { cva } from 'cva';
 
 import type { ComposeVariantProps, PolymorphicComponentPropWithRef } from '../../types';
+import { type LinkHandler } from '../LinkHandler';
 
 /* -------------------------------------------------------------------------------------------------
  * Styles
@@ -23,7 +24,7 @@ export const buttonVariants = cva(
         secondary: [],
         tertiary: [],
       },
-      type: {
+      variant: {
         fill: [],
         outline: ['border-sm'],
         ghost: ['border-sm border-transparent'],
@@ -47,64 +48,64 @@ export const buttonVariants = cva(
       // PRIMARY
       {
         theme: 'primary',
-        type: 'fill',
+        variant: 'fill',
         className: ['bg-secondary text-neutral-lightest', 'hover:bg-secondary-dark'],
       },
       {
         theme: 'primary',
-        type: 'outline',
+        variant: 'outline',
         className: ['bg-transparent text-secondary', 'hover:bg-secondary-darkest'],
       },
       {
         theme: 'primary',
-        type: 'ghost',
+        variant: 'ghost',
         className: ['text-secondary hover:bg-secondary-darkest'],
       },
       {
         theme: 'primary',
-        type: 'text',
+        variant: 'text',
         className: ['text-secondary', 'hover:text-secondary-dark'],
       },
       // SECONDARY
       {
         theme: 'secondary',
-        type: 'fill',
+        variant: 'fill',
         className: ['bg-neutral-lightest text-primary-dark', 'hover:bg-neutral-lighter'],
       },
       {
         theme: 'secondary',
-        type: 'outline',
+        variant: 'outline',
         className: ['bg-transparent text-neutral-lightest', 'hover:bg-neutral-darker'],
       },
       {
         theme: 'secondary',
-        type: 'ghost',
+        variant: 'ghost',
         className: ['hover:bg-neutral-darker'],
       },
       {
         theme: 'secondary',
-        type: 'text',
+        variant: 'text',
         className: ['text-neutral-lightest', 'hover:text-neutral-lighter'],
       },
       // TERTIARY
       {
         theme: 'tertiary',
-        type: 'fill',
+        variant: 'fill',
         className: ['bg-accent text-neutral-lightest', 'hover:bg-accent-dark'],
       },
       {
         theme: 'tertiary',
-        type: 'outline',
+        variant: 'outline',
         className: ['bg-transparent text-accent', 'hover:bg-primary-light'],
       },
       {
         theme: 'tertiary',
-        type: 'ghost',
+        variant: 'ghost',
         className: ['text-accent', 'hover:bg-primary-light'],
       },
       {
         theme: 'tertiary',
-        type: 'text',
+        variant: 'text',
         className: ['text-accent', 'hover:text-accent-dark'],
       },
     ],
@@ -118,7 +119,7 @@ export const textClassVariants = cva('leading-leading-1', {
       md: ['text-size-2'],
       lg: ['text-size-3'],
     },
-    type: {
+    variant: {
       fill: [],
       outline: [],
       ghost: [],
@@ -132,9 +133,10 @@ export const textClassVariants = cva('leading-leading-1', {
  * Types
  * -----------------------------------------------------------------------------------------------*/
 
-type ButtonVariants = ComposeVariantProps<typeof buttonVariants>;
+export type ButtonVariants = ComposeVariantProps<typeof buttonVariants>;
 
-export type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<C, ButtonVariants> & {
-  prefix?: React.ReactNode;
-  suffix?: React.ReactNode;
-};
+export type ButtonProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<C, ButtonVariants>;
+
+export type ButtonComponent = <C extends React.ElementType = typeof LinkHandler>(
+  props: ButtonProps<C>
+) => React.ReactNode | null;
