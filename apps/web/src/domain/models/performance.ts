@@ -131,3 +131,24 @@ export const hasPerformancesRemaining = (performances?: Performance[]) => {
   }
   return getRemainingPerformanceCount(performances) > 0;
 };
+
+/**
+ * Sort performances
+ *
+ * Sort past performances to the end of the array
+ */
+export const sortPastPerformancesToEnd = <AnyPerformanceType extends Performance>(performances: AnyPerformanceType[]) =>
+  performances.sort((a, b) => {
+    const { startTime: performanceA } = a;
+    const { startTime: performanceB } = b;
+
+    const dateA = new Date(performanceA);
+    const dateB = new Date(performanceB);
+
+    // If the first date is not in the past, but the second date is, sort the past date last (moving them to the end of the array)
+    if (!isPast(dateA) && isPast(dateB)) {
+      return -1;
+    }
+
+    return 0;
+  });

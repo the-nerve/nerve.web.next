@@ -59,3 +59,5 @@ export interface ShowAggregate extends Show {
     soundtrack?: Audio;
   };
 }
+
+// AGGREGATE UTILITIES
