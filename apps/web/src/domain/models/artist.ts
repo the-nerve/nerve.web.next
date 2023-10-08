@@ -7,15 +7,17 @@ export interface Artist {
   pronouns: string;
   instagram?: string;
   website?: string;
-  headshot?: any; // TODO: Update with image type when available
+  headshot?: unknown;
 }
 
 export enum ARTIST_GROUP {
-  'ACTOR' = 'actors',
-  'CREW' = 'crewMembers',
-  'DESIGNER' = 'designers',
-  'DIRECTOR' = 'directors',
-  'SHADOW' = 'shadows',
+  ACTOR = 'actor',
+  DIRECTOR = 'director',
+  DESIGNER = 'designer',
+  WRITER = 'writer',
+  CREW = 'crew',
+  SHADOW = 'shadow',
+  ASSISTANT = 'assistant',
 }
 
 /**

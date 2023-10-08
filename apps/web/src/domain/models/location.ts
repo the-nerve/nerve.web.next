@@ -19,8 +19,8 @@ export interface Location {
   title: string;
   googleTitle?: string;
   address: Address;
-  geolocation: GeoLocation;
-  indigenousLandAcknowledgement: string;
+  geolocation?: GeoLocation;
+  indigenousLandAck?: string;
 }
 
 //
@@ -28,8 +28,6 @@ export interface Location {
 //
 
 const GMAPS_DIRECTIONS_BASE_URL = 'https://www.google.com/maps/dir/?api=1&destination=';
-
-const GMAPS_DEFAULT_TRAVEL_MODE = '&travelmode=driving';
 
 /**
  * Create a Google Maps URL to generate pre-filled directions to a given destination.
@@ -43,7 +41,7 @@ export const getGoogleMapsDirectionsURL = (address: Location['address'], googleT
   // Google needs white space encoded as +
   const googleFriendlyLocationString = locationString.replace(/\s/g, '+');
 
-  const locationURL = `${GMAPS_DIRECTIONS_BASE_URL}${googleFriendlyLocationString}${GMAPS_DEFAULT_TRAVEL_MODE}`;
+  const locationURL = `${GMAPS_DIRECTIONS_BASE_URL}${googleFriendlyLocationString}`;
 
   return encodeURI(locationURL);
 };

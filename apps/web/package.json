@@ -21,6 +21,8 @@
     "@nerve/tokens": "workspace:*",
     "@nerve/ui": "workspace:*",
     "@vercel/edge-config": "^0.2.1",
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0",
     "jotai": "^2.2.2",
     "next": "13.4.12",
     "next-sanity": "^5.1.1",

@@ -1,0 +1,26 @@
+import { type Season } from '../models/season';
+import { type Show } from '../models/show';
+import { type Sponsor, type SPONSORSHIP_LEVEL, type SPONSORSHIP_SCOPE } from '../models/sponsor';
+
+export interface SeasonStandardSponsor extends Sponsor {
+  scope: SPONSORSHIP_SCOPE;
+  level: SPONSORSHIP_LEVEL;
+}
+
+export interface SeasonHighlightSponsor extends Sponsor {
+  scope: SPONSORSHIP_SCOPE;
+  level: SPONSORSHIP_LEVEL;
+  note: any;
+}
+
+export interface SeasonSponsors {
+  sponsors?: SeasonStandardSponsor[];
+  highlightedSponsors?: SeasonHighlightSponsor[];
+  specialThanks?: any;
+}
+
+// MAIN AGGREGATE
+export interface SeasonAggregate extends Season {
+  shows: Show[];
+  sponsors?: SeasonSponsors;
+}
