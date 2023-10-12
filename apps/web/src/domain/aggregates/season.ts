@@ -1,6 +1,7 @@
 import { type Season } from '../models/season';
 import { type Show } from '../models/show';
 import { type Sponsor, type SPONSORSHIP_LEVEL, type SPONSORSHIP_SCOPE } from '../models/sponsor';
+import { type Video } from '../models/video';
 
 export interface SeasonStandardSponsor extends Sponsor {
   scope: SPONSORSHIP_SCOPE;
@@ -23,6 +24,9 @@ export interface SeasonSponsors {
 export interface SeasonAggregate extends Season {
   shows: Show[];
   sponsors?: SeasonSponsors;
+  promo: {
+    trailer?: Video;
+  };
 }
 
 // AGGREGATE FUNCTIONS
