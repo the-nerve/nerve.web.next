@@ -6,4 +6,9 @@ export interface Season {
   tagline?: string;
   description?: string;
   term?: number; // The location of the season in sequence of all seasons
+
+  images?: {
+    card?: unknown;
+    hero?: unknown;
+  };
 }

@@ -30,5 +30,4 @@ export interface Sponsor {
   image?: unknown;
   type: SPONSOR_TYPE;
   link?: string;
-  scope?: SPONSORSHIP_SCOPE;
 }
