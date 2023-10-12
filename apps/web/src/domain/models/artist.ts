@@ -1,3 +1,13 @@
+export enum ARTIST_GROUP {
+  ACTOR = 'actor',
+  DIRECTOR = 'director',
+  DESIGNER = 'designer',
+  WRITER = 'writer',
+  CREW = 'crew',
+  SHADOW = 'shadow',
+  ASSISTANT = 'assistant',
+}
+
 export interface Artist {
   name: {
     first: string;
@@ -8,16 +18,6 @@ export interface Artist {
   instagram?: string;
   website?: string;
   headshot?: unknown;
-}
-
-export enum ARTIST_GROUP {
-  ACTOR = 'actor',
-  DIRECTOR = 'director',
-  DESIGNER = 'designer',
-  WRITER = 'writer',
-  CREW = 'crew',
-  SHADOW = 'shadow',
-  ASSISTANT = 'assistant',
 }
 
 /**

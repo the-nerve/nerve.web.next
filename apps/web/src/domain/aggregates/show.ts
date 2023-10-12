@@ -1,12 +1,12 @@
 import { type Artist, type ARTIST_GROUP } from '../models/artist';
 import { type Audio } from '../models/audio';
+import { type EventTicketing } from '../models/eventTicketing';
 import { type Location } from '../models/location';
 import { type Performance } from '../models/performance';
 import { type Season } from '../models/season';
 import { type Series } from '../models/series';
 import { type Show } from '../models/show';
 import { type Sponsor, type SPONSORSHIP_LEVEL, type SPONSORSHIP_SCOPE } from '../models/sponsor';
-import { type Ticketing } from '../models/ticketing';
 import { type Video } from '../models/video';
 
 export interface ShowStandardSponsor extends Sponsor {
@@ -21,18 +21,18 @@ export interface ShowHighlightSponsor extends Sponsor {
 }
 
 export interface ShowSponsors {
-  sponsors?: ShowStandardSponsor[];
+  standardSponsors?: ShowStandardSponsor[];
   highlightedSponsors?: ShowHighlightSponsor[];
   specialThanks?: any;
 }
 
 export interface ShowPerformance extends Performance {
-  tickets?: Ticketing;
+  tickets?: EventTicketing;
 }
 
 export interface ShowArtist extends Artist {
-  role?: string;
-  group?: ARTIST_GROUP;
+  role: string;
+  group: ARTIST_GROUP;
   bio?: string;
 }
 
@@ -50,14 +50,13 @@ export interface ShowArtists {
 export interface ShowAggregate extends Show {
   artists?: ShowArtists;
   location: Location;
-  sponsors?: Sponsor[];
-  season?: Season;
   performances?: ShowPerformance[];
-  series?: Series;
   promo?: {
     trailer?: Video;
     soundtrack?: Audio;
   };
+  season?: Season;
+  series?: Series;
+  sponsors?: Sponsor[];
+  tickets?: EventTicketing;
 }
-
-// AGGREGATE UTILITIES

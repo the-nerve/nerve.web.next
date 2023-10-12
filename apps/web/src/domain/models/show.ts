@@ -1,10 +1,67 @@
 import { compareAsc, compareDesc, isFuture, isPast, isWithinInterval, parseISO, sub } from 'date-fns';
 
+export enum SHOW_STATUS {
+  ACTIVE = 'active',
+  FUTURE = 'future',
+  PAST = 'archived',
+  COMING_SOON = 'coming-soon',
+  DEFAULT = 'unknown',
+}
+
+export enum SHOW_EVENT_STATUS {
+  SCHEDULED = 'scheduled',
+  CANCELLED = 'cancelled',
+  RESCHEDULED = 'rescheduled',
+  POSTPONED = 'postponed',
+}
+
+export const SHOW_STATUS_DISPLAY = {
+  [SHOW_STATUS.PAST]: 'Archived',
+  [SHOW_STATUS.ACTIVE]: 'Now Playing',
+  [SHOW_STATUS.COMING_SOON]: 'Coming Soon',
+  [SHOW_STATUS.FUTURE]: 'Future Show',
+  [SHOW_STATUS.DEFAULT]: 'Status TBD',
+} as const;
+
+export enum SHOW_RATING {
+  PG = 'pg',
+  PG13 = 'pg-13',
+  R = 'r',
+}
+
+export const SHOW_RATING_DISPLAY = {
+  [SHOW_RATING.PG]: 'PG',
+  [SHOW_RATING.PG13]: 'PG-13',
+  [SHOW_RATING.R]: 'R',
+} as const;
+
+export enum SHOW_TICKET_STATUS {
+  AVAILABLE = 'available',
+  UNAVAILABLE = 'unavailable',
+  AVAILABLE_SOON = 'available-soon',
+  SOLD_OUT = 'sold-out',
+}
+
+export const SHOW_TICKET_STATUS_DISPLAY = {
+  [SHOW_TICKET_STATUS.AVAILABLE]: 'On Sale Now',
+  [SHOW_TICKET_STATUS.UNAVAILABLE]: 'Unavailable',
+  [SHOW_TICKET_STATUS.AVAILABLE_SOON]: 'Available Soon',
+  [SHOW_TICKET_STATUS.SOLD_OUT]: 'Sold Out',
+} as const;
+
 export interface ShowAuthor {
   name: string;
   bioLink?: string;
   scriptLink?: string;
 }
+
+export interface ShowTickets {
+  status: SHOW_TICKET_STATUS;
+  price?: number; // in USD
+  link?: string;
+}
+
+// MAIN AGGREGATE
 
 export interface Show {
   id?: string; // unique identifier for the show
@@ -30,51 +87,31 @@ export interface Show {
   intermissionCount?: number;
   openingDate?: string;
   rating?: SHOW_RATING;
+  eventStatus?: SHOW_EVENT_STATUS;
   status?: SHOW_STATUS;
   teaser?: string;
   term?: number; // The location of the show in sequence of all shows
 
-  // Free-form fields
-  triggerWarning?: any;
+  // More open-ended fields for additional information
   contentAdvisory?: any;
   effectsAdvisory?: any;
-  additionalDetails?: any;
   healthNotice?: any;
+  triggerWarning?: any;
 }
 
-export enum SHOW_STATUS {
-  ACTIVE = 'active',
-  FUTURE = 'future',
-  PAST = 'archived',
-  COMING_SOON = 'coming-soon',
-  DEFAULT = 'unknown',
-}
-
-export const SHOW_STATUS_MESSAGE = {
-  [SHOW_STATUS.PAST]: 'Archived',
-  [SHOW_STATUS.ACTIVE]: 'Now Playing',
-  [SHOW_STATUS.COMING_SOON]: 'Coming Soon',
-  [SHOW_STATUS.FUTURE]: 'Future Show',
-  [SHOW_STATUS.DEFAULT]: 'Status TBD',
-};
-
-export enum SHOW_RATING {
-  PG = 'pg',
-  PG13 = 'pg-13',
-  R = 'r',
-}
+// AGGREGATE FUNCTIONS
 
 /**
  * Checks to see if this show has an intermission
  */
-export const hasIntermission = <AnyShowType extends Show>(show: AnyShowType) => {
+export const hasIntermission = <T extends Show>(show: T) => {
   return show.intermissionCount && show.intermissionCount > 0;
 };
 
 /**
  * Format the duration of a show for friendly display
  */
-export const formatDurationDisplay = <AnyShowType extends Show>(show: AnyShowType) => {
+export const formatDurationDisplay = <T extends Show>(show: T) => {
   const { duration } = show;
 
   if (!duration || (!duration.hours && !duration.minutes)) {
@@ -100,7 +137,7 @@ export const formatDurationDisplay = <AnyShowType extends Show>(show: AnyShowTyp
 /**
  * Filter that returns only shows that are in the future
  */
-export const filterForFutureShows = <AnyShowType extends Show>(shows: AnyShowType[]): AnyShowType[] => {
+export const filterForFutureShows = <T extends Show[]>(shows: T) => {
   return shows.filter(({ closingDate }) => {
     if (!closingDate) {
       return false;
@@ -114,7 +151,7 @@ export const filterForFutureShows = <AnyShowType extends Show>(shows: AnyShowTyp
 /**
  * Filter that returns only shows that are in the past
  */
-export const filterForPastShows = <AnyShowType extends Show>(shows: AnyShowType[]): AnyShowType[] => {
+export const filterForPastShows = <T extends Show[]>(shows: T) => {
   return shows.filter(({ closingDate }) => {
     if (!closingDate) {
       return false;
@@ -129,7 +166,7 @@ export const filterForPastShows = <AnyShowType extends Show>(shows: AnyShowType[
  *
  * @param shows An array of shows to sort
  */
-export const sortShowsByDate = <AnyShowType extends Show>(shows: AnyShowType[], order = 'desc'): AnyShowType[] =>
+export const sortShowsByDate = <T extends Show[]>(shows: T, order = 'desc') =>
   shows.sort((a, b) => {
     const { closingDate: showA } = a;
     const { closingDate: showB } = b;
@@ -150,7 +187,7 @@ export const sortShowsByDate = <AnyShowType extends Show>(shows: AnyShowType[], 
  * @param lastPerformance The date of the first performance
  * @returns
  */
-export const isPastShow = <AnyShowType extends Show>({ closingDate }: AnyShowType) => {
+export const isPastShow = <T extends Show>({ closingDate }: T) => {
   if (!closingDate) {
     return false;
   }
@@ -162,7 +199,7 @@ export const isPastShow = <AnyShowType extends Show>({ closingDate }: AnyShowTyp
 /**
  * Determine if the show is active, meaning it is currently running ("now playing")
  */
-export const isActiveShow = <AnyShowType extends Show>({ openingDate, closingDate }: AnyShowType) => {
+export const isActiveShow = <T extends Show>({ openingDate, closingDate }: T) => {
   if (!openingDate || !closingDate) {
     return false;
   }
@@ -177,7 +214,7 @@ export const isActiveShow = <AnyShowType extends Show>({ openingDate, closingDat
 /**
  * Determine if the show is "coming soon" meaning it will be opening soon
  */
-export const isComingSoonShow = <AnyShowType extends Show>({ openingDate, closingDate }: AnyShowType) => {
+export const isComingSoonShow = <T extends Show>({ openingDate, closingDate }: T) => {
   if (!openingDate || !closingDate) {
     return false;
   }
@@ -206,7 +243,7 @@ export const isComingSoonShow = <AnyShowType extends Show>({ openingDate, closin
  * @param openDate The opening performance datetime
  * @param closeDate The closing performance datetime
  */
-export const getShowStatus = <AnyShowType extends Show>(show: AnyShowType) => {
+export const getShowStatus = <T extends Show>(show: T) => {
   const { openingDate, closingDate } = show;
 
   // If no performances are passed in, bail.

@@ -14,7 +14,7 @@ export interface SeasonHighlightSponsor extends Sponsor {
 }
 
 export interface SeasonSponsors {
-  sponsors?: SeasonStandardSponsor[];
+  standardSponsors?: SeasonStandardSponsor[];
   highlightedSponsors?: SeasonHighlightSponsor[];
   specialThanks?: any;
 }
@@ -24,3 +24,6 @@ export interface SeasonAggregate extends Season {
   shows: Show[];
   sponsors?: SeasonSponsors;
 }
+
+// AGGREGATE FUNCTIONS
+export const hasShowsInSeason = <T extends Show[]>(shows?: T) => !!(shows && shows.length > 0);

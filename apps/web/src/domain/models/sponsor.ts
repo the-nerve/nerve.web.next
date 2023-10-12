@@ -1,6 +1,7 @@
 export enum SPONSOR_TYPE {
   PERSON = 'person',
   COMPANY = 'company',
+  GROUP = 'group',
 }
 
 export enum SPONSORSHIP_LEVEL {
@@ -29,4 +30,5 @@ export interface Sponsor {
   image?: unknown;
   type: SPONSOR_TYPE;
   link?: string;
+  scope?: SPONSORSHIP_SCOPE;
 }
