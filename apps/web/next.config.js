@@ -16,6 +16,9 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   transpilePackages: ['@nerve/kit', '@nerve/platform', '@nerve/ui'],
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
   webpack(config) {
     // See setup docs for SVGR with NextJS: https://react-svgr.com/docs/next/
     // Grab the existing rule that handles SVG imports (Node16 doesn't support optional nullish chaining)

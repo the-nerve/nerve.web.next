@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export interface Season {
+export interface _Season {
   id?: string; // unique identifier for the season
   slug: string; // unique human-readable identifier for the season
   path?: string; // full path to the season
@@ -15,21 +15,18 @@ export interface Season {
   };
 }
 
-export const seasonNeighbors = z.object({
-  previous: z
+export const season = z.object({
+  id: z.string().optional(),
+  slug: z.string(),
+  path: z.string().optional(),
+  title: z.string(),
+  tagline: z.string().optional(),
+  description: z.string().optional(),
+  term: z.number().optional(),
+  images: z
     .object({
-      title: z.string(),
-      slug: z.string(),
-      tagline: z.string().optional(),
-    })
-    .optional(),
-  next: z
-    .object({
-      title: z.string(),
-      slug: z.string(),
-      tagline: z.string().optional(),
+      card: z.unknown().optional(),
+      hero: z.unknown().optional(),
     })
     .optional(),
 });
-
-export type SeasonNeighbors = z.infer<typeof seasonNeighbors>;

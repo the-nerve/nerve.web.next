@@ -20,6 +20,9 @@
     "tailwind"
   ],
   "scripts": {
+    "dev": "turbo run dev --filter=@nerve/admin --filter=@nerve/web --parallel --color",
+    "admin:dev": "turbo run dev --filter=@nerve/admin",
+    "admin:build": "turbo run build --filter=@nerve/admin",
     "check:format": "prettier --check '**/*.{js,ts,tsx,json,md,yaml,yml}'",
     "check:lint": "turbo run check:lint --color",
     "check:types": "turbo run check:types --color",

@@ -1,5 +1,7 @@
+import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
+import { media } from 'sanity-plugin-media';
 
 import { deskStructure, sanitySchemas, singletonDocumentIDs } from './src/core/integrations/sanity';
 
@@ -18,6 +20,8 @@ export default defineConfig({
     deskTool({
       structure: deskStructure,
     }),
+    media(),
+    visionTool(),
   ],
 
   schema: {
