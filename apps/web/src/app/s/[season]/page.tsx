@@ -34,7 +34,7 @@ const Page = async ({ params }: PageProps) => {
       ---
       <h2>Shows this season</h2>
       {season.shows?.map((show) => {
-        const imageUrl = buildImageUrl(show.featuredImage!).url();
+        const imageUrl = buildImageUrl(show.featuredImage).url();
 
         return (
           <>

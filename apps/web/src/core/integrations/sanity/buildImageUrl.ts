@@ -5,4 +5,10 @@ import { sanityClient } from './sanityFetch';
 
 const imageBuilderClient = imageUrlBuilder(sanityClient);
 
-export const buildImageUrl = (source: SanityImageSource) => imageBuilderClient.image(source);
+export const buildImageUrl = (source?: SanityImageSource | null) => {
+  if (!source) {
+    console.warn('[sanity.buildImageUrl] No image source provided. Returning builder with empty string. as source');
+    return imageBuilderClient.image('');
+  }
+  return imageBuilderClient.image(source);
+};
