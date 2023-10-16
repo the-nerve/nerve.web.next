@@ -1,13 +1,13 @@
-import { type Artist, type ARTIST_GROUP } from '../models/artist';
-import { type Audio } from '../models/audio';
-import { type EventTicketing } from '../models/eventTicketing';
-import { type Location } from '../models/location';
-import { type Performance } from '../models/performance';
-import { type Season } from '../models/season';
-import { type Series } from '../models/series';
-import { type Show } from '../models/show';
-import { type Sponsor, type SPONSORSHIP_LEVEL, type SPONSORSHIP_SCOPE } from '../models/sponsor';
-import { type Video } from '../models/video';
+import { type Artist, type ARTIST_GROUP } from '../entities/artist';
+import { type Audio } from '../entities/audio';
+import { type EventTicketing } from '../entities/eventTicketing';
+import { type Location } from '../entities/location';
+import { type Performance } from '../entities/performance';
+import { type Season } from '../entities/season';
+import { type Series } from '../entities/series';
+import { type Show } from '../entities/show';
+import { type Sponsor, type SPONSORSHIP_LEVEL, type SPONSORSHIP_SCOPE } from '../entities/sponsor';
+import { type Video } from '../entities/video';
 
 export interface ShowStandardSponsor extends Sponsor {
   scope: SPONSORSHIP_SCOPE;
