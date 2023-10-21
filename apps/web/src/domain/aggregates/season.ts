@@ -1,7 +1,7 @@
-import { type Season } from '../entities/season';
-import { type Show } from '../entities/show';
-import { type Sponsor, type SPONSORSHIP_LEVEL, type SPONSORSHIP_SCOPE } from '../entities/sponsor';
-import { type Video } from '../entities/video';
+import { type Season } from '../models/season';
+import { type Show } from '../models/show';
+import { type Sponsor, type SPONSORSHIP_LEVEL, type SPONSORSHIP_SCOPE } from '../models/sponsor';
+import { type Video } from '../models/video';
 
 export interface SeasonStandardSponsor extends Sponsor {
   scope: SPONSORSHIP_SCOPE;
