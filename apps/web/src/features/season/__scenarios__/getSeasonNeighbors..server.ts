@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { groq, sanityFetch } from '$sanity';
+import { groq, sanityFetch, SEASON_PATH } from '$sanity';
 
 // query the previous and next seasons based on the title
 
@@ -8,11 +8,13 @@ const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
   "previous": *[_type == "season" && slug.current < ^.slug.current] | order(slug.current desc)[0] {
     title,
     "slug": slug.current,
+    ${SEASON_PATH}
     tagline,
   },
   "next": *[_type == "season" && slug.current > ^.slug.current] | order(slug.current asc)[0] {
     title,
     "slug": slug.current,
+    ${SEASON_PATH}
     tagline,
   },
 }`;
@@ -36,6 +38,7 @@ const seasonNeighbors = z.object({
 
 export const getSeasonNeighbors = async (slug: string) => {
   const seasonDto = await sanityFetch(QUERY, { slug });
+
   return seasonNeighbors.parse(seasonDto);
 };
 
