@@ -20,6 +20,7 @@
     "@nerve/kit": "workspace:*",
     "@nerve/tokens": "workspace:*",
     "@nerve/ui": "workspace:*",
+    "@sanity/image-url": "^1.0.2",
     "@vercel/edge-config": "^0.2.1",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
