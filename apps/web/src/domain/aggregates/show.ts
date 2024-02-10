@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { ARTIST_GROUP, artistModel } from '../models/artist';
 import { audioModel } from '../models/audio';
 import { eventTicketingModel } from '../models/eventTicketing';
+import { imageModel } from '../models/image';
 import { locationModel } from '../models/location';
 import { performanceModel } from '../models/performance';
 import { seasonModel } from '../models/season';
@@ -66,6 +67,13 @@ export const showAggregate = showModel.extend({
   series: seriesModel.optional(),
   sponsors: showSponsorsAggregate.optional(),
   tickets: eventTicketingModel.optional(),
+  images: z
+    .object({
+      poster: imageModel.optional(),
+      card: imageModel.optional(),
+      thumbnail: imageModel.optional(),
+    })
+    .optional(),
 });
 
 export type ShowArtist = z.infer<typeof showArtistAggregate>;

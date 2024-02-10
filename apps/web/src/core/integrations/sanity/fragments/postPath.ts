@@ -5,9 +5,9 @@ import { groq } from '../groq';
  *
  * Usage:
  * ...fields
- * ${POST_PATH}
+ * ${POST_PATH_FRAGMENT}
  */
-export const POST_PATH = groq`
+export const POST_PATH_FRAGMENT = groq`
   _type,
   (_type == "post") => {
     "path": "/blog/" + slug.current,

@@ -5,9 +5,9 @@ import { groq } from '../groq';
  *
  * Usage:
  * ...fields
- * ${SHOW_PATH}
+ * ${SHOW_PATH_FRAGMENT}
  */
-export const SHOW_PATH = groq`
+export const SHOW_PATH_FRAGMENT = groq`
   _type,
   (_type == "show") => {
     "path": "/s/" + season->slug.current + '/' + slug.current

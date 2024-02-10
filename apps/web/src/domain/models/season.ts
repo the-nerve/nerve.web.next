@@ -10,10 +10,25 @@ export const seasonModel = z.object({
   tagline: z.string().optional(),
   description: z.string().optional(),
   term: z.number().optional(),
-  images: z.object({
-    card: z.unknown().optional(),
-    hero: z.unknown().optional(),
+});
+
+// Metadata about surrounding seasons
+export const seasonNeighborsModel = z.object({
+  previous: z.object({
+    id: z.string(),
+    title: z.string(),
+    slug: z.string(),
+    path: z.string(),
+    tagline: z.string().nullable(),
+  }),
+  next: z.object({
+    id: z.string(),
+    title: z.string(),
+    slug: z.string(),
+    path: z.string(),
+    tagline: z.string().nullable(),
   }),
 });
 
+export type SeasonNeighbors = z.infer<typeof seasonNeighborsModel>;
 export type Season = z.infer<typeof seasonModel>;

@@ -4,7 +4,7 @@ import { groq } from '../groq';
 
 // Great sanity image fragment example: https://github.com/sanity-io/hydrogen-sanity-demo/blob/main/app/queries/sanity/fragments/image.ts
 
-export const IMAGE = groq`
+export const IMAGE_FRAGMENT = groq`
   "_id": asset->_id,
   "_type": asset->_type,
   "altText": asset->altText,

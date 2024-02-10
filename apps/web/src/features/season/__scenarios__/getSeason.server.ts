@@ -1,5 +1,5 @@
-import { groq, IMAGE, sanityFetch, SEASON_PATH, SHOW_PATH } from '$sanity';
-import { seasonModel } from '@/domain/models/season';
+import { groq, IMAGE_FRAGMENT, sanityFetch, SEASON_PATH_FRAGMENT, SHOW_PATH_FRAGMENT } from '$sanity';
+import { seasonAggregate } from '@/domain/aggregates/season';
 
 const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
   _type,
@@ -7,7 +7,7 @@ const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
   tagline,
   hashtag,
   description,
-  ${SEASON_PATH},
+  ${SEASON_PATH_FRAGMENT},
   // Sort shows by close date (newest to oldest)
   "shows": shows[]->{
     _type,
@@ -16,10 +16,12 @@ const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
     closeDate,
     "author": author.name,
     "slug": slug.current,
-    "featuredImage": cardImage {
-      ${IMAGE}
+    "images": : {
+      card: cardImage {
+        ${IMAGE_FRAGMENT}
+      }
     },
-    ${SHOW_PATH},
+    ${SHOW_PATH_FRAGMENT},
   } | order(closeDate desc),
   "slug": slug.current,
   "isHidden": doNotDisplay
@@ -28,5 +30,5 @@ const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
 // TODO: Consider throwing if season result isn't validated?
 export const getSeason = async (slug: string) => {
   const dto = await sanityFetch(QUERY, { slug });
-  return seasonModel.parse(dto);
+  return seasonAggregate.parse(dto);
 };

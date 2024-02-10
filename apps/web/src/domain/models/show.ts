@@ -83,14 +83,6 @@ export const showModel = z.object({
   generalTicketLink: z.string().optional(),
   hasDigitalProgram: z.boolean().optional(),
   hasPhysicalProgram: z.boolean().optional(),
-  images: z
-    .object({
-      poster: z.unknown().optional(),
-      card: z.unknown().optional(),
-      thumbnail: z.unknown().optional(),
-      hero: z.unknown().optional(),
-    })
-    .optional(),
   intermissionCount: z.number().optional(),
   openingDate: z.string().optional(),
   rating: z.nativeEnum(SHOW_RATING).optional(),
