@@ -97,7 +97,9 @@ export const showModel = z.object({
   eventStatus: z.nativeEnum(SHOW_EVENT_STATUS).optional(),
   status: z.nativeEnum(SHOW_STATUS).optional(),
   teaser: z.string().optional(),
-  term: z.number().optional(),
+  term: z.number().optional(), // The location of the show in sequence of all shows
+
+  // More open-ended fields for additional information
   contentAdvisory: z.string().optional(),
   effectsAdvisory: z.string().optional(),
   healthNotice: z.string().optional(),
