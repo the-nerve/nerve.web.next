@@ -56,5 +56,10 @@
   // Enable tailwind validation linting
   "tailwindCSS.validate": true,
   // dictionary
-  "cSpell.words": ["groq", "nofollow"]
+  "cSpell.words": ["groq", "nofollow"],
+  "[javascript][javascriptreact][typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  }
 }

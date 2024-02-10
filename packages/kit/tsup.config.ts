@@ -6,7 +6,7 @@ export default defineConfig({
     // next: 'src/next/index.ts',
     node: 'src/node/index.ts',
     // react: 'src/react/index.ts',
-    // utils: 'src/utils/index.ts',
+    utils: 'src/utils/index.ts',
   },
   external: ['react', 'react-dom'],
   format: ['cjs'],

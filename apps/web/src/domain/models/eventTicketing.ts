@@ -1,3 +1,5 @@
+import { isValueNullish } from '@nerve/kit/utils';
+
 export enum EVENT_TICKETING_TYPE {
   DOOR = 'door',
   EXTERNAL = 'external',
@@ -36,22 +38,48 @@ export interface EventTicketingProvider {
 export interface EventTicketing {
   type?: EVENT_TICKETING_TYPE;
   status: EVENT_TICKETING_STATUS;
-  price?: number; // in USD
-  discountPrice?: number; // in USD
+  basePrice?: number; // in USD
+  salePrice?: number; // in USD
+  industryPrice?: number; // in USD
+  studentPrice?: number; // in USD
   link?: string;
   provider?: EventTicketingProvider;
 }
 
 /**
- * Given ticket config has a price set
- * * A price of 0 will be valid
+ * Tickets have a set price
+ * * A price of 0 will be valid (when free tickets are set)
  */
 export const hasTicketPrice = <T extends EventTicketing>(ticketing: T) => {
-  return ticketing.price !== undefined && ticketing.price >= 0;
+  return !isValueNullish(ticketing.basePrice) && ticketing.basePrice >= 0;
 };
 
+/**
+ * Tickets for the event are free
+ */
 export const hasFreeTickets = <T extends EventTicketing>(ticketing: T) => {
-  return ticketing.price === 0;
+  return ticketing.basePrice === 0;
+};
+
+/**
+ * Tickets for the event are free
+ */
+export const hasTicketsOnSale = <T extends EventTicketing>(ticketing: T) => {
+  return ticketing.salePrice && ticketing.salePrice > 0;
+};
+
+/**
+ * This event has a special industry ticket price
+ */
+export const hasIndustryTicketPrice = <T extends EventTicketing>(ticketing: T) => {
+  return ticketing.industryPrice && ticketing.industryPrice > 0;
+};
+
+/**
+ * This event has a special student ticket price
+ */
+export const hasStudentTicketPrice = <T extends EventTicketing>(ticketing: T) => {
+  return ticketing.studentPrice && ticketing.studentPrice > 0;
 };
 
 /**
