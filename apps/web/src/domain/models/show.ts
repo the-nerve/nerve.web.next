@@ -1,4 +1,7 @@
 import { compareAsc, compareDesc, isFuture, isPast, isWithinInterval, parseISO, sub } from 'date-fns';
+import { z } from 'zod';
+
+// ============== MODEL ENUMS ============== //
 
 export enum SHOW_STATUS {
   ACTIVE = 'active',
@@ -49,57 +52,63 @@ export const SHOW_TICKET_STATUS_DISPLAY = {
   [SHOW_TICKET_STATUS.SOLD_OUT]: 'Sold Out',
 } as const;
 
-export interface ShowAuthor {
-  name: string;
-  bioLink?: string;
-  scriptLink?: string;
-}
+// ============== MODEL DEFS ============== //
 
-export interface ShowTickets {
-  status: SHOW_TICKET_STATUS;
-  price?: number; // in USD
-  link?: string;
-}
+const showAuthorModel = z.object({
+  name: z.string(),
+  bioLink: z.string().optional(),
+  scriptLink: z.string().optional(),
+});
 
-// MAIN AGGREGATE
+const showTicketsModel = z.object({
+  status: z.nativeEnum(SHOW_TICKET_STATUS),
+  price: z.number().optional(),
+  link: z.string().optional(),
+});
 
-export interface Show {
-  id?: string; // unique identifier for the show
-  slug: string; // unique human-readable identifier for the show
-  path?: string; // full path to the show
-  title: string;
-  authors?: ShowAuthor[];
-  closingDate?: string;
-  description?: any;
-  duration?: {
-    hours?: number;
-    minutes?: number;
-  };
-  generalTicketLink?: string;
-  hasDigitalProgram?: boolean;
-  hasPhysicalProgram?: boolean;
-  images?: {
-    poster?: unknown;
-    card?: unknown;
-    thumbnail?: unknown;
-    hero?: unknown;
-  };
-  intermissionCount?: number;
-  openingDate?: string;
-  rating?: SHOW_RATING;
-  eventStatus?: SHOW_EVENT_STATUS;
-  status?: SHOW_STATUS;
-  teaser?: string;
-  term?: number; // The location of the show in sequence of all shows
+export const showModel = z.object({
+  id: z.string().optional(),
+  slug: z.string(),
+  path: z.string().optional(),
+  title: z.string(),
+  authors: z.array(showAuthorModel).optional(),
+  closingDate: z.string().optional(),
+  description: z.string().optional(),
+  duration: z
+    .object({
+      hours: z.number().optional(),
+      minutes: z.number().optional(),
+    })
+    .optional(),
+  generalTicketLink: z.string().optional(),
+  hasDigitalProgram: z.boolean().optional(),
+  hasPhysicalProgram: z.boolean().optional(),
+  images: z
+    .object({
+      poster: z.unknown().optional(),
+      card: z.unknown().optional(),
+      thumbnail: z.unknown().optional(),
+      hero: z.unknown().optional(),
+    })
+    .optional(),
+  intermissionCount: z.number().optional(),
+  openingDate: z.string().optional(),
+  rating: z.nativeEnum(SHOW_RATING).optional(),
+  eventStatus: z.nativeEnum(SHOW_EVENT_STATUS).optional(),
+  status: z.nativeEnum(SHOW_STATUS).optional(),
+  teaser: z.string().optional(),
+  term: z.number().optional(),
+  contentAdvisory: z.string().optional(),
+  effectsAdvisory: z.string().optional(),
+  healthNotice: z.string().optional(),
+  triggerWarning: z.string().optional(),
+});
 
-  // More open-ended fields for additional information
-  contentAdvisory?: any;
-  effectsAdvisory?: any;
-  healthNotice?: any;
-  triggerWarning?: any;
-}
+export type ShowAuthor = z.infer<typeof showAuthorModel>;
+export type ShowTickets = z.infer<typeof showTicketsModel>;
+export type Show = z.infer<typeof showModel>;
 
-// AGGREGATE FUNCTIONS
+// ============== MODEL FUNCTIONS ============== //
 
 /**
  * Checks to see if this show has an intermission

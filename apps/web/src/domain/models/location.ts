@@ -1,27 +1,33 @@
-export interface Address {
-  city: string;
-  state: string;
-  stateCode: string;
-  street: string;
-  zipcode: string;
-}
+import { z } from 'zod';
 
-export interface GeoLocation {
-  lat: string;
-  lng: string;
-}
+// ============== MODEL DEFS ============== //
 
-export interface Location {
-  title: string;
-  googleTitle?: string;
-  address: Address;
-  geolocation?: GeoLocation;
-  indigenousLandAck?: string;
-}
+export const addressModel = z.object({
+  city: z.string(),
+  state: z.string(),
+  stateCode: z.string(),
+  street: z.string(),
+  zipcode: z.string(),
+});
 
-//
-// UTILITIES
-//
+export const geoLocationModel = z.object({
+  lat: z.string(),
+  lng: z.string(),
+});
+
+export const locationModel = z.object({
+  title: z.string(),
+  googleTitle: z.string().optional(),
+  address: addressModel,
+  geolocation: geoLocationModel.optional(),
+  indigenousLandAck: z.string().optional(),
+});
+
+export type Address = z.infer<typeof addressModel>;
+export type GeoLocation = z.infer<typeof geoLocationModel>;
+export type Location = z.infer<typeof locationModel>;
+
+// ============== MODEL FUNCTIONS ============== //
 
 const GMAPS_DIRECTIONS_BASE_URL = 'https://www.google.com/maps/dir/?api=1&destination=';
 

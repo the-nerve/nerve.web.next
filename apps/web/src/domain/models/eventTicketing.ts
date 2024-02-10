@@ -1,4 +1,8 @@
+import { z } from 'zod';
+
 import { isValueNullish } from '@nerve/kit/utils';
+
+// ============== MODEL ENUMS ============== //
 
 export enum EVENT_TICKETING_TYPE {
   DOOR = 'door',
@@ -26,25 +30,32 @@ export const EVENT_TICKETING_STATUS_DISPLAY = {
   [EVENT_TICKETING_STATUS.SOLD_OUT]: 'Sold Out',
 } as const;
 
-export interface EventTicketingProvider {
-  name: string;
-  url: string;
-  description?: string;
-  email?: string;
-  phone?: string;
-  note?: any;
-}
+// ============== MODEL DEFS ============== //
 
-export interface EventTicketing {
-  type?: EVENT_TICKETING_TYPE;
-  status: EVENT_TICKETING_STATUS;
-  basePrice?: number; // in USD
-  salePrice?: number; // in USD
-  industryPrice?: number; // in USD
-  studentPrice?: number; // in USD
-  link?: string;
-  provider?: EventTicketingProvider;
-}
+export const eventTicketingProviderModel = z.object({
+  name: z.string(),
+  url: z.string(),
+  description: z.string().optional(),
+  email: z.string().optional(),
+  phone: z.string().optional(),
+  note: z.unknown().optional(),
+});
+
+export const eventTicketingModel = z.object({
+  type: z.nativeEnum(EVENT_TICKETING_TYPE).optional(),
+  status: z.nativeEnum(EVENT_TICKETING_STATUS),
+  basePrice: z.number().optional(),
+  salePrice: z.number().optional(),
+  industryPrice: z.number().optional(),
+  studentPrice: z.number().optional(),
+  link: z.string().optional(),
+  provider: eventTicketingProviderModel.optional(),
+});
+
+export type EventTicketingProvider = z.infer<typeof eventTicketingProviderModel>;
+export type EventTicketing = z.infer<typeof eventTicketingModel>;
+
+// ============== MODEL FUNCTIONS ============== //
 
 /**
  * Tickets have a set price

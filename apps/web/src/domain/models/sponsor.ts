@@ -1,3 +1,7 @@
+import { z } from 'zod';
+
+// ============== MODEL ENUMS ============== //
+
 export enum SPONSOR_TYPE {
   PERSON = 'person',
   COMPANY = 'company',
@@ -24,10 +28,14 @@ export const SPONSORSHIP_LEVEL_DISPLAY = {
   [SPONSORSHIP_LEVEL.BE_GUTSY]: '#BeGutsy',
 } as const;
 
-export interface Sponsor {
-  name: string;
-  info?: string;
-  image?: unknown;
-  type: SPONSOR_TYPE;
-  link?: string;
-}
+// ============== MODEL DEFS ============== //
+
+export const sponsorModel = z.object({
+  name: z.string(),
+  info: z.string().optional(),
+  image: z.unknown().optional(),
+  type: z.nativeEnum(SPONSOR_TYPE),
+  link: z.string().optional(),
+});
+
+export type Sponsor = z.infer<typeof sponsorModel>;

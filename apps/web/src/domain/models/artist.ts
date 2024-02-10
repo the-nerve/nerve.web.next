@@ -1,3 +1,7 @@
+import { z } from 'zod';
+
+// ============== MODEL ENUMS ============== //
+
 export enum ARTIST_GROUP {
   ACTOR = 'actor',
   DIRECTOR = 'director',
@@ -8,25 +12,29 @@ export enum ARTIST_GROUP {
   ASSISTANT = 'assistant',
 }
 
-export interface Artist {
-  name: {
-    first: string;
-    middle?: string;
-    last: string;
-  };
-  pronouns: string;
-  instagram?: string;
-  website?: string;
-  headshot?: unknown;
-}
+// ============== MODEL DEFS ============== //
+
+export const artistModel = z.object({
+  name: z.object({
+    first: z.string(),
+    middle: z.string().optional(),
+    last: z.string(),
+  }),
+  pronouns: z.string(),
+  instagram: z.string().optional(),
+  website: z.string().optional(),
+  headshot: z.unknown().optional(),
+});
+
+export type Artist = z.infer<typeof artistModel>;
+
+// ============== MODEL FUNCTIONS ============== //
 
 /**
- * Takes any number of args, but assumes the order is the display order... ie: first name, middle name, last name
- * Filters out any empty values and joins the rest with a space
+ * Takes an artist name object and composes it into a single string, removing any empty values
  */
-export const composeArtistName = (...args: string[]) => {
-  // Drop all empty values
-  const cleanedArray = args.filter(Boolean);
+export const getFullArtistName = (artistName: Artist['name']) => {
+  const composedName = Object.values(artistName).filter(Boolean).join(' ');
 
-  return cleanedArray.join(' ');
+  return composedName;
 };

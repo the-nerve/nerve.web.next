@@ -1,33 +1,44 @@
-import { type Season } from '../models/season';
-import { type Show } from '../models/show';
-import { type Sponsor, type SPONSORSHIP_LEVEL, type SPONSORSHIP_SCOPE } from '../models/sponsor';
-import { type Video } from '../models/video';
+import { z } from 'zod';
 
-export interface SeasonStandardSponsor extends Sponsor {
-  scope: SPONSORSHIP_SCOPE;
-  level: SPONSORSHIP_LEVEL;
-}
+import { seasonModel } from '../models/season';
+import { type Show, showModel } from '../models/show';
+import { sponsorModel, SPONSORSHIP_LEVEL, SPONSORSHIP_SCOPE } from '../models/sponsor';
+import { videoModel } from '../models/video';
 
-export interface SeasonHighlightSponsor extends Sponsor {
-  scope: SPONSORSHIP_SCOPE;
-  level: SPONSORSHIP_LEVEL;
-  note: any;
-}
+// ============== AGGREGATE DEFS ============== //
 
-export interface SeasonSponsors {
-  standardSponsors?: SeasonStandardSponsor[];
-  highlightedSponsors?: SeasonHighlightSponsor[];
-  specialThanks?: any;
-}
+const seasonStandardSponsorAggregate = sponsorModel.extend({
+  scope: z.nativeEnum(SPONSORSHIP_SCOPE),
+  level: z.nativeEnum(SPONSORSHIP_LEVEL),
+});
 
-// MAIN AGGREGATE
-export interface SeasonAggregate extends Season {
-  shows: Show[];
-  sponsors?: SeasonSponsors;
-  promo: {
-    trailer?: Video;
-  };
-}
+const seasonHighlightSponsorAggregate = sponsorModel.extend({
+  scope: z.nativeEnum(SPONSORSHIP_SCOPE),
+  level: z.nativeEnum(SPONSORSHIP_LEVEL),
+  note: z.unknown(),
+});
 
-// AGGREGATE FUNCTIONS
-export const hasShowsInSeason = <T extends Show[]>(shows?: T) => !!(shows && shows.length > 0);
+const seasonSponsorsAggregate = z.object({
+  standardSponsors: z.array(seasonStandardSponsorAggregate),
+  highlightedSponsors: z.array(seasonHighlightSponsorAggregate),
+  specialThanks: z.unknown(),
+});
+
+export const seasonAggregate = seasonModel.extend({
+  shows: z.array(showModel).optional(),
+  sponsors: seasonSponsorsAggregate.optional(),
+  promo: z
+    .object({
+      trailer: videoModel.optional(),
+    })
+    .optional(),
+});
+
+export type SeasonStandardSponsor = z.infer<typeof seasonStandardSponsorAggregate>;
+export type SeasonHighlightSponsor = z.infer<typeof seasonHighlightSponsorAggregate>;
+export type SeasonSponsors = z.infer<typeof seasonSponsorsAggregate>;
+
+export type SeasonAggregate = z.infer<typeof seasonAggregate>;
+
+// ============== AGGREGATE FUNCTIONS ============== //
+export const hasShowsInSeason = <T extends Show[]>(shows?: T): shows is T => !!(shows && shows.length > 0);

@@ -1,40 +1,17 @@
-import { type Artist, type ARTIST_GROUP } from '../models/artist';
-import { type Audio } from '../models/audio';
-import { type EventTicketing } from '../models/eventTicketing';
-import { type Location } from '../models/location';
-import { type Performance } from '../models/performance';
-import { type Season } from '../models/season';
-import { type Series } from '../models/series';
-import { type Show } from '../models/show';
-import { type Sponsor, type SPONSORSHIP_LEVEL, type SPONSORSHIP_SCOPE } from '../models/sponsor';
-import { type Video } from '../models/video';
+import { z } from 'zod';
 
-export interface ShowStandardSponsor extends Sponsor {
-  scope: SPONSORSHIP_SCOPE;
-  level: SPONSORSHIP_LEVEL;
-}
+import { ARTIST_GROUP, artistModel } from '../models/artist';
+import { audioModel } from '../models/audio';
+import { eventTicketingModel } from '../models/eventTicketing';
+import { locationModel } from '../models/location';
+import { performanceModel } from '../models/performance';
+import { seasonModel } from '../models/season';
+import { seriesModel } from '../models/series';
+import { showModel } from '../models/show';
+import { sponsorModel, SPONSORSHIP_LEVEL, SPONSORSHIP_SCOPE } from '../models/sponsor';
+import { videoModel } from '../models/video';
 
-export interface ShowHighlightSponsor extends Sponsor {
-  scope: SPONSORSHIP_SCOPE;
-  level: SPONSORSHIP_LEVEL;
-  note?: any;
-}
-
-export interface ShowSponsors {
-  standardSponsors?: ShowStandardSponsor[];
-  highlightedSponsors?: ShowHighlightSponsor[];
-  specialThanks?: any;
-}
-
-export interface ShowPerformance extends Performance {
-  tickets?: EventTicketing;
-}
-
-export interface ShowArtist extends Artist {
-  role: string;
-  group: ARTIST_GROUP;
-  bio?: string;
-}
+// ============== AGGREGATE ENUMS ============== //
 
 export interface ShowArtists {
   [ARTIST_GROUP.ACTOR]?: ShowArtist[];
@@ -46,17 +23,55 @@ export interface ShowArtists {
   [ARTIST_GROUP.ASSISTANT]?: ShowArtist[];
 }
 
-// MAIN AGGREGATE
-export interface ShowAggregate extends Show {
-  artists?: ShowArtists;
-  location: Location;
-  performances?: ShowPerformance[];
-  promo?: {
-    trailer?: Video;
-    soundtrack?: Audio;
-  };
-  season?: Season;
-  series?: Series;
-  sponsors?: Sponsor[];
-  tickets?: EventTicketing;
-}
+// ============== AGGREGATE DEFS ============== //
+
+const showStandardSponsorAggregate = sponsorModel.extend({
+  scope: z.nativeEnum(SPONSORSHIP_SCOPE),
+  level: z.nativeEnum(SPONSORSHIP_LEVEL),
+});
+
+const showHighlightSponsorAggregate = sponsorModel.extend({
+  scope: z.nativeEnum(SPONSORSHIP_SCOPE),
+  level: z.nativeEnum(SPONSORSHIP_LEVEL),
+  note: z.unknown(),
+});
+
+const showSponsorsAggregate = z.object({
+  standardSponsors: z.array(showStandardSponsorAggregate),
+  highlightedSponsors: z.array(showHighlightSponsorAggregate),
+  specialThanks: z.unknown(),
+});
+
+export const showPerformanceAggregate = performanceModel.extend({
+  tickets: eventTicketingModel.optional(),
+});
+
+export const showArtistAggregate = artistModel.extend({
+  role: z.string(),
+  group: z.nativeEnum(ARTIST_GROUP),
+  bio: z.string().optional(),
+});
+
+export const showAggregate = showModel.extend({
+  artists: showArtistAggregate.optional(),
+  location: locationModel,
+  performances: z.array(showPerformanceAggregate).optional(),
+  promo: z
+    .object({
+      trailer: videoModel.optional(),
+      soundtrack: audioModel.optional(),
+    })
+    .optional(),
+  season: seasonModel.optional(),
+  series: seriesModel.optional(),
+  sponsors: showSponsorsAggregate.optional(),
+  tickets: eventTicketingModel.optional(),
+});
+
+export type ShowArtist = z.infer<typeof showArtistAggregate>;
+export type ShowStandardSponsor = z.infer<typeof showStandardSponsorAggregate>;
+export type ShowHighlightSponsor = z.infer<typeof showHighlightSponsorAggregate>;
+export type ShowSponsors = z.infer<typeof showSponsorsAggregate>;
+export type ShowPerformance = z.infer<typeof showPerformanceAggregate>;
+
+export type ShowAggregate = z.infer<typeof showAggregate>;

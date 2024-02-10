@@ -1,4 +1,7 @@
 import { isPast, isValid, parseISO } from 'date-fns';
+import { z } from 'zod';
+
+// ============== MODEL ENUMS ============== //
 
 export enum PERFORMANCE_FEATURES {
   PWYW = 'pay-what-you-want',
@@ -14,19 +17,27 @@ export enum PERFORMANCE_STATUS {
   POSTPONED = 'postponed',
 }
 
-export interface Performance {
-  startTime: string;
-  status: PERFORMANCE_STATUS;
-  isPreview?: boolean;
-  isPWYW?: boolean;
-  hasTalkback?: boolean;
-  hasAssistedListening?: boolean;
-  duration?: {
-    hours?: number;
-    minutes?: number;
-  };
-  isTicketed?: boolean;
-}
+// ============== MODEL DEFS ============== //
+
+export const performanceModel = z.object({
+  startTime: z.string(),
+  status: z.nativeEnum(PERFORMANCE_STATUS),
+  isPreview: z.boolean().optional(),
+  isPWYW: z.boolean().optional(),
+  hasTalkback: z.boolean().optional(),
+  hasAssistedListening: z.boolean().optional(),
+  duration: z
+    .object({
+      hours: z.number().optional(),
+      minutes: z.number().optional(),
+    })
+    .optional(),
+  isTicketed: z.boolean().optional(),
+});
+
+export type Performance = z.infer<typeof performanceModel>;
+
+// ============== MODEL FUNCTIONS ============== //
 
 /**
  * Checks to see if this performance has been marked as "cancelled"
