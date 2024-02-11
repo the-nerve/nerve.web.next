@@ -3,6 +3,7 @@ import { seasonAggregate } from '@/domain/aggregates/season';
 
 const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
   _type,
+  "id": _id,
   title,
   tagline,
   hashtag,
@@ -11,13 +12,14 @@ const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
   // Sort shows by close date (newest to oldest)
   "shows": shows[]->{
     _type,
+    "id": _id,
     title,
     openDate,
     closeDate,
     "author": author.name,
     "slug": slug.current,
-    "images": : {
-      card: cardImage {
+    "images": {
+      "card": cardImage {
         ${IMAGE_FRAGMENT}
       }
     },

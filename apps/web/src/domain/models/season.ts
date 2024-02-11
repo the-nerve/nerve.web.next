@@ -14,20 +14,24 @@ export const seasonModel = z.object({
 
 // Metadata about surrounding seasons
 export const seasonNeighborsModel = z.object({
-  previous: z.object({
-    id: z.string(),
-    title: z.string(),
-    slug: z.string(),
-    path: z.string(),
-    tagline: z.string().nullable(),
-  }),
-  next: z.object({
-    id: z.string(),
-    title: z.string(),
-    slug: z.string(),
-    path: z.string(),
-    tagline: z.string().nullable(),
-  }),
+  previous: z
+    .object({
+      id: z.string(),
+      title: z.string(),
+      slug: z.string(),
+      path: z.string(),
+      tagline: z.string().nullable(),
+    })
+    .nullable(),
+  next: z
+    .object({
+      id: z.string(),
+      title: z.string(),
+      slug: z.string(),
+      path: z.string(),
+      tagline: z.string().nullable(),
+    })
+    .nullable(),
 });
 
 export type SeasonNeighbors = z.infer<typeof seasonNeighborsModel>;

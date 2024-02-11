@@ -7,7 +7,6 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return {
     manifest: '/manifest.json',
     icons: [],
-    themeColor: '#000000',
     creator: '',
     publisher: 'The Nerve',
     robots: 'index, follow',

@@ -6,17 +6,17 @@ import { seasonNeighborsModel } from '@/domain/models/season';
  */
 const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
   "previous": *[_type == "season" && slug.current < ^.slug.current] | order(slug.current desc)[0] {
-    id,
+    "id": _id,
     title,
     "slug": slug.current,
-    ${SEASON_PATH_FRAGMENT}
+    ${SEASON_PATH_FRAGMENT},
     tagline,
   },
   "next": *[_type == "season" && slug.current > ^.slug.current] | order(slug.current asc)[0] {
-    id,
+    "id": _id,
     title,
     "slug": slug.current,
-    ${SEASON_PATH_FRAGMENT}
+    ${SEASON_PATH_FRAGMENT},
     tagline,
   },
 }`;

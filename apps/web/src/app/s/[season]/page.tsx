@@ -37,15 +37,15 @@ const Page = async ({ params }: PageProps) => {
         const imageUrl = buildImageUrl(show.images?.card).url();
 
         return (
-          <>
-            <p key={show.title}>{show.title}</p>
+          <div key={show.id}>
+            <p>{show.title}</p>
             <Image
               src={imageUrl}
               alt={show.images?.card?.altText || show.title}
               width={show.images?.card?.metadata?.dimensions.width}
               height={show.images?.card?.metadata?.dimensions.height}
             />
-          </>
+          </div>
         );
       })}
     </>

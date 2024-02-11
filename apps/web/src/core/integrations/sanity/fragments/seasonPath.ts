@@ -8,8 +8,7 @@ import { groq } from '../groq';
  * ${SEASON_PATH_FRAGMENT}
  */
 export const SEASON_PATH_FRAGMENT = groq`
-  _type,
-  (_type == "season") => {
-    "path": "/s/" + slug.current,
-  },
+  _type == "season" => {
+    "path": "/s/" + slug.current
+  }
 `;
