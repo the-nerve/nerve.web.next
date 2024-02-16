@@ -1,0 +1,26 @@
+{
+  "name": "@nerve/email",
+  "version": "1.0.0",
+  "description": "Email builder for The Nerve",
+  "private": false,
+  "scripts": {
+    "check:lint": "TIMING=1 eslint .",
+    "check:types": "tsc --noEmit",
+    "dev": "email dev",
+    "fix:lint": "eslint .",
+    "test": "echo \"Bypassing: no test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@nerve/ui": "workspace:*",
+    "@react-email/components": "^0.0.14",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-email": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nerve/tsconfig": "workspace:*",
+    "@types/react": "18.2.18",
+    "eslint-config-nerve": "workspace:*",
+    "typescript": "5.1.6"
+  }
+}
