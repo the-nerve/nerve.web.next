@@ -1,0 +1,21 @@
+{
+  "name": "@nerve/api",
+  "version": "1.0.0",
+  "description": "Core api for The Nerve",
+  "private": false,
+  "sideEffects": true,
+  "scripts": {
+    "add:function": "supabase functions new $1",
+    "build": "",
+    "check:lint": "TIMING=1 eslint . --no-error-on-unmatched-pattern",
+    "fix:lint": "eslint .",
+    "test": "echo \"Bypassing: no test specified\" && exit 0"
+  },
+  "dependencies": {
+    "supabase": "^1.145.4"
+  },
+  "devDependencies": {
+    "@nerve/tsconfig": "workspace:*",
+    "eslint-config-nerve": "workspace:*"
+  }
+}
