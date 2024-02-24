@@ -12,6 +12,9 @@
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
       "inputs": ["*.config.js", "*.config.ts", "src/**", "tsconfig.json"],
       "env": [
+        "CI",
+        "LOG_LEVEL",
+        "NEXT_PUBLIC_LOG_LEVEL",
         "NEXT_PUBLIC_SANITY_API_VERSION",
         "NEXT_PUBLIC_SANITY_DATASET",
         "NEXT_PUBLIC_SANITY_EDITOR_TOKEN",
