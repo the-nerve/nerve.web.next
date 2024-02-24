@@ -35,7 +35,7 @@ concurrency:
 
 env:
   COMMON_INSTALL_COMMAND: pnpm install --frozen-lockfile --prefer-offline
-  COMMON_NODE_VERSION: 18.15.0
+  COMMON_NODE_VERSION: 20.9.0
 
 jobs:
   ##################################################################################################
