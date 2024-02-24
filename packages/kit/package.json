@@ -10,6 +10,11 @@
     "fix:lint": "eslint . --fix",
     "test": "echo \"Bypassing: no test specified\" && exit 0"
   },
+  "dependencies": {
+    "date-fns": "^3.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "@nerve/tsconfig": "workspace:*",
     "@types/node": "20.4.2",
@@ -24,9 +29,29 @@
     "src"
   ],
   "exports": {
+    "./devices": {
+      "import": "./src/devices/index.ts",
+      "require": "./dist/devices.js"
+    },
+    "./env": {
+      "import": "./src/env/index.ts",
+      "require": "./dist/env.js"
+    },
+    "./next": {
+      "import": "./src/next/index.ts",
+      "require": "./dist/next.js"
+    },
     "./node": {
       "import": "./src/node/index.ts",
       "require": "./dist/node.js"
+    },
+    "./react": {
+      "import": "./src/react/index.ts",
+      "require": "./dist/react.js"
+    },
+    "./testing": {
+      "import": "./src/testing/index.ts",
+      "require": "./dist/testing.js"
     },
     "./utils": {
       "import": "./src/utils/index.ts",
@@ -35,18 +60,34 @@
   },
   "typesVersions": {
     "*": {
+      "devices": [
+        "src/devices/index.ts",
+        "dist/devices.d.ts"
+      ],
+      "env": [
+        "src/env/index.ts",
+        "dist/env.d.ts"
+      ],
+      "next": [
+        "src/next/index.ts",
+        "dist/next.d.ts"
+      ],
       "node": [
         "src/node/index.ts",
         "dist/node.d.ts"
+      ],
+      "react": [
+        "src/react/index.ts",
+        "dist/react.d.ts"
+      ],
+      "testing": [
+        "src/testing/index.ts",
+        "dist/testing.d.ts"
       ],
       "utils": [
         "src/utils/index.ts",
         "dist/utils.d.ts"
       ]
     }
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
   }
 }
