@@ -1,6 +1,6 @@
 import { groq, sanityFetch } from '@/integrations/sanity';
 
-const singleDocumentTitleQuery = groq`*[_type == $type && slug.current == $slug][0] {
+const documentTitleQuery = groq`*[_type == $type && slug.current == $slug][0] {
     title,
   }`;
 
@@ -9,6 +9,6 @@ interface DocumentTitle {
 }
 
 export const getDocumentTitle = async (documentType: string, slug: string) => {
-  const metadata = await sanityFetch<DocumentTitle>(singleDocumentTitleQuery, { type: documentType, slug });
+  const metadata = await sanityFetch<DocumentTitle>(documentTitleQuery, { type: documentType, slug });
   return metadata;
 };

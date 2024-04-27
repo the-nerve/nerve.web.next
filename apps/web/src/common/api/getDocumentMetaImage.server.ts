@@ -1,6 +1,6 @@
 import { groq, sanityFetch } from '@/integrations/sanity';
 
-const singleMetaImageQuery = groq`*[_type == $type && slug.current == $slug][0] {
+const documentMetaImageQuery = groq`*[_type == $type && slug.current == $slug][0] {
     "documentTitle": title,
     "image": {
       "url": metaImage.asset->url,
@@ -20,7 +20,7 @@ interface DocumentImageMetadata {
   };
 }
 
-export const getMetaImage = async (documentType: string, slug: string) => {
-  const metadata = await sanityFetch<DocumentImageMetadata>(singleMetaImageQuery, { type: documentType, slug });
+export const getDocumentMetaImage = async (documentType: string, slug: string) => {
+  const metadata = await sanityFetch<DocumentImageMetadata>(documentMetaImageQuery, { type: documentType, slug });
   return metadata;
 };
