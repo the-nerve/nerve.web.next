@@ -1,5 +1,5 @@
-import { groq, sanityFetch, SEASON_PATH_FRAGMENT } from '$sanity';
 import { seasonNeighborsModel } from '@/domain/models/season';
+import { groq, sanityFetch, SEASON_PATH_FRAGMENT } from '@/integrations/sanity';
 
 /**
  * Query the next season and previous season based on a given season

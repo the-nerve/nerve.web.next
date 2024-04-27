@@ -1,6 +1,6 @@
 import { type Metadata } from 'next';
 
-import { getDocumentMeta } from '@/features/seo/__scenarios__/getDocumentMeta';
+import { getDocumentMeta } from '@/common/api/getDocumentMeta.server';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const metadata = await getDocumentMeta('page', 'blog');

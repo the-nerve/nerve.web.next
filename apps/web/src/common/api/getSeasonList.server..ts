@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { groq, sanityFetch } from '$sanity';
+import { groq, sanityFetch } from '@/integrations/sanity';
 
 const QUERY = groq`*[_type == "season"]{slug}|order(slug.current asc).slug.current`;
 

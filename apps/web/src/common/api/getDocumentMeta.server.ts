@@ -1,4 +1,4 @@
-import { groq, sanityFetch } from '$sanity';
+import { groq, sanityFetch } from '@/integrations/sanity';
 
 const singleDocumentMetaQuery = groq`*[_type == $type && slug.current == $slug][0] {
     "title": seo.title,

@@ -5,7 +5,7 @@
 
 import { ImageResponse } from 'next/server';
 
-import { getDocumentTitle } from '@/features/seo/__scenarios__/getDocumentTitle';
+import { getDocumentTitle } from '@/common/api/getDocumentTitle.server';
 
 // Route segment config
 export const runtime = 'edge';

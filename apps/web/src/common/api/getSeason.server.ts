@@ -1,5 +1,5 @@
-import { groq, IMAGE_FRAGMENT, sanityFetch, SEASON_PATH_FRAGMENT, SHOW_PATH_FRAGMENT } from '$sanity';
 import { seasonAggregate } from '@/domain/aggregates/season';
+import { groq, IMAGE_FRAGMENT, sanityFetch, SEASON_PATH_FRAGMENT, SHOW_PATH_FRAGMENT } from '@/integrations/sanity';
 
 const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
   _type,

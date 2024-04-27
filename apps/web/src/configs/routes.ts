@@ -1,11 +1,15 @@
 export const ROUTES = {
   ABOUT: '/about',
-  ARCHIVE: '/the-archive',
+  ARCHIVES: '/the-archives',
   BLOG: {
     ROOT: '/blog',
     POST: (postSlug: string) => `/blog/${postSlug}`,
   },
+  CONTACT: '/contact',
   HOME: '/',
+  LEGAL: {
+    PRIVACY: '/legal/privacy',
+  },
   SEASON: {
     ROOT: (seasonSlug: string) => `/s/${seasonSlug}`,
   },

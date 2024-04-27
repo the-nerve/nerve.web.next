@@ -1,7 +1,7 @@
 import { type Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import '@/core/css/app.css';
+import '@/app.css';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return {

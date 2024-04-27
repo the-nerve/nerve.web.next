@@ -1,10 +1,10 @@
 import { type Metadata } from 'next';
 import Image from 'next/image';
 
-import { buildImageUrl } from '$sanity';
-import { getSeason } from '@/features/season/__scenarios__/getSeason.server';
-import { getSeasonNeighbors } from '@/features/season/__scenarios__/getSeasonNeighbors.server';
-import { getDocumentMeta } from '@/features/seo/__scenarios__/getDocumentMeta';
+import { getDocumentMeta } from '@/common/api/getDocumentMeta.server';
+import { getSeason } from '@/common/api/getSeason.server';
+import { getSeasonNeighbors } from '@/common/api/getSeasonNeighbors.server';
+import { buildImageUrl } from '@/integrations/sanity';
 
 interface PageProps {
   params: {

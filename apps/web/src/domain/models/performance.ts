@@ -42,7 +42,7 @@ export type Performance = z.infer<typeof performanceModel>;
 /**
  * Checks to see if this performance has been marked as "cancelled"
  */
-export const isCancelledPerformance = (performance: Performance) => {
+export const isCancelledPerformance = <T extends Performance>(performance: T) => {
   const { status } = performance;
   return status === PERFORMANCE_STATUS.CANCELLED;
 };
@@ -50,7 +50,7 @@ export const isCancelledPerformance = (performance: Performance) => {
 /**
  * Checks to see if this performance has been marked as "rescheduled"
  */
-export const isRescheduledPerformance = (performance: Performance) => {
+export const isRescheduledPerformance = <T extends Performance>(performance: T) => {
   const { status } = performance;
   return status === PERFORMANCE_STATUS.RESCHEDULED;
 };
@@ -58,7 +58,7 @@ export const isRescheduledPerformance = (performance: Performance) => {
 /**
  * Checks to see if this performance has been marked as "postponed"
  */
-export const isPostponedPerformance = (performance: Performance) => {
+export const isPostponedPerformance = <T extends Performance>(performance: T) => {
   const { status } = performance;
   return status === PERFORMANCE_STATUS.POSTPONED;
 };
@@ -66,7 +66,7 @@ export const isPostponedPerformance = (performance: Performance) => {
 /**
  * Is the starting time of this performance past the current date and time?
  */
-export const isPastPerformance = (performance: Performance) => {
+export const isPastPerformance = <T extends Performance>(performance: T) => {
   const { startTime } = performance;
 
   const date = parseISO(startTime);
@@ -92,7 +92,7 @@ export const isGeneralAdmissionPerformance = <T extends Performance>(performance
 /**
  * Get the total number of performance occurrences for a single show
  */
-export const getTotalPerformanceCount = <T extends Performance[]>(performances?: T) => {
+export const getTotalPerformanceCount = <T extends Performance>(performances?: T[]) => {
   if (!performances) {
     return 0;
   }
@@ -105,7 +105,7 @@ export const getTotalPerformanceCount = <T extends Performance[]>(performances?:
 /**
  * Get total ticketed performance count
  */
-export const getTotalTicketedPerformanceCount = <T extends Performance[]>(performances?: T) => {
+export const getTotalTicketedPerformanceCount = <T extends Performance>(performances?: T[]) => {
   if (!performances) {
     return 0;
   }
@@ -118,7 +118,7 @@ export const getTotalTicketedPerformanceCount = <T extends Performance[]>(perfor
 /**
  * Get total pay what you want performance count
  */
-export const getTotalPWYWPerformanceCount = <T extends Performance[]>(performances?: T) => {
+export const getTotalPWYWPerformanceCount = <T extends Performance>(performances?: T[]) => {
   if (!performances) {
     return 0;
   }
