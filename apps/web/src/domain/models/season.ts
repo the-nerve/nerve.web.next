@@ -7,8 +7,8 @@ export const seasonModel = z.object({
   slug: z.string(),
   path: z.string().optional(),
   title: z.string(),
-  tagline: z.string().optional(),
-  description: z.string().optional(),
+  tagline: z.string().optional().nullable(),
+  description: z.string().optional().nullable(),
   term: z.number().optional(),
 });
 
