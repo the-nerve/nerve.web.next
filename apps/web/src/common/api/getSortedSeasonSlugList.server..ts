@@ -4,7 +4,7 @@ import { groq, sanityClient } from '@/integrations/sanity';
 
 // query list of all season slugs and thee toal season count
 
-const QUERY = groq`*[_type == "season"].slug.current | order(slug.current asc)`;
+const QUERY = groq`*[_type == "season"] | order(slug.current asc).slug.current`;
 
 const validateDto = z.array(z.string());
 
