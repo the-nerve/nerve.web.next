@@ -26,7 +26,7 @@ const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
     ${SHOW_PATH_FRAGMENT},
   } | order(closeDate desc),
   "slug": slug.current,
-  "isHidden": doNotDisplay
+  "isHidden": doNotDisplay,
 }`;
 
 // TODO: Consider throwing if season result isn't validated?

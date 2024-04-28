@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { getDocumentMeta } from '@/common/api/getDocumentMeta.server';
 import { getSeason } from '@/common/api/getSeason.server';
 import { getSeasonNeighbors } from '@/common/api/getSeasonNeighbors.server';
+import { getSeasonPosition } from '@/common/api/getSeasonTerm.server';
 import { buildImageUrl } from '@/integrations/sanity';
 
 interface PageProps {
@@ -24,11 +25,14 @@ export const generateMetadata = async ({ params }: PageProps): Promise<Metadata>
 
 const Page = async ({ params }: PageProps) => {
   const season = await getSeason(params.season);
+  const seasonPosition = await getSeasonPosition(params.season);
   const neighbors = await getSeasonNeighbors(params.season);
 
   return (
     <>
-      <h1>Season: {season.title}</h1>
+      <h1>
+        Season: {season.title} (season number {seasonPosition.position} of {seasonPosition.totalSeasons} )
+      </h1>
       <p>
         Previous: {neighbors.previous?.title} ({neighbors.previous?.path})
       </p>

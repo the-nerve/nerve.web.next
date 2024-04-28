@@ -34,5 +34,9 @@ export const seasonNeighborsModel = z.object({
     .nullable(),
 });
 
+export const seasonTerm = z.object({
+  term: z.number(),
+});
+
 export type SeasonNeighbors = z.infer<typeof seasonNeighborsModel>;
 export type Season = z.infer<typeof seasonModel>;

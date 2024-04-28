@@ -2,14 +2,16 @@ import { z } from 'zod';
 
 import { groq, sanityClient } from '@/integrations/sanity';
 
-const QUERY = groq`*[_type == "season"]{slug}|order(slug.current asc).slug.current`;
+// query list of all season slugs and thee toal season count
+
+const QUERY = groq`*[_type == "season"].slug.current | order(slug.current asc)`;
 
 const validateDto = z.array(z.string());
 
 /**
  * Gets a list of all seasons, sorted by slug
  */
-export const getSortedSeasonList = async () => {
+export const getSortedSeasonSlugList = async () => {
   const dto = await sanityClient.fetch(QUERY);
   return validateDto.parse(dto);
 };
