@@ -1,5 +1,5 @@
 import { seasonAggregate } from '@/domain/aggregates/season';
-import { groq, IMAGE_FRAGMENT, sanityFetch, SEASON_PATH_FRAGMENT, SHOW_PATH_FRAGMENT } from '@/integrations/sanity';
+import { groq, IMAGE_FRAGMENT, sanityClient, SEASON_PATH_FRAGMENT, SHOW_PATH_FRAGMENT } from '@/integrations/sanity';
 
 const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
   _type,
@@ -31,6 +31,6 @@ const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
 
 // TODO: Consider throwing if season result isn't validated?
 export const getSeason = async (slug: string) => {
-  const dto = await sanityFetch(QUERY, { slug });
+  const dto = await sanityClient.fetch(QUERY, { slug });
   return seasonAggregate.parse(dto);
 };

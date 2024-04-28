@@ -1,4 +1,4 @@
-import { groq, sanityFetch } from '@/integrations/sanity';
+import { groq, sanityClient } from '@/integrations/sanity';
 
 const documentMetaImageQuery = groq`*[_type == $type && slug.current == $slug][0] {
     "documentTitle": title,
@@ -21,6 +21,9 @@ interface DocumentImageMetadata {
 }
 
 export const getDocumentMetaImage = async (documentType: string, slug: string) => {
-  const metadata = await sanityFetch<DocumentImageMetadata>(documentMetaImageQuery, { type: documentType, slug });
+  const metadata = await sanityClient.fetch<DocumentImageMetadata>(documentMetaImageQuery, {
+    type: documentType,
+    slug,
+  });
   return metadata;
 };

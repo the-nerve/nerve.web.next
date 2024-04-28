@@ -1,9 +1,9 @@
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
-import { deskTool } from 'sanity/desk';
+import { structureTool } from 'sanity/structure';
 import { media } from 'sanity-plugin-media';
 
-import { deskStructure, sanitySchemas, singletonDocumentIDs } from './src/core/integrations/sanity';
+import { sanitySchemas, singletonDocumentIDs, structure } from './src/integrations/sanity';
 
 // Define the actions that should be available for singleton documents
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
@@ -17,8 +17,8 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
-    deskTool({
-      structure: deskStructure,
+    structureTool({
+      structure,
     }),
     media(),
     visionTool(),

@@ -1,5 +1,5 @@
 import { seasonNeighborsModel } from '@/domain/models/season';
-import { groq, sanityFetch, SEASON_PATH_FRAGMENT } from '@/integrations/sanity';
+import { groq, sanityClient, SEASON_PATH_FRAGMENT } from '@/integrations/sanity';
 
 /**
  * Query the next season and previous season based on a given season
@@ -22,7 +22,7 @@ const QUERY = groq`*[_type == "season" && slug.current == $slug][0] {
 }`;
 
 export const getSeasonNeighbors = async (slug: string) => {
-  const seasonDto = await sanityFetch(QUERY, { slug });
+  const seasonDto = await sanityClient.fetch(QUERY, { slug });
 
   return seasonNeighborsModel.parse(seasonDto);
 };

@@ -4,7 +4,7 @@
 
 // Icons we are using for our menu UI
 import { Layout, Radio, Settings, Zap } from 'react-feather';
-import { type StructureBuilder } from 'sanity/desk';
+import { type StructureBuilder } from 'sanity/structure';
 
 import { schemaMetaData } from './schema';
 
@@ -13,7 +13,7 @@ import { schemaMetaData } from './schema';
  * of our documents from the default Sanity document list.
  */
 
-export const deskStructure = (S: StructureBuilder) =>
+export const structure = (S: StructureBuilder) =>
   S.list()
     .title('Content Root')
     .items([

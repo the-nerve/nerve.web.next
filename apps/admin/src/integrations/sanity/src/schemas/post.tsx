@@ -1,83 +1,74 @@
 import { format } from 'date-fns';
 import React from 'react';
-import { Layout } from 'react-feather';
-import { defineField, defineType, type FieldGroupDefinition } from 'sanity';
+import { FileText } from 'react-feather';
+import { defineField, defineType } from 'sanity';
 
-import { slugify } from '@/shared/utils';
-
-import * as pageObjects from './objects';
-
-export const objects = pageObjects;
-export const ID = 'page';
-export const TITLE = 'Web Pages';
-
-const GROUPS: Record<string, FieldGroupDefinition> = {
-  SETTINGS: {
-    name: 'settings',
-    title: 'Settings',
-    default: true,
-  },
-  CONTENT: {
-    name: 'content',
-    title: 'Content',
-  },
-  SEO: {
-    name: 'seo',
-    title: 'SEO',
-  },
-};
+export const ID = 'post';
+export const TITLE = 'Posts';
 
 export const schema = defineType({
   name: ID,
   title: TITLE,
   type: 'document',
-  icon: () => <Layout />,
-  groups: Object.values(GROUPS),
+  // @ts-ignore
+  icon: () => <FileText />,
+  groups: [
+    {
+      name: 'seo',
+      title: 'SEO',
+    },
+  ],
   fields: [
     defineField({
       name: 'title',
-      title: 'Page Title',
+      title: 'Post Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-      group: GROUPS.SETTINGS.name,
     }),
     defineField({
       name: 'slug',
-      title: 'Page Slug',
+      title: 'Post Slug',
       type: 'slug',
       options: {
         source: 'title',
-        slugify,
+        slugify: (input: string): string => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
       validation: (Rule) => Rule.required(),
-      group: GROUPS.SETTINGS.name,
     }),
     defineField({
       name: 'doNotDisplay',
       title: 'Do not display on website',
-      description: 'Toggling this on will prevent this page from being displayed on the frontend of the website.',
+      description: 'Toggling this on will prevent this post from being displayed on the frontend of the website.',
       type: 'boolean',
-      group: GROUPS.SETTINGS.name,
     }),
-    //  ------------------------ CONTENT ------------------------ //
     defineField({
-      name: 'hero',
-      title: 'Hero Section',
-      type: 'heroSection',
-      group: GROUPS.CONTENT.name,
+      name: 'authors',
+      title: 'Authors',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'author' } }],
+    }),
+    defineField({
+      name: 'featuredImage',
+      title: 'Featured Image',
+      type: 'imageWithAlt',
+    }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'contentBlock',
+      validation: (Rule) => Rule.required(),
     }),
     //  ------------------------ SEO ------------------------ //
     defineField({
       name: 'seo',
       type: 'seo',
-      group: GROUPS.SEO.name,
+      group: 'seo',
     }),
   ],
   initialValue: {
     doNotDisplay: false,
     seo: {
       publishedAt: new Date().toISOString(),
-      hide: false,
     },
   },
   preview: {

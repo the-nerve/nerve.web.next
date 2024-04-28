@@ -1,7 +1,7 @@
 import { Share2 } from 'react-feather';
 import { defineField, defineType } from 'sanity';
 
-import { slugify } from '../../../../../shared/utils';
+import { slugify } from '../../../../shared/utils';
 
 export const ID = 'series';
 export const TITLE = 'Series';
@@ -10,6 +10,7 @@ export const schema = defineType({
   title: TITLE,
   name: ID,
   type: 'document',
+  // @ts-ignore
   icon: () => <Share2 />,
   fields: [
     defineField({ name: 'title', type: 'string', title: 'Series Title', validation: (rule) => rule.required() }),

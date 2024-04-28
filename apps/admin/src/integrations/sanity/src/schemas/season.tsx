@@ -3,7 +3,7 @@ import { Hexagon } from 'react-feather';
 import { defineField, defineType } from 'sanity';
 import { type FieldGroupDefinition } from 'sanity';
 
-import { slugify } from '../../../../../shared/utils';
+import { slugify } from '../../../../shared/utils';
 
 export const ID = 'season';
 export const TITLE = 'Seasons';
@@ -32,6 +32,7 @@ export const schema = defineType({
   name: ID,
   title: TITLE,
   type: 'document',
+  // @ts-ignore
   icon: () => <Hexagon />,
   groups: Object.values(GROUPS),
   fields: [

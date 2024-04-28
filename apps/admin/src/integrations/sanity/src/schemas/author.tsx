@@ -9,6 +9,7 @@ export const schema = defineType({
   name: ID,
   title: TITLE,
   type: 'document',
+  // @ts-ignore
   icon: () => <Edit2 />,
   fields: [
     defineField({
