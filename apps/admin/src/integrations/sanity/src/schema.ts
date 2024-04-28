@@ -44,7 +44,7 @@ export const sanitySchemas = [
 ];
 
 /**
- * We need ID and TITLE information from each schema to build our Desk Structure. For now, we'll manually map it.
+ * We need ID and TITLE information from each schema to build our Structure. For now, we'll manually map it.
  */
 export const schemaMetaData = {
   artist: {
