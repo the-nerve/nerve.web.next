@@ -1,3 +1,4 @@
+import { Speaker } from 'react-feather';
 import { defineField, defineType } from 'sanity';
 
 import * as audioObjects from './objects';
@@ -12,6 +13,7 @@ export const schema = defineType({
   title: TITLE,
   name: ID,
   type: 'object',
+  icon: () => <Speaker />,
   fields: [
     defineField({
       name: 'title',

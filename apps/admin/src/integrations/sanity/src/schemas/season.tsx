@@ -32,7 +32,6 @@ export const schema = defineType({
   name: ID,
   title: TITLE,
   type: 'document',
-  // @ts-ignore
   icon: () => <Hexagon />,
   groups: Object.values(GROUPS),
   fields: [

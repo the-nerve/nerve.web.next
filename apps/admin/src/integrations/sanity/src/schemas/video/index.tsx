@@ -1,3 +1,4 @@
+import { Camera } from 'react-feather';
 import { defineField, defineType } from 'sanity';
 
 import * as videoObjects from './objects';
@@ -12,6 +13,7 @@ export const schema = defineType({
   title: TITLE,
   name: ID,
   type: 'object',
+  icon: () => <Camera />,
   fields: [
     defineField({
       name: 'title',

@@ -43,7 +43,6 @@ export const schema = defineType({
   name: ID,
   title: TITLE,
   type: 'document',
-  // @ts-ignore
   icon: () => <Target />,
   groups: Object.values(GROUPS),
   fields: [

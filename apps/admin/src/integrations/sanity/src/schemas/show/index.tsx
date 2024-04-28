@@ -44,7 +44,6 @@ export const schema = defineType({
   name: ID,
   title: TITLE,
   type: 'document',
-  // @ts-ignore
   icon: () => <Star />,
   groups: Object.values(GROUPS),
   fields: [

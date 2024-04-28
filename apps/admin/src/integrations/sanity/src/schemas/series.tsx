@@ -10,7 +10,6 @@ export const schema = defineType({
   title: TITLE,
   name: ID,
   type: 'document',
-  // @ts-ignore
   icon: () => <Share2 />,
   fields: [
     defineField({ name: 'title', type: 'string', title: 'Series Title', validation: (rule) => rule.required() }),

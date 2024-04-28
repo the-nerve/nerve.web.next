@@ -31,7 +31,6 @@ export const schema = defineType({
   name: ID,
   title: TITLE,
   type: 'document',
-  // @ts-ignore
   icon: () => <Layout />,
   groups: Object.values(GROUPS),
   fields: [

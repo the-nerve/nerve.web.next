@@ -9,7 +9,6 @@ export const schema = defineType({
   name: ID,
   title: TITLE,
   type: 'document',
-  // @ts-ignore
   icon: () => <Smile />,
   fields: [
     defineField({
