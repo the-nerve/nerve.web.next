@@ -12,6 +12,7 @@
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
       "inputs": ["*.config.js", "*.config.ts", "src/**", "tsconfig.json"],
       "env": [
+        "SANITY_STUDIO_PROJECT_ID",
         "NEXT_PUBLIC_SANITY_API_VERSION",
         "NEXT_PUBLIC_SANITY_DATASET",
         "NEXT_PUBLIC_SANITY_EDITOR_TOKEN",

@@ -2,7 +2,7 @@ import React from 'react';
 import { Star } from 'react-feather';
 import { defineField, defineType, type FieldGroupDefinition } from 'sanity';
 
-import { slugify } from '../../../../../shared/utils';
+import { slugify } from '@/common/utils';
 
 import * as showObjects from './objects';
 

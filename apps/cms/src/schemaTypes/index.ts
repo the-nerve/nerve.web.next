@@ -1,22 +1,22 @@
-import * as globalObjects from './schemas/__global-objects__';
-import * as artist from './schemas/artist';
-import * as audio from './schemas/audio';
-import * as author from './schemas/author';
-import * as event from './schemas/event';
-import * as page from './schemas/page';
-import * as post from './schemas/post';
-import * as season from './schemas/season';
-import * as series from './schemas/series';
-import * as show from './schemas/show';
-import * as brandConfig from './schemas/singletons/brandConfig';
-import * as companyConfig from './schemas/singletons/companyConfig';
-import * as seoConfig from './schemas/singletons/seoConfig';
-import * as sponsorshipLevel from './schemas/sponsorshipLevel';
-import * as supporter from './schemas/supporter';
-import * as venue from './schemas/venue';
-import * as video from './schemas/video';
+import * as globalObjects from './definitions/__global-objects__';
+import * as artist from './definitions/artist';
+import * as audio from './definitions/audio';
+import * as author from './definitions/author';
+import * as event from './definitions/event';
+import * as page from './definitions/page';
+import * as post from './definitions/post';
+import * as season from './definitions/season';
+import * as series from './definitions/series';
+import * as show from './definitions/show';
+import * as brandConfig from './definitions/singletons/brandConfig';
+import * as companyConfig from './definitions/singletons/companyConfig';
+import * as seoConfig from './definitions/singletons/seoConfig';
+import * as sponsorshipLevel from './definitions/sponsorshipLevel';
+import * as supporter from './definitions/supporter';
+import * as venue from './definitions/venue';
+import * as video from './definitions/video';
 
-export const sanitySchemas = [
+export const schemaTypes = [
   // Objects
   ...Object.values(globalObjects),
   ...Object.values(audio.objects),

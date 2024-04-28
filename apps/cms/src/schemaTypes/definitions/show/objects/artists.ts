@@ -32,12 +32,6 @@ export const _artistReference = {
     },
   ],
   preview: {
-    select: {
-      firstName: 'artist.firstName',
-      lastName: 'artist.lastName',
-      media: 'artist.headshot',
-      role: 'role',
-    },
     prepare({ firstName, lastName, media, role }: unknown) {
       return {
         title: `${firstName} ${lastName}`,

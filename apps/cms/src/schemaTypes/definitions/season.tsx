@@ -3,7 +3,7 @@ import { Hexagon } from 'react-feather';
 import { defineField, defineType } from 'sanity';
 import { type FieldGroupDefinition } from 'sanity';
 
-import { slugify } from '../../../../shared/utils';
+import { slugify } from '@/common/utils';
 
 export const ID = 'season';
 export const TITLE = 'Seasons';

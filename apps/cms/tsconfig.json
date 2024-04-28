@@ -1,0 +1,14 @@
+{
+  "extends": "@nerve/tsconfig/next.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "module": "Preserve",
+    "moduleDetection": "force",
+    "incremental": true
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

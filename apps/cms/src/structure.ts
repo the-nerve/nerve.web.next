@@ -6,7 +6,7 @@
 import { Layout, Radio, Settings, Zap } from 'react-feather';
 import { type StructureBuilder } from 'sanity/structure';
 
-import { schemaMetaData } from './schema';
+import { schemaMetaData } from './schemaTypes';
 
 /**
  * Because we are building a custom Sanity structure, we have to remove all
