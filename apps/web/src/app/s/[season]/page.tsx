@@ -29,8 +29,12 @@ const Page = async ({ params }: PageProps) => {
   return (
     <>
       <h1>Season: {season.title}</h1>
-      <p>Previous: {neighbors.previous?.title}</p>
-      <p>Next: {neighbors.next?.title}</p>
+      <p>
+        Previous: {neighbors.previous?.title} ({neighbors.previous?.path})
+      </p>
+      <p>
+        Next: {neighbors.next?.title} ({neighbors.next?.path})
+      </p>
       ---
       <h2>Shows this season</h2>
       {season.shows?.map((show) => {

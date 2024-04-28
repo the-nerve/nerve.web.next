@@ -17,8 +17,6 @@ interface DocumentMetadata {
 }
 
 export const getDocumentMeta = async (documentType: string, slug: string) => {
-  console.log('fetching document meta', documentType, slug);
   const metadata = await sanityClient.fetch<DocumentMetadata>(documentMetaQuery, { type: documentType, slug });
-  console.log('fetched document meta', metadata);
   return metadata;
 };
