@@ -1,17 +1,47 @@
 import { type Metadata } from 'next';
 
-// import { getDocumentMeta } from '@/features/seo/__scenarios__/getDocumentMeta';
+import { getDocumentMeta } from '@/common/api/getDocumentMeta.server';
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  // const metadata = await getDocumentMeta('page', 'home');
+  const metadata = await getDocumentMeta('page', 'home');
 
   return {
-    // title: metadata.title,
-    // description: metadata.description,
-    // robots: metadata.hide ? 'noindex, nofollow' : 'index, follow',
-    title: 'Nerve Home',
-    description: 'Nerve',
-    robots: 'index, follow',
+    title: metadata.title,
+    description: metadata.description,
+    keywords: [],
+    robots: {
+      index: !metadata.hide,
+      follow: !metadata.hide,
+    },
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: 'https://nervetheatre.org',
+      title: metadata.title,
+      description: metadata.description,
+      images: [
+        url: metadata.image,
+        width: 1200,
+        height: 630,
+        alt: 'The Nerve Theatre',
+      ],
+    },
+    twitter: {
+      title: metadata.title,
+      card: 'summary_large_image',
+      site: '@nervetheatre',
+      creator: '@nervetheatre',
+      description: metadata.description,
+      images: {
+        url: metadata.image,
+        width: 1200,
+        height: 630,
+        alt: 'The Nerve Theatre',
+      },
+    },
+    alternates: {
+      canonical: 'https://nervetheatre.org',
+    },
   };
 };
 

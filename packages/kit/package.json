@@ -28,6 +28,10 @@
     "src"
   ],
   "exports": {
+    "./env-vars": {
+      "import": "./src/env-vars/index.ts",
+      "require": "./dist/env-vars.js"
+    },
     "./node": {
       "import": "./src/node/index.ts",
       "require": "./dist/node.js"
@@ -39,6 +43,10 @@
   },
   "typesVersions": {
     "*": {
+      "env-vars": [
+        "src/env-vars/index.ts",
+        "dist/env-vars.d.ts"
+      ],
       "node": [
         "src/node/index.ts",
         "dist/node.d.ts"

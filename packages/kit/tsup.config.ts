@@ -2,6 +2,7 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: {
+    'env-vars': 'src/env-vars/index.ts',
     // env: 'src/env/index.ts',
     // next: 'src/next/index.ts',
     node: 'src/node/index.ts',
