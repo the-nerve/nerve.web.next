@@ -51,8 +51,5 @@ export type ExcludeNull<T> = {
 /**
  * A utility for extracting props from a component.
  */
-export type PropsFrom<TComponent> = TComponent extends React.FC<infer Props>
-  ? Props
-  : TComponent extends React.Component<infer Props>
-  ? Props
-  : never;
+export type PropsFrom<TComponent> =
+  TComponent extends React.FC<infer Props> ? Props : TComponent extends React.Component<infer Props> ? Props : never;
