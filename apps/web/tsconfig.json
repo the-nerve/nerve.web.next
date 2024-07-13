@@ -5,7 +5,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@og-assets/*": ["./public/og/*"],
-      "$sanity": ["./src/core/integrations/sanity"]
+      "$sanity": ["src/integrations/sanity"]
     },
     "plugins": [{ "name": "next" }]
   },

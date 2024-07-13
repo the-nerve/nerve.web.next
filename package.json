@@ -20,6 +20,9 @@
     "tailwind"
   ],
   "scripts": {
+    "dev": "turbo run dev --filter=@nerve/cms --filter=@nerve/web --parallel --color",
+    "cms:dev": "turbo run dev --filter=@nerve/cms",
+    "cms:build": "turbo run build --filter=@nerve/cms",
     "check:format": "prettier --check '**/*.{js,ts,tsx,json,md,yaml,yml}'",
     "check:lint": "turbo run check:lint --color",
     "check:types": "turbo run check:types --color",
@@ -28,7 +31,7 @@
     "email:dev": "turbo run dev --filter=@nerve/email",
     "fix:format": "prettier --write '**/*.{js,ts,tsx,json,md,yaml,yml}'",
     "in:eslint": "pnpm --filter eslint-config-nerve",
-    "in:admin": "pnpm --filter @nerve/admin",
+    "in:cms": "pnpm --filter @nerve/cms",
     "in:email": "pnpm --filter @nerve/email",
     "in:icons": "pnpm --filter @nerve/icons",
     "in:kit": "pnpm --filter  @nerve/kit",
@@ -52,7 +55,7 @@
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.0",
-    "typescript": "5.1.6"
+    "typescript": "5.4.5"
   },
   "engines": {
     "node": ">=18.5.0",

@@ -1,13 +1,12 @@
 import { type Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import '@/core/css/app.css';
+import '@/app.css';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return {
     manifest: '/manifest.json',
     icons: [],
-    themeColor: '#000000',
     creator: '',
     publisher: 'The Nerve',
     robots: 'index, follow',

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+import { imageModel } from '../models/image';
 import { seasonModel } from '../models/season';
 import { type Show, showModel } from '../models/show';
 import { sponsorModel, SPONSORSHIP_LEVEL, SPONSORSHIP_SCOPE } from '../models/sponsor';
@@ -24,12 +25,31 @@ const seasonSponsorsAggregate = z.object({
   specialThanks: z.unknown(),
 });
 
+export const seasonShowAggregate = showModel.extend({
+  images: z
+    .object({
+      poster: imageModel.optional(),
+      card: imageModel.optional(),
+      thumbnail: imageModel.optional(),
+    })
+    .optional(),
+});
+
 export const seasonAggregate = seasonModel.extend({
-  shows: z.array(showModel).optional(),
+  shows: z.array(seasonShowAggregate).optional(),
   sponsors: seasonSponsorsAggregate.optional(),
   promo: z
     .object({
       trailer: videoModel.optional(),
+    })
+    .optional(),
+
+  images: z
+    .object({
+      card: imageModel.optional(),
+      hero: imageModel.optional(),
+      thumbnail: imageModel.optional(),
+      poster: imageModel.optional(),
     })
     .optional(),
 });
@@ -37,6 +57,7 @@ export const seasonAggregate = seasonModel.extend({
 export type SeasonStandardSponsor = z.infer<typeof seasonStandardSponsorAggregate>;
 export type SeasonHighlightSponsor = z.infer<typeof seasonHighlightSponsorAggregate>;
 export type SeasonSponsors = z.infer<typeof seasonSponsorsAggregate>;
+export type SeasonShow = z.infer<typeof seasonShowAggregate>;
 
 export type SeasonAggregate = z.infer<typeof seasonAggregate>;
 
