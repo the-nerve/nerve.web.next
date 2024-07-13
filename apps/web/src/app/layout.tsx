@@ -7,11 +7,11 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return {
     manifest: '/manifest.json',
     icons: [],
-    creator: '',
+    creator: 'The Nerve',
     publisher: 'The Nerve',
     robots: 'index, follow',
     verification: {
-      google: 'Y77ldamJwjr7FV4fk8-3c49PqJFnZYPIn9m1dTzC6YU',
+      google: process.env.GOOGLE_SITE_VERIFICATION,
     },
   };
 };
