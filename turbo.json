@@ -12,6 +12,8 @@
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
       "inputs": ["*.config.js", "*.config.ts", "src/**", "tsconfig.json"],
       "env": [
+        "CI",
+        "GOOGLE_SITE_VERIFICATION",
         "SANITY_STUDIO_PROJECT_ID",
         "NEXT_PUBLIC_SANITY_API_VERSION",
         "NEXT_PUBLIC_SANITY_DATASET",
